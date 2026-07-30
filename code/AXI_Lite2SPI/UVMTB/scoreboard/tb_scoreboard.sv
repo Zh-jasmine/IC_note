@@ -103,7 +103,7 @@ class tb_scoreboard extends uvm_scoreboard;
             if (strb[0]) word_len_shadow = data[1:0];
         end
 
-        if (addr[5:2] != SPI_DATA_ADDR[5:2])
+        if (addr[5:2] != SPI_DATA_ADDR[5:2]) 
             return;
 
         case (word_len_shadow)
@@ -226,3 +226,4 @@ class tb_scoreboard extends uvm_scoreboard;
     endfunction : report_phase
 
 endclass : tb_scoreboard
+//
