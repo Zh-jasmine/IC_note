@@ -1,0 +1,133 @@
+Command: /tmp/AXI-LITE2SPI/UVMTB/./simv +UVM_TESTNAME=reset_sva_test +UVM_VERBOSITY=UVM_LOW +UVM_TIMEOUT=100000000 -cm line+cond+fsm+branch+tgl+assert -cm_dir /tmp/AXI-LITE2SPI/cov.vdb -cm_name reset_sva_test -l sim_reset_sva_test.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test reset_sva_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               reset_sva_test            -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/reset_sva_test.sv(37) @ 200000: uvm_test_top [uvm_test_top] [A] idle reset
+UVM_INFO test/reset_sva_test.sv(42) @ 600000: uvm_test_top [uvm_test_top] [B] reset during AXI config writes
+UVM_INFO test/reset_sva_test.sv(53) @ 1125000: uvm_test_top [uvm_test_top] [C] reset mid transaction
+UVM_INFO test/reset_sva_test.sv(64) @ 2395000: uvm_test_top [uvm_test_top] [C] CS deasserted after reset OK
+UVM_INFO test/reset_sva_test.sv(70) @ 2595000: uvm_test_top [uvm_test_top] [D] back-to-back resets
+UVM_INFO test/reset_sva_test.sv(76) @ 2995000: uvm_test_top [uvm_test_top] [E] recovery frame after reset
+UVM_INFO test/reset_sva_test.sv(79) @ 4535000: uvm_test_top [uvm_test_top] reset SVA test done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 4535000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 4535000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 4535000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 2
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 4535000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 4535000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 4535000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   16
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     7
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              4535000
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 4535000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:08 2026

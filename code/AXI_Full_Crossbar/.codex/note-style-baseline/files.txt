@@ -1,0 +1,20 @@
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/00 AXI4 Full 总览.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/01 五通道结构.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/02 VALID READY 握手.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/03 写事务 AW W B.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/04 读事务 AR R.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/05 Burst AxLEN AxSIZE AxBURST.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/06 WSTRB narrow unaligned.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/07 ID outstanding ordering.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/08 验证视角.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/00 总览与数据流.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/01 axi_crossbar 顶层参数和端口.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/02 wrapper 地址映射与大向量拆包.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/03 axi_if 五通道与角色初始化.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/04 axi_master_driver 请求分发与响应回收.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/05 axi_slave_mem_driver memory 模型.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/06 axi_monitor 通道级采样.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/07 axi_scoreboard 当前状态与下一步.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/08 tb_top 与 axi_env 串接关系.md
+/Users/zh-jasmine/Documents/AXI_Full/.codex/note-style-baseline/current/AXI4 Full 协议/09 AXI Full Crossbar UVM/09 自测问题与当前验收标准.md

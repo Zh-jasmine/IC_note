@@ -1,0 +1,345 @@
+class axi_master_driver extends uvm_driver #(axi_item);
+    `uvm_component_utils(axi_master_driver)
+
+    axi_s_vif_t vif;
+
+    int port_index;
+    int awvalid_delay_max;
+    int wvalid_delay_max;
+    int arvalid_delay_max;
+    int bready_delay_max;
+    int rready_delay_max;
+
+    mailbox #(axi_item) aw_request_mb;
+    mailbox #(axi_item) w_request_mb;
+    mailbox #(axi_item) ar_request_mb;
+
+    mailbox #(axi_item) b_resp_mb[bit [AXI_S_ID_WIDTH-1:0]];
+    mailbox #(axi_item) r_resp_mb[bit [AXI_S_ID_WIDTH-1:0]];
+
+    function new(string name = "axi_master_driver", uvm_component parent = null);
+        super.new(name, parent);
+        port_index = 0;
+        awvalid_delay_max = 0;
+        wvalid_delay_max = 0;
+        arvalid_delay_max = 0;
+        bready_delay_max = 0;
+        rready_delay_max = 0;
+        aw_request_mb = new();
+        w_request_mb = new();
+        ar_request_mb = new();
+    endfunction
+
+    function mailbox #(axi_item) new_b_resp_mb(bit [AXI_S_ID_WIDTH-1:0] id);
+        if (!b_resp_mb.exists(id)) begin
+            b_resp_mb[id] = new();
+        end
+        return b_resp_mb[id];
+    endfunction
+
+    function mailbox #(axi_item) new_r_resp_mb(bit [AXI_S_ID_WIDTH-1:0] id);
+        if (!r_resp_mb.exists(id)) begin
+            r_resp_mb[id] = new();
+        end
+        return r_resp_mb[id];
+    endfunction
+
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        if (!uvm_config_db#(axi_s_vif_t)::get(this, "", "vif", vif)) begin
+            `uvm_fatal("NOVIF", $sformatf("%s cannot get vif", get_full_name()))
+        end
+
+        void'(uvm_config_db#(int)::get(this, "", "port_index", port_index));
+        void'(uvm_config_db#(int)::get(this, "", "awvalid_delay_max", awvalid_delay_max));
+        void'(uvm_config_db#(int)::get(this, "", "wvalid_delay_max", wvalid_delay_max));
+        void'(uvm_config_db#(int)::get(this, "", "arvalid_delay_max", arvalid_delay_max));
+        void'(uvm_config_db#(int)::get(this, "", "bready_delay_max", bready_delay_max));
+        void'(uvm_config_db#(int)::get(this, "", "rready_delay_max", rready_delay_max));
+    endfunction
+
+    virtual task run_phase(uvm_phase phase);
+        vif.init_master_outputs();
+        wait(vif.aresetn === 1'b1);
+        fork
+            reset_signals();
+            drive_ready();
+            dispatch_requests();
+            drive_aw_channel();
+            drive_w_channel();
+            drive_ar_channel();
+            collect_b_responses();
+            collect_r_response_data();
+        join
+    endtask
+
+    task dispatch_requests();
+        axi_item req_tr;
+        axi_item w_request_tr;
+        axi_item r_request_tr;
+        mailbox #(axi_item) b_mb;
+        mailbox #(axi_item) r_mb;
+        forever begin
+            seq_item_port.get_next_item(req_tr);
+            req_tr.source_index = port_index;
+
+            if (req_tr.op == AXI_WRITE) begin
+                w_request_tr = axi_item::type_id::create("write_req");
+                w_request_tr.copy(req_tr);
+                w_request_tr.set_id_info(req_tr);
+                aw_request_mb.put(w_request_tr);
+                w_request_mb.put(w_request_tr);
+                b_mb = new_b_resp_mb(req_tr.id);
+                b_mb.put(w_request_tr);
+            end else begin
+                r_request_tr = axi_item::type_id::create("read_req");
+                r_request_tr.copy(req_tr);
+                r_request_tr.set_id_info(req_tr);
+                ar_request_mb.put(r_request_tr);
+                r_mb = new_r_resp_mb(req_tr.id);
+                r_mb.put(r_request_tr);
+            end
+
+            seq_item_port.item_done();
+        end
+    endtask
+
+    task drive_ready();
+        forever begin
+            @(posedge vif.aclk);
+            if (!vif.aresetn) begin
+                vif.bready <= 1'b0;
+                vif.rready <= 1'b0;
+            end else begin
+                vif.bready <= (bready_delay_max == 0) ? 1'b1 : ($urandom_range(0, bready_delay_max) != 0);
+                vif.rready <= (rready_delay_max == 0) ? 1'b1 : ($urandom_range(0, rready_delay_max) != 0);
+            end
+        end
+    endtask
+
+    task drive_aw_channel();
+        axi_item aw_tr;
+        bit delay_done;
+        forever begin
+            aw_request_mb.get(aw_tr);
+            wait(vif.aresetn === 1'b1);
+            wait_random_cycles(awvalid_delay_max, delay_done);
+            if (!delay_done) continue;
+
+            @(posedge vif.aclk);
+            vif.awid    <= aw_tr.id;
+            vif.awaddr  <= aw_tr.addr;
+            vif.awlen   <= aw_tr.len;
+            vif.awsize  <= aw_tr.size;
+            vif.awburst <= aw_tr.burst;
+            vif.awlock  <= 1'b0;
+            vif.awcache <= 4'h0;
+            vif.awprot  <= 3'h0;
+            vif.awqos   <= 4'h0;
+            vif.awuser  <= '0;
+            vif.awvalid <= 1'b1;
+            do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !vif.awready);
+            if (vif.aresetn !== 1'b1) begin
+                vif.awvalid <= 1'b0;
+                continue;
+            end
+            vif.awvalid <= 1'b0;
+        end
+    endtask
+
+    task drive_w_channel();
+        axi_item w_tr;
+        int unsigned beats;
+        bit delay_done;
+        forever begin
+            w_request_mb.get(w_tr);
+            wait(vif.aresetn === 1'b1);
+            wait_random_cycles(wvalid_delay_max, delay_done);
+            if (!delay_done) continue;
+            beats = int'(w_tr.len) + 1;
+
+            for (int beat = 0; beat < beats; beat++) begin
+                vif.wdata  <= w_tr.data[beat];
+                vif.wstrb  <= w_tr.strb[beat];
+                vif.wlast  <= (beat == beats - 1);
+                vif.wuser  <= '0;
+                vif.wvalid <= 1'b1;
+                do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !vif.wready);
+                if (vif.aresetn !== 1'b1) begin
+                    vif.wvalid <= 1'b0;
+                    vif.wlast  <= 1'b0;
+                    vif.wdata  <= '0;
+                    vif.wstrb  <= '0;
+                    break;
+                end
+            end
+
+            vif.wvalid <= 1'b0;
+            vif.wlast  <= 1'b0;
+            vif.wdata  <= '0;
+            vif.wstrb  <= '0;
+        end
+    endtask
+
+    task drive_ar_channel();
+        axi_item ar_tr;
+        bit delay_done;
+        forever begin
+            ar_request_mb.get(ar_tr);
+            wait(vif.aresetn === 1'b1);
+            wait_random_cycles(arvalid_delay_max, delay_done);
+            if (!delay_done) continue;
+
+            @(posedge vif.aclk);
+            vif.arid    <= ar_tr.id;
+            vif.araddr  <= ar_tr.addr;
+            vif.arlen   <= ar_tr.len;
+            vif.arsize  <= ar_tr.size;
+            vif.arburst <= ar_tr.burst;
+            vif.arlock  <= 1'b0;
+            vif.arcache <= 4'h0;
+            vif.arprot  <= 3'h0;
+            vif.arqos   <= 4'h0;
+            vif.aruser  <= '0;
+            vif.arvalid <= 1'b1;
+            do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !vif.arready);
+            if (vif.aresetn !== 1'b1) begin
+                vif.arvalid <= 1'b0;
+                continue;
+            end
+            vif.arvalid <= 1'b0;
+        end
+    endtask
+
+    task collect_b_responses();
+        axi_item resp_tr;
+        forever begin
+            do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !(vif.bvalid && vif.bready));
+            if (vif.aresetn !== 1'b1) begin
+                continue;
+            end
+
+            if (!b_resp_mb.exists(vif.bid) || b_resp_mb[vif.bid].num() == 0) begin
+                `uvm_error("AXI_MDRV", $sformatf("Unexpected write response with BID=%0h", vif.bid))
+                continue;
+            end
+
+            b_resp_mb[vif.bid].get(resp_tr);
+            if (vif.aresetn !== 1'b1) begin
+                resp_tr.resp = AXI_RESP_SLVERR;
+                seq_item_port.put(resp_tr);
+                continue;
+            end
+            resp_tr.data = new[0];
+            resp_tr.strb = new[0];
+            resp_tr.resp = vif.bresp;
+            seq_item_port.put(resp_tr);
+        end
+    endtask
+
+    task collect_r_response_data();
+        axi_item resp_tr;
+        int beat;
+        int unsigned beats;
+        forever begin
+            do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !(vif.rvalid && vif.rready));
+            if (vif.aresetn !== 1'b1) begin
+                continue;
+            end
+
+            if (!r_resp_mb.exists(vif.rid) || r_resp_mb[vif.rid].num() == 0) begin
+                `uvm_error("AXI_MDRV", $sformatf("Unexpected read response with RID=%0h", vif.rid))
+                continue;
+            end
+
+            r_resp_mb[vif.rid].get(resp_tr);
+            if (vif.aresetn !== 1'b1) begin
+                resp_tr.data = new[0];
+                resp_tr.strb = new[0];
+                resp_tr.resp = AXI_RESP_SLVERR;
+                seq_item_port.put(resp_tr);
+                continue;
+            end
+            beats = int'(resp_tr.len) + 1;
+            resp_tr.data = new[beats];
+            resp_tr.strb = new[0];
+
+            for (beat = 0; beat < beats; beat++) begin
+                if ((beat > 0) && !(vif.rvalid && vif.rready)) begin
+                    do @(posedge vif.aclk); while ((vif.aresetn === 1'b1) && !(vif.rvalid && vif.rready));
+                    if (vif.aresetn !== 1'b1) begin
+                        resp_tr.resp = AXI_RESP_SLVERR;
+                        seq_item_port.put(resp_tr);
+                        break;
+                    end
+                end
+
+                if (vif.rid !== resp_tr.id) begin
+                    `uvm_error("AXI_MDRV", $sformatf("Read response ID mismatch. expected=%0h got=%0h", resp_tr.id, vif.rid))
+                end
+
+                resp_tr.data[beat] = vif.rdata;
+                resp_tr.resp = vif.rresp;
+
+                if ((beat == beats-1) && !vif.rlast) begin
+                    `uvm_error("AXI_MDRV", "Final read beat observed without RLAST")
+                end
+
+                if ((beat < beats-1) && vif.rlast) begin
+                    `uvm_error("AXI_MDRV", $sformatf("Early RLAST observed on beat %0d of %0d", beat, beats))
+                end
+            end
+
+            if (vif.aresetn === 1'b1) begin
+                seq_item_port.put(resp_tr);
+            end
+        end
+    endtask
+
+    task reset_signals();
+        forever begin
+            @(negedge vif.aresetn);
+            flush_pending_responses();
+            while (vif.aresetn === 1'b0) begin
+                vif.init_master_outputs();
+                @(posedge vif.aclk);
+            end
+            vif.init_master_outputs();
+            flush_pending_responses();
+        end
+    endtask
+
+    function void flush_pending_responses();
+        axi_item resp_tr;
+        foreach (b_resp_mb[id]) begin
+            while (b_resp_mb[id].try_get(resp_tr)) begin
+                resp_tr.data = new[0];
+                resp_tr.strb = new[0];
+                resp_tr.resp = AXI_RESP_SLVERR;
+                seq_item_port.put(resp_tr);
+            end
+        end
+        foreach (r_resp_mb[id]) begin
+            while (r_resp_mb[id].try_get(resp_tr)) begin
+                resp_tr.data = new[0];
+                resp_tr.strb = new[0];
+                resp_tr.resp = AXI_RESP_SLVERR;
+                seq_item_port.put(resp_tr);
+            end
+        end
+    endfunction : flush_pending_responses
+
+    task wait_random_cycles(int delay_max, output bit completed);
+        int delay_cycles;
+        completed = 1'b1;
+        if (delay_max <= 0) return;
+        delay_cycles = $urandom_range(0, delay_max);
+        repeat (delay_cycles) begin
+            @(posedge vif.aclk);
+            if (vif.aresetn !== 1'b1) begin
+                completed = 1'b0;
+                return;
+            end
+        end
+    endtask
+endclass

@@ -1,0 +1,3505 @@
+rm -rf /tmp/AXI-LITE2SPI
+mkdir -p /tmp/AXI-LITE2SPI/UVMTB
+cp -a /home/zh/Desktop/vcs_sync/AXI_Lite2SPI/DUT /tmp/AXI-LITE2SPI/
+cp -a /home/zh/Desktop/vcs_sync/AXI_Lite2SPI/UVMTB/* /tmp/AXI-LITE2SPI/UVMTB/
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+cd /tmp/AXI-LITE2SPI/UVMTB && vcs -full64 -sverilog -ntb_opts uvm-1.2 +incdir+. +incdir+axi +incdir+spi +incdir+sva +incdir+env +incdir+scoreboard +incdir+test +incdir+coverage +incdir+ral +incdir+../DUT -timescale=1ns/1ps -debug_acc+all -debug_region+cell+encrypt -kdb -lca -cm line+cond+fsm+branch+tgl+assert -cm_dir /tmp/AXI-LITE2SPI/cov.vdb tb_top.sv -o simv
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = "C.UTF-8",
+	LC_CTYPE = "C.UTF-8",
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+                         Chronologic VCS (TM)
+       Version O-2018.09-SP2_Full64 -- Thu Jul 30 03:06:26 2026
+               Copyright (c) 1991-2018 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Parsing design file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_version_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_global_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_message_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_phase_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_object_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_printer_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_sequence_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_callback_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_reg_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_deprecated_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_hdl.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_svcmd_dpi.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_regex.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_coreservice.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_version.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_object_globals.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_misc.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_object.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_pool.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_queue.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_factory.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_registry.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_spell_chkr.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_resource.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_resource_specializations.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_resource_db.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_config_db.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_printer.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_comparer.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_packer.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_links.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_tr_database.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_tr_stream.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_recorder.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_event_callback.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_event.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_barrier.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_callback.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_callback.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_message.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_handler.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_object.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_transaction.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_phase.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_domain.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_bottomup_phase.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_topdown_phase.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_task_phase.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_common_phases.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_runtime_phases.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_component.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_component.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_heartbeat.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_globals.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_cmdline_processor.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_traversal.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_set_get_dap_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_simple_lock_dap.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_get_to_lock_dap.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_set_before_get_dap.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_ifs.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_sqr_ifs.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_port_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_imps.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_ports.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_exports.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_analysis_port.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_fifo_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_fifos.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_req_rsp.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_sqr_connections.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_pair.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_policies.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_in_order_comparator.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_algorithmic_comparator.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_random_stimulus.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_subscriber.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_monitor.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_driver.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_push_driver.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_scoreboard.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_agent.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_env.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_test.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequence_item.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_analysis_fifo.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_param_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequencer.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_push_sequencer.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequence_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequence.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequence_library.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_sequence_builtin.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_defines.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_time.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_generic_payload.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_ifs.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_imps.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_ports.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_exports.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_sockets_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_sockets.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_item.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_adapter.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_predictor.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_sequence.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_cbs.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_backdoor.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_field.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_vreg_field.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_indirect.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_fifo.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_file.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_mem_mam.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_vreg.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_mem.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_map.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_block.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_hw_reset_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_bit_bash_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_mem_walk_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_mem_access_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_access_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_shared_access_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_built_in_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/snps_uvm_reg_bank.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing design file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/msglog.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_msglog_report_server.sv'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_tr_stream.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_record_interface.sv'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing design file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_tr_stream.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_map_recording.sv'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_factory.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/./dpi/uvm_verdi_dpi.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/verdi_trans_recorder_dpi.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh'.
+Back to file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing design file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing design file 'tb_top.sv'
+Parsing included file '/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_seq_item.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_interface.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_config.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_sequencer.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_driver.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_monitor.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_agent.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'axi/axi_sequence_lib.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'spi/spi_seq_item.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'spi/spi_interface.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'spi/spi_miso_slave_model.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'spi/spi_config.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'spi/spi_monitor.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'sva/spi_sva_checker.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'sva/axi_sva_checker.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'scoreboard/tb_scoreboard.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'coverage/tb_coverage.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'env/environment_config.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'env/tb_environment.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'ral/axi_spi_reg_adapter.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'ral/axi_spi_reg_block.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/test_base.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_word_len_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_mode_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_cs_sck_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_sck_cs_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_ifg_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_sck_speed_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_burst_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_alternating_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_data_all_0_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_data_all_1_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_miso_base.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_miso_read_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_miso_all_0_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_miso_all_1_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/spi_random_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/axi_busy_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/axi_handshake_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/axi_wstrb_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/axi_concurrent_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/ral_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/reset_mid_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file 'test/reset_sva_test.sv'.
+Back to file 'tb_top.sv'.
+Parsing included file '../DUT/AXI_slave_top.v'.
+Parsing included file '../DUT/AXI_SPI_n_regs.v'.
+Parsing included file '../DUT/SPI_master.v'.
+Back to file '../DUT/AXI_SPI_n_regs.v'.
+Back to file '../DUT/AXI_slave_top.v'.
+Back to file 'tb_top.sv'.
+Top Level Modules:
+       uvm_custom_install_recording
+       uvm_custom_install_verdi_recording
+       tb_top
+TimeScale is 1 ns / 1 ps
+VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+Starting vcs inline pass...
+13 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package _vcs_msglog
+recompiling module uvm_custom_install_recording
+recompiling module uvm_custom_install_verdi_recording
+recompiling module axi_interface
+recompiling module spi_interface
+recompiling module spi_miso_slave_model
+recompiling module spi_sva_checker
+recompiling module axi_sva_checker
+recompiling module AXI_slave_top
+recompiling module tb_top
+All of 13 modules done
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+make[1]: Entering directory `/tmp/AXI-LITE2SPI/UVMTB/csrc'
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+make[1]: Leaving directory `/tmp/AXI-LITE2SPI/UVMTB/csrc'
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+make[1]: Entering directory `/tmp/AXI-LITE2SPI/UVMTB/csrc'
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+g++ -w  -pipe -DVCS -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/home/synopsys/vcs/O-2018.09-SP2/include    -c /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.cc
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+g++ -w  -pipe -DVCS -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/home/synopsys/vcs/O-2018.09-SP2/include    -c /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+if [ -x ../simv ]; then chmod -x ../simv; fi
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+g++  -o ../simv    -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic  -Wl,-rpath=/home/synopsys/vcs/O-2018.09-SP2/linux64/lib -L/home/synopsys/vcs/O-2018.09-SP2/linux64/lib  uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o   _56582_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          -lzerosoft_rt_stubs -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /home/synopsys/vcs/O-2018.09-SP2/linux64/lib/libBA.a -luclinative /home/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive -lvcsucli -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o  _vcs_pli_stub_.o   /home/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcs_save_restore_new.o /home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+../simv up to date
+make[1]: Leaving directory `/tmp/AXI-LITE2SPI/UVMTB/csrc'
+CPU time: 9.988 seconds to compile + .249 seconds to elab + .579 seconds to link
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+cp /tmp/AXI-LITE2SPI/UVMTB/simv .
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+>>> [1] 运行 spi_word_len_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_word_len_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_word_len_test         -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 10835000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 10835000: uvm_test_top.env.cov [COV] functional coverage = 38.54%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 10835000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 4
+  SPI captures        : 4
+  Matches             : 4
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 10835000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 10835000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 10835000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    9
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             10835000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 10835000 ps
+CPU Time:      0.730 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:40 2026
+    [PASS] spi_word_len_test
+>>> [2] 运行 spi_mode_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_mode_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_mode_test             -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 6355000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 6355000: uvm_test_top.env.cov [COV] functional coverage = 41.67%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 6355000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 4
+  SPI captures        : 4
+  Matches             : 4
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 6355000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 6355000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 6355000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    9
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              6355000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 6355000 ps
+CPU Time:      0.320 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:42 2026
+    [PASS] spi_mode_test
+>>> [3] 运行 spi_cs_sck_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_cs_sck_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_cs_sck_test           -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_cs_sck_test.sv(33) @ 1715000: uvm_test_top [uvm_test_top] CS_SCK=2 transfer done
+UVM_INFO test/spi_cs_sck_test.sv(33) @ 3255000: uvm_test_top [uvm_test_top] CS_SCK=4 transfer done
+UVM_INFO test/spi_cs_sck_test.sv(33) @ 4835000: uvm_test_top [uvm_test_top] CS_SCK=8 transfer done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 4835000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 4835000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 4835000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 3
+  SPI captures        : 3
+  Matches             : 3
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 4835000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 4835000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 4835000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   12
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     3
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              4835000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 4835000 ps
+CPU Time:      0.330 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:43 2026
+    [PASS] spi_cs_sck_test
+>>> [4] 运行 spi_sck_cs_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_sck_cs_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_sck_cs_test           -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_sck_cs_test.sv(33) @ 1715000: uvm_test_top [uvm_test_top] SCK_CS=2 transfer done
+UVM_INFO test/spi_sck_cs_test.sv(33) @ 3255000: uvm_test_top [uvm_test_top] SCK_CS=4 transfer done
+UVM_INFO test/spi_sck_cs_test.sv(33) @ 4835000: uvm_test_top [uvm_test_top] SCK_CS=8 transfer done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 4835000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 4835000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 4835000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 3
+  SPI captures        : 3
+  Matches             : 3
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 4835000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 4835000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 4835000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   12
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     3
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              4835000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 4835000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:44 2026
+    [PASS] spi_sck_cs_test
+>>> [5] 运行 spi_ifg_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_ifg_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_ifg_test              -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_ifg_test.sv(35) @ 3275000: uvm_test_top [uvm_test_top] IFG=0 transfer pair done
+UVM_INFO test/spi_ifg_test.sv(35) @ 6355000: uvm_test_top [uvm_test_top] IFG=4 transfer pair done
+UVM_INFO test/spi_ifg_test.sv(35) @ 9435000: uvm_test_top [uvm_test_top] IFG=16 transfer pair done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 9435000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 9435000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 9435000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 6
+  SPI captures        : 6
+  Matches             : 6
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 9435000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 9435000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 9435000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   12
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     3
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              9435000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 9435000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:46 2026
+    [PASS] spi_ifg_test
+>>> [6] 运行 spi_sck_speed_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_sck_speed_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_sck_speed_test        -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_sck_speed_test.sv(26) @ 10135000: uvm_test_top [uvm_test_top] SCK speed=0 transfer done
+UVM_INFO test/spi_sck_speed_test.sv(26) @ 15275000: uvm_test_top [uvm_test_top] SCK speed=1 transfer done
+UVM_INFO test/spi_sck_speed_test.sv(26) @ 18015000: uvm_test_top [uvm_test_top] SCK speed=2 transfer done
+UVM_INFO test/spi_sck_speed_test.sv(26) @ 19555000: uvm_test_top [uvm_test_top] SCK speed=3 transfer done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 19555000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 19555000: uvm_test_top.env.cov [COV] functional coverage = 38.54%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 19555000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 4
+  SPI captures        : 4
+  Matches             : 4
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 19555000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 19555000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 19555000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   13
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     4
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             19555000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 19555000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:47 2026
+    [PASS] spi_sck_speed_test
+>>> [7] 运行 axi_busy_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test axi_busy_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               axi_busy_test             -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/axi_busy_test.sv(49) @ 505000: uvm_test_top [uvm_test_top] [5.1] busy=1 during TX  OK (rdata=0x1)
+UVM_INFO test/axi_busy_test.sv(61) @ 1845000: uvm_test_top [uvm_test_top] [5.2] busy=0 after TX  OK (rdata=0x0)
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 1845000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 1845000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 1845000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 1
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 1845000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 1845000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 1845000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   11
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     2
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              1845000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1845000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:49 2026
+    [PASS] axi_busy_test
+>>> [8] 运行 axi_handshake_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test axi_handshake_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               axi_handshake_test        -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/axi_handshake_test.sv(23) @ 200000: uvm_test_top [uvm_test_top] --- simultaneous (AW=W) (aw_delay=0, w_delay=0, data=0xa0) ---
+UVM_INFO test/axi_handshake_test.sv(52) @ 1865000: uvm_test_top [uvm_test_top] --- simultaneous (AW=W) done ---
+UVM_INFO test/axi_handshake_test.sv(23) @ 1865000: uvm_test_top [uvm_test_top] --- AW first (W +3clk) (aw_delay=0, w_delay=3, data=0xa1) ---
+UVM_INFO test/axi_handshake_test.sv(52) @ 3595000: uvm_test_top [uvm_test_top] --- AW first (W +3clk) done ---
+UVM_INFO test/axi_handshake_test.sv(23) @ 3595000: uvm_test_top [uvm_test_top] --- W first (AW +3clk) (aw_delay=3, w_delay=0, data=0xa2) ---
+UVM_INFO test/axi_handshake_test.sv(52) @ 5325000: uvm_test_top [uvm_test_top] --- W first (AW +3clk) done ---
+UVM_INFO test/axi_handshake_test.sv(23) @ 5325000: uvm_test_top [uvm_test_top] --- AW first (W +8clk) (aw_delay=0, w_delay=8, data=0xa3) ---
+UVM_INFO test/axi_handshake_test.sv(52) @ 7155000: uvm_test_top [uvm_test_top] --- AW first (W +8clk) done ---
+UVM_INFO test/axi_handshake_test.sv(23) @ 7155000: uvm_test_top [uvm_test_top] --- W first (AW +8clk) (aw_delay=8, w_delay=0, data=0xa4) ---
+UVM_INFO test/axi_handshake_test.sv(52) @ 8985000: uvm_test_top [uvm_test_top] --- W first (AW +8clk) done ---
+UVM_INFO test/axi_handshake_test.sv(74) @ 8985000: uvm_test_top [uvm_test_top] AXI handshake timing test done — all 5 frames
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 8985000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 8985000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 8985000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 5
+  SPI captures        : 5
+  Matches             : 5
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 8985000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 8985000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 8985000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   20
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]    11
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              8985000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 8985000 ps
+CPU Time:      0.330 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:50 2026
+    [PASS] axi_handshake_test
+>>> [9] 运行 axi_wstrb_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test axi_wstrb_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               axi_wstrb_test            -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/axi_wstrb_test.sv(58) @ 200000: uvm_test_top [uvm_test_top] [byte0] base=0x11223344 patch=0x000000aa strb=0001 expected=0x112233aa
+UVM_INFO test/axi_wstrb_test.sv(77) @ 256000: uvm_test_top [uvm_test_top] [byte0] OK got=0x112233aa
+UVM_INFO test/axi_wstrb_test.sv(58) @ 256000: uvm_test_top [uvm_test_top] [byte1] base=0x11223344 patch=0x0000bb00 strb=0010 expected=0x1122bb44
+UVM_INFO test/axi_wstrb_test.sv(77) @ 316000: uvm_test_top [uvm_test_top] [byte1] OK got=0x1122bb44
+UVM_INFO test/axi_wstrb_test.sv(58) @ 316000: uvm_test_top [uvm_test_top] [byte2] base=0x11223344 patch=0x00dd0000 strb=0100 expected=0x11dd3344
+UVM_INFO test/axi_wstrb_test.sv(77) @ 376000: uvm_test_top [uvm_test_top] [byte2] OK got=0x11dd3344
+UVM_INFO test/axi_wstrb_test.sv(58) @ 376000: uvm_test_top [uvm_test_top] [byte3] base=0x11223344 patch=0xee000000 strb=1000 expected=0xee223344
+UVM_INFO test/axi_wstrb_test.sv(77) @ 436000: uvm_test_top [uvm_test_top] [byte3] OK got=0xee223344
+UVM_INFO test/axi_wstrb_test.sv(58) @ 436000: uvm_test_top [uvm_test_top] [sparse] base=0x11223344 patch=0x00aa00cc strb=0101 expected=0x11aa33cc
+UVM_INFO test/axi_wstrb_test.sv(77) @ 496000: uvm_test_top [uvm_test_top] [sparse] OK got=0x11aa33cc
+UVM_INFO test/axi_wstrb_test.sv(97) @ 496000: uvm_test_top [uvm_test_top] WSTRB byte select test done — all 5 cases
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 496000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 496000: uvm_test_top.env.cov [COV] functional coverage = 0.00%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 496000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 10
+  SPI captures        : 0
+  Matches             : 0
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 496000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 496000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 496000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   20
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]    11
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time               496000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 496000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:52 2026
+    [PASS] axi_wstrb_test
+>>> [10] 运行 axi_concurrent_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test axi_concurrent_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               axi_concurrent_test       -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/axi_concurrent_test.sv(79) @ 9700000: uvm_test_top [uvm_test_top] [PASS] 读写并发已观测：ARVALID 与 AW/W 同周期为高，通道互不阻塞、无死锁
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 10700000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 10700000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 10700000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 6
+  SPI captures        : 6
+  Matches             : 6
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 10700000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 10700000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 10700000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             10700000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 10700000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:53 2026
+    [PASS] axi_concurrent_test
+>>> [11] 运行 spi_burst_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_burst_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_burst_test            -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_burst_test.sv(26) @ 6355000: uvm_test_top [uvm_test_top] [6.1] 4-frame burst done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 6355000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 6355000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 6355000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 4
+  SPI captures        : 4
+  Matches             : 4
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 6355000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 6355000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 6355000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              6355000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 6355000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:54 2026
+    [PASS] spi_burst_test
+>>> [12] 运行 spi_alternating_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_alternating_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_alternating_test      -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_alternating_test.sv(25) @ 9435000: uvm_test_top [uvm_test_top] [6.2] alternating 0x55/0xAA done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 9435000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 9435000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 9435000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 6
+  SPI captures        : 6
+  Matches             : 6
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 9435000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 9435000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 9435000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              9435000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 9435000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:56 2026
+    [PASS] spi_alternating_test
+>>> [13] 运行 spi_data_all_0_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_data_all_0_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_data_all_0_test       -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_data_all_0_test.sv(23) @ 1735000: uvm_test_top [uvm_test_top] [7.1] data=0x00 done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 1735000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 1735000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 1735000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 1
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 1735000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 1735000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 1735000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              1735000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1735000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:57 2026
+    [PASS] spi_data_all_0_test
+>>> [14] 运行 spi_data_all_1_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_data_all_1_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_data_all_1_test       -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_data_all_1_test.sv(23) @ 1735000: uvm_test_top [uvm_test_top] [7.2] data=0xFF done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 1735000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 1735000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 1735000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 1
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 1735000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 1735000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 1735000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              1735000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1735000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:06:59 2026
+    [PASS] spi_data_all_1_test
+>>> [15] 运行 reset_mid_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test reset_mid_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               reset_mid_test            -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/reset_mid_test.sv(39) @ 1465000: uvm_test_top [uvm_test_top] [7.3] CS deasserted after reset OK
+UVM_INFO test/reset_mid_test.sv(48) @ 3005000: uvm_test_top [uvm_test_top] [7.3] reset mid TX + recovery done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 3005000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 3005000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 3005000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 2
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 3005000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 3005000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 3005000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   11
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     2
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              3005000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 3005000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:00 2026
+    [PASS] reset_mid_test
+>>> [16] 运行 spi_miso_read_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_miso_read_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_miso_read_test        -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_miso_base.sv(60) @ 5605000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=0 expected=0x5a5a5a5a got=0x5a5a5a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 8455000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=1 expected=0x00005a5a got=0x00005a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 10025000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=2 expected=0x0000005a got=0x0000005a
+UVM_INFO test/spi_miso_base.sv(60) @ 10955000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=3 expected=0x0000000a got=0x0000000a
+UVM_INFO test/spi_miso_base.sv(60) @ 16365000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=0 expected=0x5a5a5a5a got=0x5a5a5a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 19215000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=1 expected=0x00005a5a got=0x00005a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 20785000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=2 expected=0x0000005a got=0x0000005a
+UVM_INFO test/spi_miso_base.sv(60) @ 21715000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=3 expected=0x0000000a got=0x0000000a
+UVM_INFO test/spi_miso_base.sv(60) @ 27045000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=0 expected=0x5a5a5a5a got=0x5a5a5a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 29815000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=1 expected=0x00005a5a got=0x00005a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 31305000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=2 expected=0x0000005a got=0x0000005a
+UVM_INFO test/spi_miso_base.sv(60) @ 32155000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=3 expected=0x0000000a got=0x0000000a
+UVM_INFO test/spi_miso_base.sv(60) @ 37645000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=0 expected=0x5a5a5a5a got=0x5a5a5a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 40575000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=1 expected=0x00005a5a got=0x00005a5a
+UVM_INFO test/spi_miso_base.sv(60) @ 42225000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=2 expected=0x0000005a got=0x0000005a
+UVM_INFO test/spi_miso_base.sv(60) @ 43235000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=3 expected=0x0000000a got=0x0000000a
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 43235000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 43235000: uvm_test_top.env.cov [COV] functional coverage = 66.67%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 43235000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 16
+  SPI captures        : 16
+  Matches             : 16
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 43235000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 43235000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 43235000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   25
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]    16
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             43235000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 43235000 ps
+CPU Time:      0.320 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:02 2026
+    [PASS] spi_miso_read_test
+>>> [17] 运行 spi_miso_all_0_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_miso_all_0_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_miso_all_0_test       -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_miso_base.sv(60) @ 5605000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=0 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 8455000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=1 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 10025000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=2 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 10955000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=3 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 16365000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=0 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 19215000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=1 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 20785000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=2 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 21715000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=3 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 27045000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=0 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 29815000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=1 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 31305000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=2 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 32155000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=3 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 37645000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=0 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 40575000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=1 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 42225000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=2 expected=0x00000000 got=0x00000000
+UVM_INFO test/spi_miso_base.sv(60) @ 43235000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=3 expected=0x00000000 got=0x00000000
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 43235000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 43235000: uvm_test_top.env.cov [COV] functional coverage = 66.67%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 43235000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 16
+  SPI captures        : 16
+  Matches             : 16
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 43235000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 43235000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 43235000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   25
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]    16
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             43235000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 43235000 ps
+CPU Time:      0.330 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:03 2026
+    [PASS] spi_miso_all_0_test
+>>> [18] 运行 spi_miso_all_1_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_miso_all_1_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_miso_all_1_test       -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_miso_base.sv(60) @ 5605000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=0 expected=0xffffffff got=0xffffffff
+UVM_INFO test/spi_miso_base.sv(60) @ 8455000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=1 expected=0x0000ffff got=0x0000ffff
+UVM_INFO test/spi_miso_base.sv(60) @ 10025000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=2 expected=0x000000ff got=0x000000ff
+UVM_INFO test/spi_miso_base.sv(60) @ 10955000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=0 word_len=3 expected=0x0000000f got=0x0000000f
+UVM_INFO test/spi_miso_base.sv(60) @ 16365000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=0 expected=0xffffffff got=0xffffffff
+UVM_INFO test/spi_miso_base.sv(60) @ 19215000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=1 expected=0x0000ffff got=0x0000ffff
+UVM_INFO test/spi_miso_base.sv(60) @ 20785000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=2 expected=0x000000ff got=0x000000ff
+UVM_INFO test/spi_miso_base.sv(60) @ 21715000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=1 word_len=3 expected=0x0000000f got=0x0000000f
+UVM_INFO test/spi_miso_base.sv(60) @ 27045000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=0 expected=0xffffffff got=0xffffffff
+UVM_INFO test/spi_miso_base.sv(60) @ 29815000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=1 expected=0x0000ffff got=0x0000ffff
+UVM_INFO test/spi_miso_base.sv(60) @ 31305000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=2 expected=0x000000ff got=0x000000ff
+UVM_INFO test/spi_miso_base.sv(60) @ 32155000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=2 word_len=3 expected=0x0000000f got=0x0000000f
+UVM_INFO test/spi_miso_base.sv(60) @ 37645000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=0 expected=0xffffffff got=0xffffffff
+UVM_INFO test/spi_miso_base.sv(60) @ 40575000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=1 expected=0x0000ffff got=0x0000ffff
+UVM_INFO test/spi_miso_base.sv(60) @ 42225000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=2 expected=0x000000ff got=0x000000ff
+UVM_INFO test/spi_miso_base.sv(60) @ 43235000: uvm_test_top [uvm_test_top] [4.x] MISO OK: mode=3 word_len=3 expected=0x0000000f got=0x0000000f
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 43235000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 43235000: uvm_test_top.env.cov [COV] functional coverage = 66.67%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 43235000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 16
+  SPI captures        : 16
+  Matches             : 16
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 43235000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 43235000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 43235000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   25
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]    16
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time             43235000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 43235000 ps
+CPU Time:      0.330 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:05 2026
+    [PASS] spi_miso_all_1_test
+>>> [19] 运行 spi_random_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test spi_random_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               spi_random_test           -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/spi_random_test.sv(36) @ 741225000: uvm_test_top [uvm_test_top] random regression done: 80 frames
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 741225000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 741225000: uvm_test_top.env.cov [COV] functional coverage = 100.00%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 741225000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 80
+  SPI captures        : 80
+  Matches             : 80
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 741225000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 741225000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 741225000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time            741225000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 741225000 ps
+CPU Time:      0.500 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:06 2026
+    [PASS] spi_random_test
+>>> [20] 运行 reset_sva_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test reset_sva_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               reset_sva_test            -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @387 
+      axi_drv              axi_driver                -     @581 
+        rsp_port           uvm_analysis_port         -     @600 
+        seq_item_port      uvm_seq_item_pull_port    -     @590 
+      axi_mtr              axi_monitor               -     @611 
+        axi_mtr_port       uvm_analysis_port         -     @621 
+      axi_mtr_port         uvm_analysis_port         -     @430 
+      axi_sqr              axi_sequencer             -     @443 
+        rsp_export         uvm_analysis_export       -     @452 
+        seq_item_export    uvm_seq_item_pull_imp     -     @570 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @420 
+      axi_export           uvm_analysis_imp_cov_axi  -     @637 
+      spi_export           uvm_analysis_imp_cov_spi  -     @647 
+    scb                    tb_scoreboard             -     @411 
+      axi_export           uvm_analysis_imp_axi      -     @657 
+      spi_export           uvm_analysis_imp_spi      -     @667 
+    spi_mtr                spi_monitor               -     @401 
+      spi_mtr_port         uvm_analysis_port         -     @678 
+----------------------------------------------------------------
+
+UVM_INFO test/reset_sva_test.sv(37) @ 200000: uvm_test_top [uvm_test_top] [A] idle reset
+UVM_INFO test/reset_sva_test.sv(42) @ 600000: uvm_test_top [uvm_test_top] [B] reset during AXI config writes
+UVM_INFO test/reset_sva_test.sv(53) @ 1125000: uvm_test_top [uvm_test_top] [C] reset mid transaction
+UVM_INFO test/reset_sva_test.sv(64) @ 2395000: uvm_test_top [uvm_test_top] [C] CS deasserted after reset OK
+UVM_INFO test/reset_sva_test.sv(70) @ 2595000: uvm_test_top [uvm_test_top] [D] back-to-back resets
+UVM_INFO test/reset_sva_test.sv(76) @ 2995000: uvm_test_top [uvm_test_top] [E] recovery frame after reset
+UVM_INFO test/reset_sva_test.sv(79) @ 4535000: uvm_test_top [uvm_test_top] reset SVA test done
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 4535000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 4535000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 4535000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 2
+  SPI captures        : 1
+  Matches             : 1
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 4535000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 4535000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 4535000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   16
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     7
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              4535000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 4535000 ps
+CPU Time:      0.310 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:08 2026
+    [PASS] reset_sva_test
+>>> [21] 运行 ral_test ...
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:07 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_top.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
+
+Note-[FCICIO] Instance coverage is ON
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+$unit, "tb_coverage::cg_spi_frame"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'tb_coverage::cg_spi_frame'
+  
+  Covergroup Instance: tb_top.me.obj.cg_spi_frame 
+  Design hierarchy: $unit
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+----------------------------------------------------------------
+Name                       Type                      Size  Value
+----------------------------------------------------------------
+uvm_test_top               ral_test                  -     @349 
+  env                      tb_environment            -     @373 
+    axi_agt                axi_agent                 -     @433 
+      axi_drv              axi_driver                -     @627 
+        rsp_port           uvm_analysis_port         -     @646 
+        seq_item_port      uvm_seq_item_pull_port    -     @636 
+      axi_mtr              axi_monitor               -     @657 
+        axi_mtr_port       uvm_analysis_port         -     @667 
+      axi_mtr_port         uvm_analysis_port         -     @476 
+      axi_sqr              axi_sequencer             -     @489 
+        rsp_export         uvm_analysis_export       -     @498 
+        seq_item_export    uvm_seq_item_pull_imp     -     @616 
+        arbitration_queue  array                     0     -    
+        lock_queue         array                     0     -    
+        num_last_reqs      integral                  32    'd1  
+        num_last_rsps      integral                  32    'd1  
+    cov                    tb_coverage               -     @466 
+      axi_export           uvm_analysis_imp_cov_axi  -     @683 
+      spi_export           uvm_analysis_imp_cov_spi  -     @693 
+    scb                    tb_scoreboard             -     @457 
+      axi_export           uvm_analysis_imp_axi      -     @703 
+      spi_export           uvm_analysis_imp_spi      -     @713 
+    spi_mtr                spi_monitor               -     @447 
+      spi_mtr_port         uvm_analysis_port         -     @724 
+----------------------------------------------------------------
+
+UVM_INFO test/ral_test.sv(83) @ 200000: uvm_test_top [RAL] ==== 1. backdoor 复位值检查（WO 配置寄存器应=0）====
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] spi_mode = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] sck_speed = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] word_len = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] ifg = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] cs_sck = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] sck_cs = 0  OK
+UVM_INFO test/ral_test.sv(54) @ 200000: uvm_test_top [RAL] [reset] mosi_data = 0  OK
+UVM_INFO test/ral_test.sv(92) @ 200000: uvm_test_top [RAL] ==== 2. WO frontdoor write → backdoor peek ====
+UVM_INFO test/ral_test.sv(73) @ 245000: uvm_test_top [RAL] [WO] spi_mode write/peek=0x2  OK
+UVM_INFO test/ral_test.sv(73) @ 295000: uvm_test_top [RAL] [WO] sck_speed write/peek=0x1  OK
+UVM_INFO test/ral_test.sv(73) @ 345000: uvm_test_top [RAL] [WO] word_len write/peek=0x3  OK
+UVM_INFO test/ral_test.sv(73) @ 395000: uvm_test_top [RAL] [WO] ifg write/peek=0xa5  OK
+UVM_INFO test/ral_test.sv(73) @ 445000: uvm_test_top [RAL] [WO] cs_sck write/peek=0xc  OK
+UVM_INFO test/ral_test.sv(73) @ 495000: uvm_test_top [RAL] [WO] sck_cs write/peek=0xc  OK
+UVM_INFO test/ral_test.sv(73) @ 545000: uvm_test_top [RAL] [WO] mosi_data write/peek=0xdeadbeef  OK
+UVM_INFO test/ral_test.sv(101) @ 545000: uvm_test_top [RAL] ==== 3. RO frontdoor read：status.busy 空闲应=0 ====
+UVM_INFO test/ral_test.sv(110) @ 575000: uvm_test_top [RAL] [RO] status.busy=0 (frontdoor read=0x0)  OK
+UVM_INFO test/ral_test.sv(112) @ 575000: uvm_test_top [RAL] ==== 4. backdoor poke → frontdoor read（miso_data RO 演示）====
+UVM_INFO test/ral_test.sv(122) @ 605000: uvm_test_top [RAL] [poke] miso_data poke 0x5A5A5A5A → frontdoor read=0x0（硬件刷新预期回0）
+UVM_INFO test/ral_test.sv(130) @ 605000: uvm_test_top [RAL] ==== RAL 测试全部通过 ====
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 605000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO coverage/tb_coverage.sv(65) @ 605000: uvm_test_top.env.cov [COV] functional coverage = 0.00%
+UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 605000: uvm_test_top.env.scb [SCB_SUMMARY] 
+  AXI spi_data writes : 1
+  SPI captures        : 0
+  Matches             : 0
+  Mismatches          : 0
+  Pending in queue    : 0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 605000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 605000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 605000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   30
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[RAL]    21
+[RNTST]     1
+[SCB_PASS]     1
+[SCB_SUMMARY]     1
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time               605000
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 605000 ps
+CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
+Thu Jul 30 03:07:09 2026
+    [PASS] ral_test
+
+========================================
+  通过 (21/21):
+    spi_word_len_test
+    spi_mode_test
+    spi_cs_sck_test
+    spi_sck_cs_test
+    spi_ifg_test
+    spi_sck_speed_test
+    axi_busy_test
+    axi_handshake_test
+    axi_wstrb_test
+    axi_concurrent_test
+    spi_burst_test
+    spi_alternating_test
+    spi_data_all_0_test
+    spi_data_all_1_test
+    reset_mid_test
+    spi_miso_read_test
+    spi_miso_all_0_test
+    spi_miso_all_1_test
+    spi_random_test
+    reset_sva_test
+    ral_test
+
+  失败 (0/21):
+========================================
+>>> 生成覆盖率报告 ...
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+Note: Bumping stack limit from 8192 to unlimited Kbytes.
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+URG Version O-2018.09-SP2 Copyright (c) 1991-2018 by Synopsys Inc.
+
+Note-[URG-RDG] Report directory generated
+  Report written to directory cov_report
+
+coverage report -> cov_report/dashboard.html
+make[1]: Entering directory `/home/zh/Desktop/vcs_sync/AXI_Lite2SPI/UVMTB/sim'
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+python3 not found; skip regression_summary.txt / coverage_summary.txt
+make[1]: Leaving directory `/home/zh/Desktop/vcs_sync/AXI_Lite2SPI/UVMTB/sim'

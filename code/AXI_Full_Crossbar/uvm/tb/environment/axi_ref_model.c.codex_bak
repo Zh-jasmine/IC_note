@@ -1,0 +1,133 @@
+#include <stdint.h>
+#include <stdlib.h>
+
+typedef struct mem_cell_s {
+    uint32_t addr;
+    uint8_t data;
+    struct mem_cell_s *next;
+} mem_cell_t;
+
+static mem_cell_t *g_mem = NULL;
+
+static void mem_reset(void) {
+    mem_cell_t *cell = g_mem;
+    while (cell != NULL) {
+        mem_cell_t *next = cell->next;
+        free(cell);
+        cell = next;
+    }
+    g_mem = NULL;
+}
+
+static void mem_write_byte(uint32_t addr, uint8_t data) {
+    mem_cell_t *cell = g_mem;
+    while (cell != NULL) {
+        if (cell->addr == addr) {
+            cell->data = data;
+            return;
+        }
+        cell = cell->next;
+    }
+
+    cell = (mem_cell_t *)malloc(sizeof(mem_cell_t));
+    if (cell == NULL) {
+        abort();
+    }
+    cell->addr = addr;
+    cell->data = data;
+    cell->next = g_mem;
+    g_mem = cell;
+}
+
+static uint8_t mem_read_byte(uint32_t addr) {
+    mem_cell_t *cell = g_mem;
+    while (cell != NULL) {
+        if (cell->addr == addr) {
+            return cell->data;
+        }
+        cell = cell->next;
+    }
+    return 0;
+}
+
+static uint32_t beat_bytes(uint32_t size) {
+    return 1u << size;
+}
+
+static uint32_t beat_addr(uint32_t base_addr, uint32_t len, uint32_t size, uint32_t burst, uint32_t beat_idx) {
+    uint32_t step = beat_bytes(size);
+    uint32_t next;
+    uint32_t burst_bytes;
+    uint32_t wrap_base;
+
+    if (burst == 0u) {
+        return base_addr;
+    }
+
+    next = base_addr + beat_idx * step;
+    if (burst != 2u) {
+        return next;
+    }
+
+    burst_bytes = step * (len + 1u);
+    wrap_base = (base_addr / burst_bytes) * burst_bytes;
+    while (next >= wrap_base + burst_bytes) {
+        next -= burst_bytes;
+    }
+    return next;
+}
+
+void rm_reset(void) {
+    mem_reset();
+}
+
+int rm_addr_to_m_port(uint32_t addr) {
+    if ((addr >= 0x00000000u) && (addr <= 0x00000FFFu)) return 0;
+    if ((addr >= 0x00010000u) && (addr <= 0x00010FFFu)) return 1;
+    if ((addr >= 0x00020000u) && (addr <= 0x00020FFFu)) return 2;
+    return -1;
+}
+
+uint32_t rm_expand_id(int s_port, uint32_t sid, uint32_t sid_width) {
+    uint32_t mask;
+    if (sid_width >= 32u) {
+        mask = 0xFFFFFFFFu;
+    } else {
+        mask = (1u << sid_width) - 1u;
+    }
+    return ((uint32_t)s_port << sid_width) | (sid & mask);
+}
+
+void rm_write_beat(
+    uint32_t base_addr,
+    uint32_t len,
+    uint32_t size,
+    uint32_t burst,
+    uint32_t beat_idx,
+    uint32_t data,
+    uint32_t strb,
+    uint32_t strb_width
+) {
+    uint32_t addr = beat_addr(base_addr, len, size, burst, beat_idx);
+    for (uint32_t lane = 0; lane < strb_width; lane++) {
+        if (strb & (1u << lane)) {
+            mem_write_byte(addr + lane, (uint8_t)((data >> (lane * 8u)) & 0xFFu));
+        }
+    }
+}
+
+uint32_t rm_read_beat(
+    uint32_t base_addr,
+    uint32_t len,
+    uint32_t size,
+    uint32_t burst,
+    uint32_t beat_idx,
+    uint32_t strb_width
+) {
+    uint32_t addr = beat_addr(base_addr, len, size, burst, beat_idx);
+    uint32_t data = 0;
+    for (uint32_t lane = 0; lane < strb_width; lane++) {
+        data |= ((uint32_t)mem_read_byte(addr + lane)) << (lane * 8u);
+    }
+    return data;
+}

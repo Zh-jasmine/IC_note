@@ -1,0 +1,197 @@
+class axi_slave_driver extends uvm_component;
+    `uvm_component_utils(axi_slave_driver)
+
+    axi_m_vif_t vif;
+    int port_index;
+    int ready_delay_max;
+    bit [7:0] mem [longint unsigned];
+
+    typedef struct {
+        bit [AXI_M_ID_WIDTH-1:0] id;
+        bit [AXI_ADDR_WIDTH-1:0] addr;
+        bit [7:0] len;
+        bit [2:0] size;
+        bit [1:0] burst;
+    } addr_ctx_s;
+
+    typedef struct {
+        bit [AXI_DATA_WIDTH-1:0] data[$];
+        bit [AXI_STRB_WIDTH-1:0] strb[$];
+    } w_ctx_s;
+
+    mailbox #(addr_ctx_s) aw_mb;
+    mailbox #(addr_ctx_s) ar_mb;
+    mailbox #(w_ctx_s) w_mb;
+
+    function new(string name = "axi_slave_driver", uvm_component parent = null);
+        super.new(name, parent);
+        port_index = 0;
+        ready_delay_max = 0;
+        aw_mb = new();
+        ar_mb = new();
+        w_mb = new();
+    endfunction
+
+    function longint unsigned next_addr(addr_ctx_s ctx, longint unsigned addr);
+        longint unsigned beat_bytes;
+        longint unsigned burst_bytes;
+        longint unsigned wrap_base;
+        longint unsigned next;
+
+        if (ctx.burst == AXI_BURST_FIXED) return addr;
+
+        beat_bytes = 1 << ctx.size;
+        next = addr + beat_bytes;
+
+        if (ctx.burst != AXI_BURST_WRAP) return next;
+
+        burst_bytes = beat_bytes * (longint'(ctx.len) + 1);
+        wrap_base = (longint'(ctx.addr) / burst_bytes) * burst_bytes;
+        if (next >= wrap_base + burst_bytes) return wrap_base;
+        return next;
+    endfunction
+
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        if (!uvm_config_db#(axi_m_vif_t)::get(this, "", "vif", vif)) begin
+            `uvm_fatal("NOVIF", $sformatf("%s cannot get vif", get_full_name()))
+        end
+        void'(uvm_config_db#(int)::get(this, "", "port_index", port_index));
+        void'(uvm_config_db#(int)::get(this, "", "ready_delay_max", ready_delay_max));
+    endfunction
+
+    virtual task run_phase(uvm_phase phase);
+        vif.init_slave_outputs();
+        wait(vif.aresetn === 1'b1);
+        fork
+            accept_aw();
+            accept_w();
+            commit_write_and_send_b();
+            accept_ar();
+            send_r();
+        join
+    endtask
+
+    task accept_aw();
+        addr_ctx_s ctx;
+        bit awready_now;
+        forever begin
+            @(posedge vif.aclk);
+            awready_now = vif.aresetn && ((ready_delay_max == 0) || ($urandom_range(0, ready_delay_max) != 0));
+            vif.awready <= awready_now;
+            if (vif.awvalid && awready_now) begin
+                ctx.id = vif.awid;
+                ctx.addr = vif.awaddr;
+                ctx.len = vif.awlen;
+                ctx.size = vif.awsize;
+                ctx.burst = vif.awburst;
+                aw_mb.put(ctx);
+            end
+        end
+    endtask
+
+    task accept_w();
+
+        w_ctx_s ctx;
+        bit wready_now;
+        bit done;
+
+        forever begin
+            
+            ctx.data.delete();
+            ctx.strb.delete();
+            done = 1'b0;
+
+            while (!done) begin
+                @(posedge vif.aclk);
+                wready_now = vif.aresetn && ((ready_delay_max == 0) || ($urandom_range(0, ready_delay_max) != 0));
+                vif.wready <= wready_now;
+                if (vif.wvalid && wready_now) begin
+                    ctx.data.push_back(vif.wdata);
+                    ctx.strb.push_back(vif.wstrb);
+                    done = vif.wlast;
+                end
+            end
+
+            vif.wready <= 1'b0;
+            w_mb.put(ctx);
+        end
+    endtask
+
+    task commit_write_and_send_b();
+        addr_ctx_s addr_ctx;
+        w_ctx_s w_ctx;
+        longint unsigned addr;
+        int unsigned beats;
+        bit [1:0] bresp;
+        forever begin
+            aw_mb.get(addr_ctx);
+            w_mb.get(w_ctx);
+
+            beats = int'(addr_ctx.len) + 1;
+            bresp = AXI_RESP_OKAY;
+            if ((w_ctx.data.size() != beats) || (w_ctx.strb.size() != beats)) begin
+                `uvm_error("AXI_SDRV", $sformatf("Write beat count mismatch. exp=%0d got_data=%0d got_strb=%0d", beats, w_ctx.data.size(), w_ctx.strb.size()))
+                bresp = AXI_RESP_SLVERR;
+            end
+
+            addr = addr_ctx.addr;
+            for (int beat = 0; beat < beats; beat++) begin
+                if ((beat < w_ctx.data.size()) && (beat < w_ctx.strb.size())) begin
+                    for (int lane = 0; lane < AXI_STRB_WIDTH; lane++) begin
+                        if (w_ctx.strb[beat][lane]) mem[addr + lane] = w_ctx.data[beat][lane*8 +: 8];
+                    end
+                end
+                addr = next_addr(addr_ctx, addr);
+            end
+
+            vif.bid <= addr_ctx.id;
+            vif.bresp <= bresp;
+            vif.bvalid <= 1'b1;
+            do @(posedge vif.aclk); while (!vif.bready);
+            vif.bvalid <= 1'b0;
+        end
+    endtask
+
+    task accept_ar();
+        addr_ctx_s ctx;
+        bit arready_now;
+        forever begin
+            @(posedge vif.aclk);
+            arready_now = vif.aresetn && ((ready_delay_max == 0) || ($urandom_range(0, ready_delay_max) != 0));
+            vif.arready <= arready_now;
+            if (vif.arvalid && arready_now) begin
+                ctx.id = vif.arid;
+                ctx.addr = vif.araddr;
+                ctx.len = vif.arlen;
+                ctx.size = vif.arsize;
+                ctx.burst = vif.arburst;
+                ar_mb.put(ctx);
+            end
+        end
+    endtask
+
+    task send_r();
+        addr_ctx_s ctx;
+        longint unsigned addr;
+        int unsigned beats;
+        forever begin
+            ar_mb.get(ctx);
+            addr = ctx.addr;
+            beats = int'(ctx.len) + 1;
+            for (int beat = 0; beat < beats; beat++) begin
+                vif.rid <= ctx.id;
+                vif.rresp <= AXI_RESP_OKAY;
+                vif.rlast <= (beat == beats - 1);
+                for (int lane = 0; lane < AXI_STRB_WIDTH; lane++) begin
+                    vif.rdata[lane*8 +: 8] <= mem.exists(addr + lane) ? mem[addr + lane] : 8'h00;
+                end
+                vif.rvalid <= 1'b1;
+                do @(posedge vif.aclk); while (!vif.rready);
+                vif.rvalid <= 1'b0;
+                addr = next_addr(ctx, addr);
+            end
+            vif.rlast <= 1'b0;
+        end
+    endtask
+endclass

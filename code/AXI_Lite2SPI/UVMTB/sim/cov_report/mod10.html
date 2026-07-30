@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: AXI_SPI_n_regs</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_AXI_SPI_n_regs'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_AXI_SPI_n_regs')">AXI_SPI_n_regs</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 70.70</td>
+<td class="s9 cl rt"><a href="mod10.html#Line" > 92.00</a></td>
+<td class="s4 cl rt"><a href="mod10.html#Cond" > 45.24</a></td>
+<td class="s5 cl rt"><a href="mod10.html#Toggle" > 50.46</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod10.html#Branch" > 95.12</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/tmp/AXI-LITE2SPI/UVMTB/../DUT/AXI_SPI_n_regs.v')">/tmp/AXI-LITE2SPI/UVMTB/../DUT/AXI_SPI_n_regs.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod10.html#inst_tag_10"  onclick="showContent('inst_tag_10')">tb_top.DUT.AXI_SPI_n_regs0</a></td>
+<td class="s7 cl rt"> 70.70</td>
+<td class="s9 cl rt"><a href="mod10.html#Line" > 92.00</a></td>
+<td class="s4 cl rt"><a href="mod10.html#Cond" > 45.24</a></td>
+<td class="s5 cl rt"><a href="mod10.html#Toggle" > 50.46</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod10.html#Branch" > 95.12</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_AXI_SPI_n_regs'>
+<hr>
+<a name="inst_tag_10"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_10" >tb_top.DUT.AXI_SPI_n_regs0</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 70.70</td>
+<td class="s9 cl rt"><a href="mod10.html#Line" > 92.00</a></td>
+<td class="s4 cl rt"><a href="mod10.html#Cond" > 45.24</a></td>
+<td class="s5 cl rt"><a href="mod10.html#Toggle" > 50.46</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod10.html#Branch" > 95.12</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 74.84</td>
+<td class="s8 cl rt"> 88.96</td>
+<td class="s5 cl rt"> 58.93</td>
+<td class="s6 cl rt"> 62.16</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 89.15</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 82.08</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 82.08</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod3.html#inst_tag_3" >DUT</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod13.html#inst_tag_13" id="tag_urg_inst_13">SPI_master</a></td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s8 cl rt"> 87.44</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 91.18</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 86.36</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_AXI_SPI_n_regs'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod10.html" >AXI_SPI_n_regs</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>100</td><td>92</td><td>92.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>144</td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>178</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>199</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>231</td><td>45</td><td>37</td><td>82.22</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>345</td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>379</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>410</td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>438</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>456</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>497</td><td>5</td><td>5</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+143                     	begin
+144        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+145                     	    begin
+146        1/1          	      axi_awready &lt;= 1'b0;
+147        1/1          	      aw_en &lt;= 1'b1;
+148                     	    end 
+149                     	  else
+150                     	    begin    
+151        1/1          	      if (~axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+152                     	        begin
+153                     	          // slave is ready to accept write address when 
+154                     	          // there is a valid write address and write data
+155                     	          // on the write address and data bus. This design 
+156                     	          // expects no outstanding transactions. 
+157        1/1          	          axi_awready &lt;= 1'b1;
+158        1/1          	          aw_en &lt;= 1'b0;
+159                     	        end
+160        1/1          	        else if (S_AXI_BREADY &amp;&amp; axi_bvalid)
+161                     	            begin
+162        1/1          	              aw_en &lt;= 1'b1;
+163        1/1          	              axi_awready &lt;= 1'b0;
+164                     	            end
+165                     	      else           
+166                     	        begin
+167        1/1          	          axi_awready &lt;= 1'b0;
+168                     	        end
+169                     	    end 
+170                     	end       
+171                     
+172                     	// Implement axi_awaddr latching
+173                     	// This process is used to latch the address when both 
+174                     	// S_AXI_AWVALID and S_AXI_WVALID are valid. 
+175                     
+176                     	always @( posedge S_AXI_ACLK )
+177                     	begin
+178        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+179                     	    begin
+180        1/1          	      axi_awaddr &lt;= 0;
+181                     	    end 
+182                     	  else
+183                     	    begin    
+184        1/1          	      if (~axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+185                     	        begin
+186                     	          // Write Address latching 
+187        1/1          	          axi_awaddr &lt;= S_AXI_AWADDR;
+188                     	        end
+                        MISSING_ELSE
+189                     	    end 
+190                     	end       
+191                     
+192                     	// Implement axi_wready generation
+193                     	// axi_wready is asserted for one S_AXI_ACLK clock cycle when both
+194                     	// S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is 
+195                     	// de-asserted when reset is low. 
+196                     
+197                     	always @( posedge S_AXI_ACLK )
+198                     	begin
+199        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+200                     	    begin
+201        1/1          	      axi_wready &lt;= 1'b0;
+202                     	    end 
+203                     	  else
+204                     	    begin    
+205        1/1          	      if (~axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; S_AXI_AWVALID &amp;&amp; aw_en )
+206                     	        begin
+207                     	          // slave is ready to accept write data when 
+208                     	          // there is a valid write address and write data
+209                     	          // on the write address and data bus. This design 
+210                     	          // expects no outstanding transactions. 
+211        1/1          	          axi_wready &lt;= 1'b1;
+212                     	        end
+213                     	      else
+214                     	        begin
+215        1/1          	          axi_wready &lt;= 1'b0;
+216                     	        end
+217                     	    end 
+218                     	end       
+219                     
+220                     	// Implement memory mapped register select and write logic generation
+221                     	// The write data is accepted and written to memory mapped registers when
+222                     	// axi_awready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted. Write strobes are used to
+223                     	// select byte enables of slave registers while writing.
+224                     	// These registers are cleared when reset (active low) is applied.
+225                     	// Slave register write enable is asserted when valid address and data are available
+226                     	// and the slave is ready to accept the write address and write data.
+227                     	assign slv_reg_wren = axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; axi_awready &amp;&amp; S_AXI_AWVALID;
+228                     
+229                     	always @( posedge S_AXI_ACLK )
+230                     	begin
+231        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+232                     	    begin
+233        1/1          	      slv_reg0 &lt;= 0;
+234        1/1          	      start_pulse &lt;= 1'b0;
+235                     //	      slv_reg1 &lt;= 0; // busy from spi
+236        1/1          	      slv_reg2 &lt;= 0;
+237        1/1          	      slv_reg3 &lt;= 0;
+238        1/1          	      slv_reg4 &lt;= 0;
+239        1/1          	      slv_reg5 &lt;= 0;
+240        1/1          	      slv_reg6 &lt;= 0;
+241        1/1          	      slv_reg7 &lt;= 0;
+242        1/1          	      slv_reg8 &lt;= 0; 
+243                     //	      slv_reg9 &lt;= 0; // miso_data from spi
+244                     	    end 
+245                     	  else begin
+246        1/1          	    start_pulse &lt;= 1'b0;
+247        1/1          	    if (slv_reg_wren)
+248                     	      begin
+249        1/1          	        case ( axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
+250                     	          4'h0:
+251                     	            begin
+252                     	              // WO pulse register: a write of start[0]=1 generates one clock pulse.
+253        1/1          	              slv_reg0 &lt;= 0;
+254        1/1          	              if (S_AXI_WSTRB[0])
+255        1/1          	                start_pulse &lt;= S_AXI_WDATA[0];
+                   <font color = "red">==>  MISSING_ELSE</font>
+256                     	            end
+257                     /*	          4'h1:
+258                     	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+259                     	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+260                     	                // Respective byte enables are asserted as per write strobes 
+261                     	                // Slave register 1
+262                     	                slv_reg1[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+263                     	              end  
+264                     */	          4'h2:
+265        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+266        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+267                     	                // Respective byte enables are asserted as per write strobes 
+268                     	                // Slave register 2
+269        1/1          	                slv_reg2[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+270                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+271                     	          4'h3:
+272        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+273        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+274                     	                // Respective byte enables are asserted as per write strobes 
+275                     	                // Slave register 3
+276        1/1          	                slv_reg3[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+277                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+278                     	          4'h4:
+279        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+280        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+281                     	                // Respective byte enables are asserted as per write strobes 
+282                     	                // Slave register 4
+283        1/1          	                slv_reg4[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+284                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+285                     	          4'h5:
+286        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+287        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+288                     	                // Respective byte enables are asserted as per write strobes 
+289                     	                // Slave register 5
+290        1/1          	                slv_reg5[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+291                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+292                     	          4'h6:
+293        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+294        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+295                     	                // Respective byte enables are asserted as per write strobes 
+296                     	                // Slave register 6
+297        1/1          	                slv_reg6[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+298                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+299                     	          4'h7:
+300        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+301        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+302                     	                // Respective byte enables are asserted as per write strobes 
+303                     	                // Slave register 7
+304        1/1          	                slv_reg7[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+305                     	              end  
+                   <font color = "red">==>  MISSING_ELSE</font>
+306                     	          4'h8:
+307        1/1          	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+308        1/1          	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+309                     	                // Respective byte enables are asserted as per write strobes 
+310                     	                // Slave register 8
+311        1/1          	                slv_reg8[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+312                     	              end  
+                        MISSING_ELSE
+313                     /*	          4'h9:
+314                     	            for ( byte_index = 0; byte_index &lt;= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+315                     	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+316                     	                // Respective byte enables are asserted as per write strobes 
+317                     	                // Slave register 9
+318                     	                slv_reg9[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+319                     	              end  
+320                     */	          default : begin
+321        <font color = "red">0/1     ==>  	                      slv_reg0 &lt;= slv_reg0;</font>
+322                     //	                      slv_reg1 &lt;= slv_reg1; // busy from spi
+323        <font color = "red">0/1     ==>  	                      slv_reg2 &lt;= slv_reg2;</font>
+324        <font color = "red">0/1     ==>  	                      slv_reg3 &lt;= slv_reg3;</font>
+325        <font color = "red">0/1     ==>  	                      slv_reg4 &lt;= slv_reg4;</font>
+326        <font color = "red">0/1     ==>  	                      slv_reg5 &lt;= slv_reg5;</font>
+327        <font color = "red">0/1     ==>  	                      slv_reg6 &lt;= slv_reg6;</font>
+328        <font color = "red">0/1     ==>  	                      slv_reg7 &lt;= slv_reg7;</font>
+329        <font color = "red">0/1     ==>  	                      slv_reg8 &lt;= slv_reg8;</font>
+330                     //	                      slv_reg9 &lt;= slv_reg9; // miso_data from spi
+331                     	                    end
+332                     	        endcase
+333                     	      end
+                        MISSING_ELSE
+334                     	  end
+335                     	end    
+336                     
+337                     	// Implement write response logic generation
+338                     	// The write response and response valid signals are asserted by the slave 
+339                     	// when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
+340                     	// This marks the acceptance of address and indicates the status of 
+341                     	// write transaction.
+342                     
+343                     	always @( posedge S_AXI_ACLK )
+344                     	begin
+345        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+346                     	    begin
+347        1/1          	      axi_bvalid  &lt;= 0;
+348        1/1          	      axi_bresp   &lt;= 2'b0;
+349                     	    end 
+350                     	  else
+351                     	    begin    
+352        1/1          	      if (axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; ~axi_bvalid &amp;&amp; axi_wready &amp;&amp; S_AXI_WVALID)
+353                     	        begin
+354                     	          // indicates a valid write response is available
+355        1/1          	          axi_bvalid &lt;= 1'b1;
+356        1/1          	          axi_bresp  &lt;= 2'b0; // 'OKAY' response 
+357                     	        end                   // work error responses in future
+358                     	      else
+359                     	        begin
+360        1/1          	          if (S_AXI_BREADY &amp;&amp; axi_bvalid) 
+361                     	            //check if bready is asserted while bvalid is high) 
+362                     	            //(there is a possibility that bready is always asserted high)   
+363                     	            begin
+364        1/1          	              axi_bvalid &lt;= 1'b0; 
+365                     	            end  
+                        MISSING_ELSE
+366                     	        end
+367                     	    end
+368                     	end   
+369                     
+370                     	// Implement axi_arready generation
+371                     	// axi_arready is asserted for one S_AXI_ACLK clock cycle when
+372                     	// S_AXI_ARVALID is asserted. axi_awready is 
+373                     	// de-asserted when reset (active low) is asserted. 
+374                     	// The read address is also latched when S_AXI_ARVALID is 
+375                     	// asserted. axi_araddr is reset to zero on reset assertion.
+376                     
+377                     	always @( posedge S_AXI_ACLK )
+378                     	begin
+379        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+380                     	    begin
+381        1/1          	      axi_arready &lt;= 1'b0;
+382        1/1          	      axi_araddr  &lt;= 32'b0;
+383                     	    end 
+384                     	  else
+385                     	    begin    
+386        1/1          	      if (~axi_arready &amp;&amp; S_AXI_ARVALID)
+387                     	        begin
+388                     	          // indicates that the slave has acceped the valid read address
+389        1/1          	          axi_arready &lt;= 1'b1;
+390                     	          // Read address latching
+391        1/1          	          axi_araddr  &lt;= S_AXI_ARADDR;
+392                     	        end
+393                     	      else
+394                     	        begin
+395        1/1          	          axi_arready &lt;= 1'b0;
+396                     	        end
+397                     	    end 
+398                     	end       
+399                     
+400                     	// Implement axi_arvalid generation
+401                     	// axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both 
+402                     	// S_AXI_ARVALID and axi_arready are asserted. The slave registers 
+403                     	// data are available on the axi_rdata bus at this instance. The 
+404                     	// assertion of axi_rvalid marks the validity of read data on the 
+405                     	// bus and axi_rresp indicates the status of read transaction.axi_rvalid 
+406                     	// is deasserted on reset (active low). axi_rresp and axi_rdata are 
+407                     	// cleared to zero on reset (active low).  
+408                     	always @( posedge S_AXI_ACLK )
+409                     	begin
+410        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+411                     	    begin
+412        1/1          	      axi_rvalid &lt;= 0;
+413        1/1          	      axi_rresp  &lt;= 0;
+414                     	    end 
+415                     	  else
+416                     	    begin    
+417        1/1          	      if (axi_arready &amp;&amp; S_AXI_ARVALID &amp;&amp; ~axi_rvalid)
+418                     	        begin
+419                     	          // Valid read data is available at the read data bus
+420        1/1          	          axi_rvalid &lt;= 1'b1;
+421        1/1          	          axi_rresp  &lt;= 2'b0; // 'OKAY' response
+422                     	        end   
+423        1/1          	      else if (axi_rvalid &amp;&amp; S_AXI_RREADY)
+424                     	        begin
+425                     	          // Read data is accepted by the master
+426        1/1          	          axi_rvalid &lt;= 1'b0;
+427                     	        end                
+                        MISSING_ELSE
+428                     	    end
+429                     	end    
+430                     
+431                     	// Implement memory mapped register select and read logic generation
+432                     	// Slave register read enable is asserted when valid address is available
+433                     	// and the slave is ready to accept the read address.
+434                     	assign slv_reg_rden = axi_arready &amp; S_AXI_ARVALID &amp; ~axi_rvalid;
+435                     	always @(*)
+436                     	begin
+437                     	      // Address decoding for reading registers
+438        1/1          	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
+439                     //	        4'h0   : reg_data_out &lt;= slv_reg0;
+440        1/1          	        4'h1   : reg_data_out &lt;= slv_reg1; // busy from spi
+441                     //	        4'h2   : reg_data_out &lt;= slv_reg2;
+442                     //	        4'h3   : reg_data_out &lt;= slv_reg3;
+443                     //	        4'h4   : reg_data_out &lt;= slv_reg4;
+444                     //	        4'h5   : reg_data_out &lt;= slv_reg5;
+445                     //	        4'h6   : reg_data_out &lt;= slv_reg6;
+446                     //	        4'h7   : reg_data_out &lt;= slv_reg7;
+447                     //	        4'h8   : reg_data_out &lt;= slv_reg8;
+448        1/1          	        4'h9   : reg_data_out &lt;= slv_reg9; // miso_data from spi
+449        1/1          	        default : reg_data_out &lt;= 0;
+450                     	      endcase
+451                     	end
+452                     
+453                     	// Output register or memory read data
+454                     	always @( posedge S_AXI_ACLK )
+455                     	begin
+456        1/1          	  if ( S_AXI_ARESETN == 1'b0 )
+457                     	    begin
+458        1/1          	      axi_rdata  &lt;= 0;
+459                     	    end 
+460                     	  else
+461                     	    begin    
+462                     	      // When there is a valid read address (S_AXI_ARVALID) with 
+463                     	      // acceptance of read address by the slave (axi_arready), 
+464                     	      // output the read dada 
+465        1/1          	      if (slv_reg_rden)
+466                     	        begin
+467        1/1          	          axi_rdata &lt;= reg_data_out;     // register read data
+468                     	        end   
+                        MISSING_ELSE
+469                     	    end
+470                     	end    
+471                     
+472                     	// Add user logic here
+473                         
+474                         wire busy_flag;
+475                         wire [31:0] miso_data;
+476                         
+477                         SPI_master SPI_master (
+478                             .GCLK        (S_AXI_ACLK),
+479                             .NRST        (S_AXI_ARESETN),
+480                             .start_i     (start_pulse),
+481                             .busy_o      (busy_flag), // out
+482                             .spi_mode_i  (slv_reg2[1:0]),
+483                             .sck_speed_i (slv_reg3[1:0]),
+484                             .word_len_i  (slv_reg4[1:0]),
+485                             .IFG_i     (slv_reg5[7:0]),
+486                             .CS_SCK_i  (slv_reg6[7:0]),
+487                             .SCK_CS_i  (slv_reg7[7:0]),
+488                             .mosi_data_i (slv_reg8),
+489                             .miso_data_o (miso_data), // out
+490                             .MISO_i      (MISO),
+491                             .MOSI_o      (MOSI),
+492                             .SCLK_o      (SCK),
+493                             .CS_o        (CS)
+494                         );
+495                         
+496                         always @ (posedge S_AXI_ACLK) begin
+497        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+498        1/1                      slv_reg1 &lt;= 32'd0;
+499        1/1                      slv_reg9 &lt;= 32'd0;
+500                             end
+501                             else begin
+502        1/1                      slv_reg1 &lt;= {{31{1'b0}},busy_flag};
+503        1/1                      slv_reg9 &lt;= miso_data;
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod10.html" >AXI_SPI_n_regs</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s4"><td class="lf">Conditions</td><td>42</td><td>19</td><td>45.24</td></tr>
+<tr class="s4"><td class="lf">Logical</td><td>42</td><td>19</td><td>45.24</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       151
+ EXPRESSION (((~axi_awready)) &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+             --------1-------    ------2------    ------3-----    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       160
+ EXPRESSION (S_AXI_BREADY &amp;&amp; axi_bvalid)
+             ------1-----    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       184
+ EXPRESSION (((~axi_awready)) &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+             --------1-------    ------2------    ------3-----    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       205
+ EXPRESSION (((~axi_wready)) &amp;&amp; S_AXI_WVALID &amp;&amp; S_AXI_AWVALID &amp;&amp; aw_en)
+             -------1-------    ------2-----    ------3------    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       227
+ EXPRESSION (axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; axi_awready &amp;&amp; S_AXI_AWVALID)
+             -----1----    ------2-----    -----3-----    ------4------
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       352
+ EXPRESSION (axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; ((~axi_bvalid)) &amp;&amp; axi_wready &amp;&amp; S_AXI_WVALID)
+             -----1-----    ------2------    -------3-------    -----4----    ------5-----
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       360
+ EXPRESSION (S_AXI_BREADY &amp;&amp; axi_bvalid)
+             ------1-----    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       386
+ EXPRESSION (((~axi_arready)) &amp;&amp; S_AXI_ARVALID)
+             --------1-------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       417
+ EXPRESSION (axi_arready &amp;&amp; S_AXI_ARVALID &amp;&amp; ((~axi_rvalid)))
+             -----1-----    ------2------    -------3-------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       423
+ EXPRESSION (axi_rvalid &amp;&amp; S_AXI_RREADY)
+             -----1----    ------2-----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod10.html" >AXI_SPI_n_regs</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">52</td>
+<td class="rt">29</td>
+<td class="rt">55.77 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">1096</td>
+<td class="rt">553</td>
+<td class="rt">50.46 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">548</td>
+<td class="rt">287</td>
+<td class="rt">52.37 </td>
+</tr><tr class="s4">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">548</td>
+<td class="rt">266</td>
+<td class="rt">48.54 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">18</td>
+<td class="rt">72.00 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">212</td>
+<td class="rt">174</td>
+<td class="rt">82.08 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">106</td>
+<td class="rt">89</td>
+<td class="rt">83.96 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">106</td>
+<td class="rt">85</td>
+<td class="rt">80.19 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s4">
+<td>Signals</td>
+<td class="rt">27</td>
+<td class="rt">11</td>
+<td class="rt">40.74 </td>
+</tr><tr class="s4">
+<td>Signal Bits</td>
+<td class="rt">884</td>
+<td class="rt">379</td>
+<td class="rt">42.87 </td>
+</tr><tr class="s4">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">442</td>
+<td class="rt">198</td>
+<td class="rt">44.80 </td>
+</tr><tr class="s4">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">442</td>
+<td class="rt">181</td>
+<td class="rt">40.95 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>MISO</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>MOSI</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>SCK</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>CS</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_ACLK</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARESETN</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWADDR[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWADDR[5:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWPROT[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_WDATA[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WSTRB[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BRESP[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARADDR[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARADDR[5]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARPROT[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RDATA[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RDATA[3:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RDATA[31:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RRESP[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>axi_awaddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_awaddr[5:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_awready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_wready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_bresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_bvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_araddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_araddr[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_araddr[4:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_araddr[5]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_arready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rdata[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rdata[3:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rdata[31:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg0[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg1[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg1[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg2[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg2[31:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg3[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg3[31:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg4[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg4[31:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg5[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg5[5:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg5[6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg5[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg5[31:8]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg6[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg6[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg7[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg7[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>slv_reg8[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg9[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg9[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg9[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg9[31:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg_rden</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>slv_reg_wren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_data_out[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_data_out[3:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_data_out[31:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>aw_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>start_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>busy_flag</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>miso_data[3:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>miso_data[31:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod10.html" >AXI_SPI_n_regs</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">41</td>
+<td class="rt">39</td>
+<td class="rt">95.12 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">144</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">178</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">199</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">231</td>
+<td class="rt">12</td>
+<td class="rt">10</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">345</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">379</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">410</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>CASE</td>
+<td class="rt">438</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">456</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">497</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+144        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+145        	    begin
+146        	      axi_awready <= 1'b0;
+           <font color = "green">	      ==></font>
+147        	      aw_en <= 1'b1;
+148        	    end 
+149        	  else
+150        	    begin    
+151        	      if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en)
+           	      <font color = "green">-2-</font>  
+152        	        begin
+153        	          // slave is ready to accept write address when 
+154        	          // there is a valid write address and write data
+155        	          // on the write address and data bus. This design 
+156        	          // expects no outstanding transactions. 
+157        	          axi_awready <= 1'b1;
+           <font color = "green">	          ==></font>
+158        	          aw_en <= 1'b0;
+159        	        end
+160        	        else if (S_AXI_BREADY && axi_bvalid)
+           	             <font color = "green">-3-</font>  
+161        	            begin
+162        	              aw_en <= 1'b1;
+           <font color = "green">	              ==></font>
+163        	              axi_awready <= 1'b0;
+164        	            end
+165        	      else           
+166        	        begin
+167        	          axi_awready <= 1'b0;
+           <font color = "green">	          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+178        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+179        	    begin
+180        	      axi_awaddr <= 0;
+           <font color = "green">	      ==></font>
+181        	    end 
+182        	  else
+183        	    begin    
+184        	      if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en)
+           	      <font color = "green">-2-</font>  
+185        	        begin
+186        	          // Write Address latching 
+187        	          axi_awaddr <= S_AXI_AWADDR;
+           <font color = "green">	          ==></font>
+188        	        end
+           	        MISSING_ELSE
+           <font color = "green">	        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+199        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+200        	    begin
+201        	      axi_wready <= 1'b0;
+           <font color = "green">	      ==></font>
+202        	    end 
+203        	  else
+204        	    begin    
+205        	      if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en )
+           	      <font color = "green">-2-</font>  
+206        	        begin
+207        	          // slave is ready to accept write data when 
+208        	          // there is a valid write address and write data
+209        	          // on the write address and data bus. This design 
+210        	          // expects no outstanding transactions. 
+211        	          axi_wready <= 1'b1;
+           <font color = "green">	          ==></font>
+212        	        end
+213        	      else
+214        	        begin
+215        	          axi_wready <= 1'b0;
+           <font color = "green">	          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+231        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+232        	    begin
+233        	      slv_reg0 <= 0;
+           <font color = "green">	      ==></font>
+234        	      start_pulse <= 1'b0;
+235        //	      slv_reg1 <= 0; // busy from spi
+236        	      slv_reg2 <= 0;
+237        	      slv_reg3 <= 0;
+238        	      slv_reg4 <= 0;
+239        	      slv_reg5 <= 0;
+240        	      slv_reg6 <= 0;
+241        	      slv_reg7 <= 0;
+242        	      slv_reg8 <= 0; 
+243        //	      slv_reg9 <= 0; // miso_data from spi
+244        	    end 
+245        	  else begin
+246        	    start_pulse <= 1'b0;
+247        	    if (slv_reg_wren)
+           	    <font color = "green">-2-</font>  
+248        	      begin
+249        	        case ( axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
+           	        <font color = "red">-3-</font>  
+250        	          4'h0:
+251        	            begin
+252        	              // WO pulse register: a write of start[0]=1 generates one clock pulse.
+253        	              slv_reg0 <= 0;
+254        	              if (S_AXI_WSTRB[0])
+           	              <font color = "red">-4-</font>  
+255        	                start_pulse <= S_AXI_WDATA[0];
+           <font color = "green">	                ==></font>
+           	                MISSING_ELSE
+           <font color = "red">	                ==></font>
+256        	            end
+257        /*	          4'h1:
+258        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+259        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+260        	                // Respective byte enables are asserted as per write strobes 
+261        	                // Slave register 1
+262        	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+263        	              end  
+264        */	          4'h2:
+265        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+266        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+267        	                // Respective byte enables are asserted as per write strobes 
+268        	                // Slave register 2
+269        	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+270        	              end  
+271        	          4'h3:
+272        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+273        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+274        	                // Respective byte enables are asserted as per write strobes 
+275        	                // Slave register 3
+276        	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+277        	              end  
+278        	          4'h4:
+279        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+280        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+281        	                // Respective byte enables are asserted as per write strobes 
+282        	                // Slave register 4
+283        	                slv_reg4[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+284        	              end  
+285        	          4'h5:
+286        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+287        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+288        	                // Respective byte enables are asserted as per write strobes 
+289        	                // Slave register 5
+290        	                slv_reg5[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+291        	              end  
+292        	          4'h6:
+293        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+294        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+295        	                // Respective byte enables are asserted as per write strobes 
+296        	                // Slave register 6
+297        	                slv_reg6[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+298        	              end  
+299        	          4'h7:
+300        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+301        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+302        	                // Respective byte enables are asserted as per write strobes 
+303        	                // Slave register 7
+304        	                slv_reg7[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+305        	              end  
+306        	          4'h8:
+307        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+           <font color = "green">	            ==></font>
+308        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+309        	                // Respective byte enables are asserted as per write strobes 
+310        	                // Slave register 8
+311        	                slv_reg8[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+312        	              end  
+313        /*	          4'h9:
+314        	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+315        	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+316        	                // Respective byte enables are asserted as per write strobes 
+317        	                // Slave register 9
+318        	                slv_reg9[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+319        	              end  
+320        */	          default : begin
+321        	                      slv_reg0 <= slv_reg0;
+           <font color = "red">	                      ==></font>
+322        //	                      slv_reg1 <= slv_reg1; // busy from spi
+323        	                      slv_reg2 <= slv_reg2;
+324        	                      slv_reg3 <= slv_reg3;
+325        	                      slv_reg4 <= slv_reg4;
+326        	                      slv_reg5 <= slv_reg5;
+327        	                      slv_reg6 <= slv_reg6;
+328        	                      slv_reg7 <= slv_reg7;
+329        	                      slv_reg8 <= slv_reg8;
+330        //	                      slv_reg9 <= slv_reg9; // miso_data from spi
+331        	                    end
+332        	        endcase
+333        	      end
+           	      MISSING_ELSE
+           <font color = "green">	      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h0 </td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h0 </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h2 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h3 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h4 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h5 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h6 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h7 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>4'h8 </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+345        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+346        	    begin
+347        	      axi_bvalid  <= 0;
+           <font color = "green">	      ==></font>
+348        	      axi_bresp   <= 2'b0;
+349        	    end 
+350        	  else
+351        	    begin    
+352        	      if (axi_awready && S_AXI_AWVALID && ~axi_bvalid && axi_wready && S_AXI_WVALID)
+           	      <font color = "green">-2-</font>  
+353        	        begin
+354        	          // indicates a valid write response is available
+355        	          axi_bvalid <= 1'b1;
+           <font color = "green">	          ==></font>
+356        	          axi_bresp  <= 2'b0; // 'OKAY' response 
+357        	        end                   // work error responses in future
+358        	      else
+359        	        begin
+360        	          if (S_AXI_BREADY && axi_bvalid) 
+           	          <font color = "green">-3-</font>  
+361        	            //check if bready is asserted while bvalid is high) 
+362        	            //(there is a possibility that bready is always asserted high)   
+363        	            begin
+364        	              axi_bvalid <= 1'b0; 
+           <font color = "green">	              ==></font>
+365        	            end  
+           	            MISSING_ELSE
+           <font color = "green">	            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+379        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+380        	    begin
+381        	      axi_arready <= 1'b0;
+           <font color = "green">	      ==></font>
+382        	      axi_araddr  <= 32'b0;
+383        	    end 
+384        	  else
+385        	    begin    
+386        	      if (~axi_arready && S_AXI_ARVALID)
+           	      <font color = "green">-2-</font>  
+387        	        begin
+388        	          // indicates that the slave has acceped the valid read address
+389        	          axi_arready <= 1'b1;
+           <font color = "green">	          ==></font>
+390        	          // Read address latching
+391        	          axi_araddr  <= S_AXI_ARADDR;
+392        	        end
+393        	      else
+394        	        begin
+395        	          axi_arready <= 1'b0;
+           <font color = "green">	          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+410        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+411        	    begin
+412        	      axi_rvalid <= 0;
+           <font color = "green">	      ==></font>
+413        	      axi_rresp  <= 0;
+414        	    end 
+415        	  else
+416        	    begin    
+417        	      if (axi_arready && S_AXI_ARVALID && ~axi_rvalid)
+           	      <font color = "green">-2-</font>  
+418        	        begin
+419        	          // Valid read data is available at the read data bus
+420        	          axi_rvalid <= 1'b1;
+           <font color = "green">	          ==></font>
+421        	          axi_rresp  <= 2'b0; // 'OKAY' response
+422        	        end   
+423        	      else if (axi_rvalid && S_AXI_RREADY)
+           	           <font color = "green">-3-</font>  
+424        	        begin
+425        	          // Read data is accepted by the master
+426        	          axi_rvalid <= 1'b0;
+           <font color = "green">	          ==></font>
+427        	        end                
+           	        MISSING_ELSE
+           <font color = "green">	        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+438        	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
+           	      <font color = "green">-1-</font>  
+439        //	        4'h0   : reg_data_out <= slv_reg0;
+440        	        4'h1   : reg_data_out <= slv_reg1; // busy from spi
+           <font color = "green">	        ==></font>
+441        //	        4'h2   : reg_data_out <= slv_reg2;
+442        //	        4'h3   : reg_data_out <= slv_reg3;
+443        //	        4'h4   : reg_data_out <= slv_reg4;
+444        //	        4'h5   : reg_data_out <= slv_reg5;
+445        //	        4'h6   : reg_data_out <= slv_reg6;
+446        //	        4'h7   : reg_data_out <= slv_reg7;
+447        //	        4'h8   : reg_data_out <= slv_reg8;
+448        	        4'h9   : reg_data_out <= slv_reg9; // miso_data from spi
+           <font color = "green">	        ==></font>
+449        	        default : reg_data_out <= 0;
+           <font color = "green">	        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>4'h1 </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>4'h9 </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+456        	  if ( S_AXI_ARESETN == 1'b0 )
+           	  <font color = "green">-1-</font>  
+457        	    begin
+458        	      axi_rdata  <= 0;
+           <font color = "green">	      ==></font>
+459        	    end 
+460        	  else
+461        	    begin    
+462        	      // When there is a valid read address (S_AXI_ARVALID) with 
+463        	      // acceptance of read address by the slave (axi_arready), 
+464        	      // output the read dada 
+465        	      if (slv_reg_rden)
+           	      <font color = "green">-2-</font>  
+466        	        begin
+467        	          axi_rdata <= reg_data_out;     // register read data
+           <font color = "green">	          ==></font>
+468        	        end   
+           	        MISSING_ELSE
+           <font color = "green">	        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+497                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+498                    slv_reg1 <= 32'd0;
+           <font color = "green">            ==></font>
+499                    slv_reg9 <= 32'd0;
+500                end
+501                else begin
+502                    slv_reg1 <= {{31{1'b0}},busy_flag};
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_10">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_AXI_SPI_n_regs">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

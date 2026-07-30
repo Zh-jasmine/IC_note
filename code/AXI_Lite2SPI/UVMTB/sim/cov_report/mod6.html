@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: tb_top</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_tb_top'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_tb_top')">tb_top</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod6.html#Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod6.html#Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/tmp/AXI-LITE2SPI/UVMTB/tb_top.sv')">/tmp/AXI-LITE2SPI/UVMTB/tb_top.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod6.html#inst_tag_6"  onclick="showContent('inst_tag_6')">tb_top</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod6.html#Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod6.html#Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_tb_top'>
+<hr>
+<a name="inst_tag_6"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_6" >tb_top</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod6.html#Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod6.html#Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 80.01</td>
+<td class="s9 cl rt"> 90.00</td>
+<td class="s5 cl rt"> 58.93</td>
+<td class="s6 cl rt"> 66.51</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 89.63</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<span class=inst>none</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod3.html#inst_tag_3" id="tag_urg_inst_3">DUT</a></td>
+<td class="s7 cl rt"> 75.32</td>
+<td class="s8 cl rt"> 88.96</td>
+<td class="s5 cl rt"> 58.93</td>
+<td class="s6 cl rt"> 64.57</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 89.15</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod8.html#inst_tag_8" id="tag_urg_inst_8">axi_vif</a></td>
+<td class="s5 cl rt"> 53.90</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 53.90</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod5.html#inst_tag_5" id="tag_urg_inst_5">spi_vif</a></td>
+<td class="s9 cl rt"> 94.59</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 94.59</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_11" id="tag_urg_inst_11">u_axi_sva_checker</a></td>
+<td class="s9 cl rt"> 94.02</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 88.04</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_9" id="tag_urg_inst_9">u_miso_model</a></td>
+<td class="s9 cl rt"> 97.14</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 95.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_4" id="tag_urg_inst_4">u_spi_sva_checker</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_tb_top'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod6.html" >tb_top</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">INITIAL</td><td>85</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">INITIAL</td><td>90</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">INITIAL</td><td>187</td><td>5</td><td>5</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+84                          initial begin
+85         1/1                  s00_axi_aclk = 0;
+86         3/3                  forever #5 s00_axi_aclk = ~s00_axi_aclk;
+87                          end
+88                      
+89                          initial begin
+90         1/1                  s00_axi_aresetn = 0;
+91         2/2                  #100;
+92         1/1                  s00_axi_aresetn = 1;
+93                          end
+94                      
+95                          // ========== Interfaces ==========
+96                          axi_interface axi_vif();
+97                          spi_interface spi_vif();
+98                      
+99                          wire MOSI;
+100                         wire SCK;
+101                         wire CS;
+102                     
+103                         assign axi_vif.ACLK    = s00_axi_aclk;
+104                         assign axi_vif.ARESETN = s00_axi_aresetn;
+105                         assign spi_vif.GCLK    = s00_axi_aclk;
+106                         assign spi_vif.SCLK    = SCK;
+107                         assign spi_vif.MOSI    = MOSI;
+108                         assign spi_vif.CS      = CS;
+109                         // ============================================================
+110                         // SVA checkers
+111                         // ============================================================
+112                         spi_sva_checker u_spi_sva_checker (
+113                             .GCLK         (spi_vif.GCLK),
+114                             .ARESETn      (s00_axi_aresetn),
+115                             .SCLK         (spi_vif.SCLK),
+116                             .CS           (spi_vif.CS),
+117                             .MOSI         (spi_vif.MOSI)
+118                         );
+119                     
+120                         axi_sva_checker u_axi_sva_checker (
+121                             .ACLK   (s00_axi_aclk),
+122                             .ARESETn(s00_axi_aresetn),
+123                             .AWVALID(axi_vif.AWVALID),
+124                             .AWREADY(axi_vif.AWREADY),
+125                             .WVALID (axi_vif.WVALID),
+126                             .WREADY (axi_vif.WREADY),
+127                             .BRESP  (axi_vif.BRESP),
+128                             .BVALID (axi_vif.BVALID),
+129                             .ARVALID(axi_vif.ARVALID),
+130                             .ARREADY(axi_vif.ARREADY),
+131                             .RDATA  (axi_vif.RDATA),
+132                             .RRESP  (axi_vif.RRESP),
+133                             .RVALID (axi_vif.RVALID)
+134                         );
+135                     
+136                         // ============================================================
+137                         // DUT
+138                         // ============================================================
+139                         AXI_slave_top DUT (
+140                             .s00_axi_aclk    (s00_axi_aclk),
+141                             .s00_axi_aresetn (s00_axi_aresetn),
+142                             .s00_axi_awaddr  (axi_vif.AWADDR[5:0]),
+143                             .s00_axi_awprot  (axi_vif.AWPROT),
+144                             .s00_axi_awvalid (axi_vif.AWVALID),
+145                             .s00_axi_awready (axi_vif.AWREADY),
+146                             .s00_axi_wdata   (axi_vif.WDATA),
+147                             .s00_axi_wstrb   (axi_vif.WSTRB),
+148                             .s00_axi_wvalid  (axi_vif.WVALID),
+149                             .s00_axi_wready  (axi_vif.WREADY),
+150                             .s00_axi_bresp   (axi_vif.BRESP),
+151                             .s00_axi_bvalid  (axi_vif.BVALID),
+152                             .s00_axi_bready  (axi_vif.BREADY),
+153                             .s00_axi_araddr  (axi_vif.ARADDR[5:0]),
+154                             .s00_axi_arprot  (axi_vif.ARPROT),
+155                             .s00_axi_arvalid (axi_vif.ARVALID),
+156                             .s00_axi_arready (axi_vif.ARREADY),
+157                             .s00_axi_rdata   (axi_vif.RDATA),
+158                             .s00_axi_rresp   (axi_vif.RRESP),
+159                             .s00_axi_rvalid  (axi_vif.RVALID),
+160                             .s00_axi_rready  (axi_vif.RREADY),
+161                             .MISO            (spi_vif.MISO),
+162                             .MOSI            (MOSI),
+163                             .SCK             (SCK),
+164                             .CS              (CS)
+165                         );
+166                     
+167                         wire [1:0] dut_spi_mode;
+168                         wire [1:0] dut_word_len;
+169                     
+170                         assign dut_spi_mode = DUT.AXI_SPI_n_regs0.slv_reg2[1:0];
+171                         assign dut_word_len = DUT.AXI_SPI_n_regs0.slv_reg4[1:0];
+172                     
+173                         // ============================================================
+174                         // Simple MISO slave model for readback tests
+175                         // ============================================================
+176                         spi_miso_slave_model u_miso_model (
+177                             .GCLK    (spi_vif.GCLK),
+178                             .SCLK    (spi_vif.SCLK),
+179                             .CS      (spi_vif.CS),
+180                             .tx_data (spi_vif.miso_tx_data),
+181                             .spi_mode(dut_spi_mode),
+182                             .word_len(dut_word_len),
+183                             .MISO    (spi_vif.MISO)
+184                         );
+185                         // ========== UVM start ==========
+186                         initial begin
+187        1/1                  $fsdbDumpfile(&quot;tb_top.fsdb&quot;);
+188        1/1                  $fsdbDumpvars(0, tb_top);
+189        1/1                  uvm_config_db#(virtual axi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;axi_vif&quot;, axi_vif);
+190        1/1                  uvm_config_db#(virtual spi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;spi_vif&quot;, spi_vif);
+191        1/1                  run_test();
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod6.html" >tb_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">18</td>
+<td class="rt">18</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">9</td>
+<td class="rt">9</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">9</td>
+<td class="rt">9</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">18</td>
+<td class="rt">18</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">9</td>
+<td class="rt">9</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">9</td>
+<td class="rt">9</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>s00_axi_aclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s00_axi_aresetn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>MOSI</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>SCK</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>CS</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dut_spi_mode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dut_word_len[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_6">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+  <ul name="tag_tb_top">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

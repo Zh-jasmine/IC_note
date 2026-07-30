@@ -1,0 +1,91 @@
+Command: /home/zh/Desktop/vcs_sync/AXI_Full_Crossbar/uvm/sim/./codex_vcs/simv -l codex_vcs/sim.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:58 2026
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+Addressing configuration for axi_crossbar_addr instance tb_top.dut_wrap.dut.axi_crossbar_wr_inst.s_ifaces[0].addr_inst
+ 0 ( 0): 00000000 / 12 -- 00000000-00000fff
+ 1 ( 0): 00010000 / 12 -- 00010000-00010fff
+ 2 ( 0): 00020000 / 12 -- 00020000-00020fff
+Addressing configuration for axi_crossbar_addr instance tb_top.dut_wrap.dut.axi_crossbar_wr_inst.s_ifaces[1].addr_inst
+ 0 ( 0): 00000000 / 12 -- 00000000-00000fff
+ 1 ( 0): 00010000 / 12 -- 00010000-00010fff
+ 2 ( 0): 00020000 / 12 -- 00020000-00020fff
+Addressing configuration for axi_crossbar_addr instance tb_top.dut_wrap.dut.axi_crossbar_rd_inst.s_ifaces[0].addr_inst
+ 0 ( 0): 00000000 / 12 -- 00000000-00000fff
+ 1 ( 0): 00010000 / 12 -- 00010000-00010fff
+ 2 ( 0): 00020000 / 12 -- 00020000-00020fff
+Addressing configuration for axi_crossbar_addr instance tb_top.dut_wrap.dut.axi_crossbar_rd_inst.s_ifaces[1].addr_inst
+ 0 ( 0): 00000000 / 12 -- 00000000-00000fff
+ 1 ( 0): 00010000 / 12 -- 00010000-00010fff
+ 2 ( 0): 00020000 / 12 -- 00020000-00020fff
+UVM_INFO @ 0: reporter [RNTST] Running test axi_smoke_rw_test...
+
+Note-[FCICIO] Instance coverage is ON
+/home/zh/Desktop/vcs_sync/AXI_Full_Crossbar/uvm/sim/../tb/environment/axi_coverage.sv, 11
+axi_env_pkg, "axi_env_pkg::axi_coverage::axi_cg"
+  Instance coverage is set (option.per_instance = 1) for covergroup 
+  'axi_env_pkg::axi_coverage::axi_cg'
+  
+  Covergroup Instance: tb_top.me.obj.axi_cg 
+  Design hierarchy: axi_env_pkg
+
+UVM_INFO ../tb/sequences/axi_smoke_rw_seq.sv(115) @ 345000: uvm_test_top.env.master_agent0.seqr@@seq [AXI_SMOKE_SEQ] AXI4 smoke sequence passed: 2 writes + 2 reads
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 395000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../tb/environment/axi_coverage.sv(39) @ 395000: uvm_test_top.env.cov [AXI_COV] Functional coverage = 57.74%
+UVM_INFO ../tb/environment/axi_scoreboard.sv(553) @ 395000: uvm_test_top.env.scb [AXI_SCB] Observed items: S-side=10 M-side=10 route_checks=4 write_checks=2 read_checks=4 resp_checks=4 scb_errors=0
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 395000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 395000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    7
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[AXI_COV]     1
+[AXI_SCB]     1
+[AXI_SMOKE_SEQ]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time               395000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 395000 ps
+CPU Time:      0.280 seconds;       Data structure size:   0.8Mb
+Thu Jul 30 03:58:46 2026
