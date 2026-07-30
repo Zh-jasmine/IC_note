@@ -1,0 +1,5 @@
+/* Modern sans style: Latin text uses Segoe, Chinese falls back to Noto Sans SC. */
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-content {
+    font-family: "Segoe UI Variable", "Segoe UI", "Noto Sans SC", sans-serif;
+}

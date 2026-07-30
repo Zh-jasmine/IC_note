@@ -1,0 +1,16 @@
+{
+  "cssTheme": "Baseline",
+  "accentColor": "#eeb044",
+  "textFontFamily": "Sans Serif Collection,Microsoft YaHei UI",
+  "monospaceFontFamily": "JetBrains Mono",
+  "baseFontSize": 17,
+  "baseFontSizeAction": true,
+  "theme": "obsidian",
+  "interfaceFontFamily": "Sans Serif Collection",
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "enabledCssSnippets": [
+    "font-sans-segoe",
+    "mermaid-horizontal-scroll"
+  ]
+}

@@ -1,0 +1,14 @@
+/* Add horizontal scrolling for wide Mermaid diagrams in reading view. */
+.markdown-preview-view .mermaid,
+.markdown-reading-view .mermaid {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 0.5rem;
+}
+
+.markdown-preview-view .mermaid svg,
+.markdown-reading-view .mermaid svg {
+    max-width: none !important;
+}

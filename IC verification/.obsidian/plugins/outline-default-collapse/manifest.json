@@ -1,0 +1,9 @@
+{
+  "id": "outline-default-collapse",
+  "name": "Stable Outline",
+  "version": "1.0.4",
+  "minAppVersion": "0.15.0",
+  "description": "A stable collapsible outline pane that defaults to top-level headings.",
+  "author": "Codex",
+  "isDesktopOnly": false
+}

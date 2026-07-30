@@ -1,0 +1,30 @@
+.stable-outline {
+    padding: var(--size-2-2) 0;
+}
+
+.stable-outline-empty {
+    color: var(--text-muted);
+    font-size: var(--font-ui-small);
+    padding: var(--size-4-2) var(--size-4-3);
+}
+
+.stable-outline-root {
+    padding: 0 var(--size-2-2);
+}
+
+.stable-outline-node > .stable-outline-self {
+    border-radius: var(--radius-s);
+    padding-inline-start: calc(var(--stable-outline-depth) * 12px);
+}
+
+.stable-outline-node > .stable-outline-self:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.stable-outline-title:hover {
+    color: var(--text-accent);
+}
+
+.stable-outline-toggle-empty {
+    visibility: hidden;
+}
