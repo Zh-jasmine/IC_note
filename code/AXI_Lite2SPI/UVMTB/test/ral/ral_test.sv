@@ -122,10 +122,6 @@ class ral_test extends test_base;
             `uvm_info("RAL", $sformatf("[poke] miso_data poke 0x5A5A5A5A → frontdoor read=0x%0h（硬件刷新预期回0）", rv), UVM_LOW)
         end
 
-        // 清空 scoreboard 队列：RAL write mosi_data 会被 SCB 拦截入队，
-        // 本 test 不触发 SPI 传输，手动清掉避免 SCB_FAIL
-        env.scb.expected_data_q.delete();
-
         if (err_cnt == 0)
             `uvm_info("RAL", "==== RAL 测试全部通过 ====", UVM_LOW)
         else

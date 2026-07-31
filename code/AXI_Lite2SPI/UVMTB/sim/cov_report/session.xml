@@ -1,6 +1,6 @@
-<session version="1.1" release="O-2018.09-SP2" timestp="2026-07-30 07:07:09 GMT">
+<session version="1.1" release="O-2018.09-SP2" timestp="2026-07-31 14:36:35 GMT">
   <info>
-    <attr name="datetime" value="Thu Jul 30 03:07:11 2026
+    <attr name="datetime" value="Fri Jul 31 10:36:36 2026
 "/>
     <attr name="command" value="urg -dir /tmp/AXI-LITE2SPI/cov.vdb -report cov_report"/>
     <attr name="top_instance" value="tb_top,uvm_custom_install_recording,uvm_custom_install_verdi_recording"/>
@@ -19,8 +19,8 @@
   <old_coverage>
   <scope type="top" name="top">
     <metric name="Line" value="334/765" />
-    <metric name="Cond" value="33/56" />
-    <metric name="Toggle" value="1551/2344" />
+    <metric name="Cond" value="36/56" />
+    <metric name="Toggle" value="1554/2344" />
     <metric name="FSM" value="6/8" />
     <metric name="Branch" value="133/191" />
     <metric name="Assert" value="3/3" />

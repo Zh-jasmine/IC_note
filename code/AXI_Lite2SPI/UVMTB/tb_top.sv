@@ -28,6 +28,9 @@ import uvm_pkg::*;
 `include "sva/spi_sva_checker.sv"
 `include "sva/axi_sva_checker.sv"
 
+// Reference model
+`include "ref_model/spi_ref_model.sv"
+
 // Scoreboard
 `include "scoreboard/tb_scoreboard.sv"
 
@@ -43,33 +46,29 @@ import uvm_pkg::*;
 `include "ral/axi_spi_reg_block.sv"
 
 // Test library
-`include "test/test_base.sv"
+`include "test/base/test_base.sv"
 // SPI tests
-`include "test/spi_word_len_test.sv"
-`include "test/spi_mode_test.sv"
-`include "test/spi_cs_sck_test.sv"
-`include "test/spi_sck_cs_test.sv"
-`include "test/spi_ifg_test.sv"
-`include "test/spi_sck_speed_test.sv"
-`include "test/spi_burst_test.sv"
-`include "test/spi_alternating_test.sv"
-`include "test/spi_data_all_0_test.sv"
-`include "test/spi_data_all_1_test.sv"
-`include "test/spi_miso_base.sv"
-`include "test/spi_miso_read_test.sv"
-`include "test/spi_miso_all_0_test.sv"
-`include "test/spi_miso_all_1_test.sv"
-`include "test/spi_random_test.sv"
+`include "test/spi/spi_word_len_test.sv"
+`include "test/spi/spi_mode_test.sv"
+`include "test/spi/spi_cs_sck_test.sv"
+`include "test/spi/spi_sck_cs_test.sv"
+`include "test/spi/spi_ifg_test.sv"
+`include "test/spi/spi_sck_speed_test.sv"
+`include "test/spi/spi_burst_test.sv"
+`include "test/spi/spi_data_pattern_tests.sv"
+`include "test/spi/spi_random_test.sv"
+// MISO tests
+`include "test/miso/spi_miso_tests.sv"
 // AXI tests
-`include "test/axi_busy_test.sv"
-`include "test/axi_handshake_test.sv"
-`include "test/axi_wstrb_test.sv"
-`include "test/axi_concurrent_test.sv"
+`include "test/axi/axi_busy_test.sv"
+`include "test/axi/axi_handshake_test.sv"
+`include "test/axi/axi_wstrb_test.sv"
+`include "test/axi/axi_concurrent_test.sv"
 // RAL test
-`include "test/ral_test.sv"
+`include "test/ral/ral_test.sv"
 // Reset tests
-`include "test/reset_mid_test.sv"
-`include "test/reset_sva_test.sv"
+`include "test/reset/reset_mid_test.sv"
+`include "test/reset/reset_sva_test.sv"
 
 // DUT RTL
 `include "../DUT/AXI_slave_top.v"

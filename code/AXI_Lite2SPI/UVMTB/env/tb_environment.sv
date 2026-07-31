@@ -6,6 +6,7 @@ class tb_environment extends uvm_env;
 
     axi_agent     axi_agt;
     spi_monitor   spi_mtr;
+    spi_ref_model rm;
     tb_scoreboard scb;
     tb_coverage   cov;
 
@@ -26,6 +27,9 @@ class tb_environment extends uvm_env;
         uvm_config_db#(axi_config)::set(this, "spi_mtr", "axi_config", env_cfg.axi_cfg);
         spi_mtr = spi_monitor::type_id::create("spi_mtr", this);
 
+        uvm_config_db#(axi_config)::set(this, "rm", "axi_config", env_cfg.axi_cfg);
+        rm = spi_ref_model::type_id::create("rm", this);
+
         uvm_config_db#(axi_config)::set(this, "scb", "axi_config", env_cfg.axi_cfg);
         scb = tb_scoreboard::type_id::create("scb", this);
 
@@ -35,8 +39,9 @@ class tb_environment extends uvm_env;
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
 
-        axi_agt.axi_mtr_port.connect(scb.axi_fifo.analysis_export);
-        spi_mtr.spi_mtr_port.connect(scb.spi_fifo.analysis_export);
+        axi_agt.axi_mtr_port.connect(rm.axi_fifo.analysis_export);
+        rm.expected_spi_item.connect(scb.expected_spi_fifo.analysis_export);
+        spi_mtr.spi_mtr_port.connect(scb.actual_spi_fifo.analysis_export);
 
         axi_agt.axi_mtr_port.connect(cov.axi_export);
         spi_mtr.spi_mtr_port.connect(cov.spi_export);

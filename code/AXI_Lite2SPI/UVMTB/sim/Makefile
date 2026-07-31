@@ -15,6 +15,12 @@ COMP = vcs \
 	+incdir+env \
 	+incdir+scoreboard \
 	+incdir+test \
+	+incdir+test/base \
+	+incdir+test/spi \
+	+incdir+test/miso \
+	+incdir+test/axi \
+	+incdir+test/reset \
+	+incdir+test/ral \
 	+incdir+coverage \
 	+incdir+ral \
 	+incdir+../DUT \

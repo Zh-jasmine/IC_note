@@ -2,8 +2,8 @@
 //   目标：验证 AXI 写入时只有被 WSTRB 选中的 byte 会更新，未选中的 byte 保持原值
 //   方法：先 wstrb=4'hF 全写 base，再用部分 wstrb 写 patch，
 //         backdoor 读寄存器确认字节选通正确。
-//   注意：本 test 不触发 SPI 传输（无需验证 MOSI），写 slv_reg8 会被
-//         scoreboard 压入期望队列，test 结束前手动清空避免 SCB_FAIL。
+//   注意：本 test 不触发 SPI 传输。RM 只在 START=1 时产生 expected SPI item，
+//         因此单独写 slv_reg8 不会触发 scoreboard 比对。
 
 `ifndef AXI_WSTRB_TEST_SV
 `define AXI_WSTRB_TEST_SV
@@ -89,10 +89,6 @@ class axi_wstrb_test extends test_base;
 
         // 稀疏选通：非连续 byte
         check_case("sparse", 32'h00AA00CC, 4'b0101);
-
-        // 清空 scoreboard 队列：本 test 只验证寄存器层面的 WSTRB，
-        // 不触发 SPI 传输，写 slv_reg8 导致的 push 在这里清掉
-        env.scb.expected_data_q.delete();
 
         `uvm_info(get_name(), "WSTRB byte select test done — all 5 cases", UVM_LOW)
         phase.drop_objection(this);

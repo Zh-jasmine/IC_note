@@ -1,9 +1,8 @@
-// spi_miso_base_test — MISO 测试公共基类（不注册 factory，不可独立运行）
-//   遍历 SPI mode x word_len，设 MISO slave 回送数据，发一帧后读 slv_reg9(0x24) 比对。
-//   子类只需在 new() 中覆盖 exp_miso_byte。
+// SPI MISO readback tests.
+// The base class sweeps mode x word_len; subclasses only select MISO pattern.
 
-`ifndef SPI_MISO_BASE_SV
-`define SPI_MISO_BASE_SV
+`ifndef SPI_MISO_TESTS_SV
+`define SPI_MISO_TESTS_SV
 
 class spi_miso_base_test extends test_base;
 
@@ -79,5 +78,32 @@ class spi_miso_base_test extends test_base;
         phase.drop_objection(this);
     endtask
 endclass : spi_miso_base_test
+
+class spi_miso_read_test extends spi_miso_base_test;
+    `uvm_component_utils(spi_miso_read_test)
+
+    function new(string name = "spi_miso_read_test", uvm_component parent = null);
+        super.new(name, parent);
+        exp_miso_byte = 8'h5A;
+    endfunction
+endclass : spi_miso_read_test
+
+class spi_miso_all_0_test extends spi_miso_base_test;
+    `uvm_component_utils(spi_miso_all_0_test)
+
+    function new(string name = "spi_miso_all_0_test", uvm_component parent = null);
+        super.new(name, parent);
+        exp_miso_byte = 8'h00;
+    endfunction
+endclass : spi_miso_all_0_test
+
+class spi_miso_all_1_test extends spi_miso_base_test;
+    `uvm_component_utils(spi_miso_all_1_test)
+
+    function new(string name = "spi_miso_all_1_test", uvm_component parent = null);
+        super.new(name, parent);
+        exp_miso_byte = 8'hFF;
+    endfunction
+endclass : spi_miso_all_1_test
 
 `endif
