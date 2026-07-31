@@ -185,13 +185,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "309af259635483d3",
+  "active": "e6d861b98b860c71",
   "lastOpenFiles": [
+    "AXI2SPI/UVM RAL.md",
+    "AXI2SPI/AXI4-Lite 协议.md",
+    "AXI2SPI/VPLAN.md",
     "未命名",
     "AXI2SPI/项目梳理.md",
-    "AXI2SPI/UVM RAL.md",
-    "AXI2SPI/VPLAN.md",
-    "AXI2SPI/AXI4-Lite 协议.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/03 axi_if.md",
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_word_len_test.sv",
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_sck_speed_test.sv",
@@ -202,7 +202,6 @@
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_data_pattern_tests.sv",
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_cs_sck_test.sv",
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_burst_test.sv",
-    "code/AXI_Lite2SPI/UVMTB/test/reset/reset_sva_test.sv",
     "code/AXI_Lite2SPI/VPLAN.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/04 axi_master_driver.md",
     "IC verification/Verdi 常用操作.md",

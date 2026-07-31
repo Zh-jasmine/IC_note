@@ -20,35 +20,35 @@ AXI-LITE2SPI 是一个 AXI4-Lite slave 到 SPI master 的桥接 IP。验证环�
 
 ## 覆盖矩阵
 
-| 模块/接口 | 检查点 | 状态 | 测试 / 实现 |
-|---|---|---:|---|
-| AXI-Lite | 寄存器 frontdoor 写 | 完成 | 通用配置 sequence + 定向测试 |
-| AXI-Lite | 可读寄存器 `busy` / `miso_data` | 完成 | `axi_busy_test`、MISO 测试、`ral_test` |
-| AXI-Lite | write-only 寄存器行为 | 完成 | RAL frontdoor write + backdoor peek |
-| AXI-Lite | AW/W 握手时序 | 完成 | `axi_handshake_test`：AW 先到、W 先到、同时到、长延迟 |
-| AXI-Lite | WSTRB 字节选通 | 完成 | `axi_wstrb_test`：单 byte lane + sparse mask |
-| AXI-Lite | busy/status 状态 | 完成 | `axi_busy_test`：传输中 busy=1，结束后 busy=0 |
-| AXI-Lite | BRESP/RRESP OKAY 路径 | 完成 | driver 捕获响应，RM 检查 OKAY |
-| AXI-Lite | 读写并发事务 | 完成 | `axi_concurrent_test`：写流发帧期间持续读 busy |
-| AXI-Lite | 非法地址读写 | 豁免 | DUT 默认保持原值 / 返回 0，当前项目展示价值较低 |
-| SPI | Mode 0/1/2/3 | 完成 | `spi_mode_test`、`spi_random_test` |
-| SPI | 字长 32/16/8/4 | 完成 | `spi_word_len_test`、`spi_random_test` |
-| SPI | SCK 四档分频 | 完成 | `spi_sck_speed_test`、功能覆盖 |
-| SPI | MOSI 数据模式 | 完成 | 全 0、全 1、0x55/0xAA、随机数据 |
-| SPI | MISO 回读 | 完成 | `spi_miso_read_test`、全 0、全 1 |
-| SPI | 背靠背多帧 | 完成 | `spi_burst_test` |
-| SPI | 约束随机回归 | 完成 | `spi_random_test`：80 帧约束随机 |
-| SPI 时序 | CS -> SCK 延迟 | 完成 | `spi_cs_sck_test`、SVA |
-| SPI 时序 | SCK 周期 | 完成 | `spi_sck_speed_test`、SVA |
-| SPI 时序 | SCK -> CS 延迟 | 完成 | `spi_sck_cs_test`、SVA |
-| SPI 时序 | IFG 帧间隔 | 完成 | `spi_ifg_test` |
-| 复位 | AXI 复位期间保持空闲 | 完成 | `axi_reset_sva.sv` |
-| 复位 | SPI 引脚复位期间保持 idle | 完成 | `spi_reset_sva.sv` |
-| 复位 | 传输中复位与恢复 | 完成 | `reset_mid_test`、`reset_sva_test` |
-| RM/SCB | 输入事务生成期望 SPI 输出 | 完成 | `spi_ref_model.sv` |
-| RM/SCB | expected/actual SPI 比较 | 完成 | `tb_scoreboard.sv` |
-| RAL | 寄存器模型 + adapter | 完成 | `axi_spi_reg_block.sv`、`axi_spi_reg_adapter.sv` |
-| RAL | frontdoor/backdoor 冒烟测试 | 完成 | `ral_test` |
+| 模块/接口    | 检查点                        |  状态 | 测试 / 实现                                         |
+| -------- | -------------------------- | --: | ----------------------------------------------- |
+| AXI-Lite | 寄存器 frontdoor 写            |  完成 | 通用配置 sequence + 定向测试                            |
+| AXI-Lite | 可读寄存器 `busy` / `miso_data` |  完成 | `axi_busy_test`、MISO 测试、`ral_test`              |
+| AXI-Lite | write-only 寄存器行为           |  完成 | RAL frontdoor write + backdoor peek             |
+| AXI-Lite | AW/W 握手时序                  |  完成 | `axi_handshake_test`：AW 先到、W 先到、同时到、长延迟         |
+| AXI-Lite | WSTRB 字节选通                 |  完成 | `axi_wstrb_test`：单 byte lane + sparse mask      |
+| AXI-Lite | busy/status 状态             |  完成 | `axi_busy_test`：传输中 busy=1，结束后 busy=0           |
+| AXI-Lite | BRESP/RRESP OKAY 路径        |  完成 | driver 捕获响应，RM 检查 OKAY                          |
+| AXI-Lite | 读写并发事务                     |  完成 | `axi_concurrent_test`：写流发帧期间持续读 busy            |
+| AXI-Lite | 非法地址读写                     |  豁免 | DUT 默认保持原值 / 返回 0，当前项目展示价值较低                    |
+| SPI      | Mode 0/1/2/3               |  完成 | `spi_mode_test`、`spi_random_test`               |
+| SPI      | 字长 32/16/8/4               |  完成 | `spi_word_len_test`、`spi_random_test`           |
+| SPI      | SCK 四档分频                   |  完成 | `spi_sck_speed_test`、功能覆盖                       |
+| SPI      | MOSI 数据模式                  |  完成 | 全 0、全 1、0x55/0xAA、随机数据                          |
+| SPI      | MISO 回读                    |  完成 | `spi_miso_read_test`、全 0、全 1                    |
+| SPI      | 背靠背多帧                      |  完成 | `spi_burst_test`                                |
+| SPI      | 约束随机回归                     |  完成 | `spi_random_test`：80 帧约束随机                      |
+| SPI 时序   | CS -> SCK 延迟               |  完成 | `spi_cs_sck_test`、SVA                           |
+| SPI 时序   | SCK 周期                     |  完成 | `spi_sck_speed_test`、SVA                        |
+| SPI 时序   | SCK -> CS 延迟               |  完成 | `spi_sck_cs_test`、SVA                           |
+| SPI 时序   | IFG 帧间隔                    |  完成 | `spi_ifg_test`                                  |
+| 复位       | AXI 复位期间保持空闲               |  完成 | `axi_reset_sva.sv`                              |
+| 复位       | SPI 引脚复位期间保持 idle          |  完成 | `spi_reset_sva.sv`                              |
+| 复位       | 传输中复位与恢复                   |  完成 | `reset_mid_test`、`reset_sva_test`               |
+| RM/SCB   | 输入事务生成期望 SPI 输出            |  完成 | `spi_ref_model.sv`                              |
+| RM/SCB   | expected/actual SPI 比较     |  完成 | `tb_scoreboard.sv`                              |
+| RAL      | 寄存器模型 + adapter            |  完成 | `axi_spi_reg_block.sv`、`axi_spi_reg_adapter.sv` |
+| RAL      | frontdoor/backdoor 冒烟测试    |  完成 | `ral_test`                                      |
 
 ## 回归测试清单
 
@@ -153,14 +153,3 @@ scoreboard
 | `x_mode_wlen` | 16/16 |
 | `x_mode_speed` | 16/16 |
 
-## 剩余工作
-
-| 优先级 | 项目 | 原因 |
-|---:|---|---|
-| P1 | busy 期间重复 start | 能检查 DUT 对重入触发的处理，适合补强鲁棒性 |
-| P1 | 非法地址 / 边界地址 | 能提高 `AXI_SPI_n_regs` 条件和分支覆盖 |
-| P2 | MISO model 扩展 | 当前定向 MISO 测试足够展示，后续可扩展到更多 mode/word_len 组合 |
-| P2 | 固定延时改事件等待 | 用 CS/busy 事件替代硬编码 `#` 延时，提高 test 稳定性 |
-| P2 | SPI FSM transition 定向测试 | 用特定 reset/start 间隔打到剩余 transition |
-
-当前结论：项目已经覆盖核心功能、协议、时序、复位和 RAL。后续增强集中在异常场景和代码覆盖 closure，不影响当前项目作为实习展示项目的完整性。
