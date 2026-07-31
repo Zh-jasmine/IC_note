@@ -1,250 +1,241 @@
-# UVM RAL (Register Abstraction Layer) 知识点
+# UVM RAL
 
-> 基于 `axi_spi_reg_block.sv` / `axi_spi_reg_adapter.sv` / `ral_test.sv` 的实战对照。
-> 代码路径：`UVMTB/ral/` + `UVMTB/test/ral_test.sv`
-> DUT 寄存器：10 个 slv_reg，地址 0x00 ~ 0x24，32bit
+> 对照代码：`UVMTB/ral/axi_spi_reg_block.sv`、`UVMTB/ral/axi_spi_reg_adapter.sv`、`UVMTB/test/ral/ral_test.sv`
 
----
+RAL 把 DUT 里的寄存器建模成 UVM 对象。test 访问寄存器时，可以调用 `reg.write()`、`reg.read()`、`peek()`、`poke()`，由 RAL map 和 adapter 把寄存器操作转换成 AXI transaction。这样 test 写的是寄存器语义，driver 仍然负责真实 AXI-Lite 时序。
 
-## 1. RAL 是什么
+在这个项目里，RAL 的主要价值是验证 AXI frontdoor 写路径和 backdoor 物理寄存器路径同时可用。配置寄存器通过 AXI 写入后会影响 SPI master，但 DUT 的 frontdoor 读译码只返回 `busy` 和 `miso_data`，所以多数配置寄存器在 RAL 中按 WO 建模。
 
-RAL = UVM 官方提供的寄存器抽象层。它把 DUT 里的硬件寄存器建模成 UVM 对象，让 test 用 `reg.read() / reg.write()` 访问寄存器，**不需要在 test 里手写 AXI 序列**。
+## 结构
 
-```
-RAL 之前（spi_cfg_seq 的写法）:
-  start_item(item);
-  item.addr = 32'h18; item.wdata = 4; item.write = 1;
-  finish_item(item);
-  → 用 axi_seq_item 直接驱动总线
-
-RAL 之后:
-  reg_model.cs_sck.write(status, 4);
-  → 读写走 reg 对象，底层由 adapter 自动转成 axi_seq_item
+```text
+ral_test.sv
+  -> reg_model.<reg>.write/read/peek/poke()
+  -> axi_spi_reg_block.sv
+  -> axi_spi_reg_adapter.sv
+  -> axi_seq_item
+  -> axi_sequencer
+  -> axi_driver
+  -> AXI-Lite bus
+  -> DUT
 ```
 
----
+RAL 里有三类对象：
 
-## 2. RAL 三层架构
+| 对象 | 责任 | 项目文件 |
+|---|---|---|
+| `uvm_reg` | 描述单个寄存器的字段、位宽、访问属性、复位值 | `reg_start`、`reg_status` 等 |
+| `uvm_reg_block` | 收集 10 个寄存器，建立地址 map 和 HDL backdoor path | `axi_spi_reg_block` |
+| `uvm_reg_adapter` | 在 RAL 请求和 AXI item 之间转换 | `axi_spi_reg_adapter` |
 
-```
-┌─────────────────────────────────────────┐
-│  ral_test.sv                            │
-│  test 通过 reg 对象读写寄存器            │
-├─────────────────────────────────────────┤
-│  axi_spi_reg_block.sv                   │
-│  10 个 reg 对象 + 地址映射 + hdl_path   │
-├─────────────────────────────────────────┤
-│  axi_spi_reg_adapter.sv                 │
-│  reg2bus: RAL 请求 → axi_seq_item       │
-│  bus2reg: axi_seq_item → RAL 结果       │
-├─────────────────────────────────────────┤
-│  axi_driver → AXI 总线 → DUT            │
-└─────────────────────────────────────────┘
-```
+## 寄存器访问属性
 
----
+DUT 有 10 个 32-bit `slv_reg`，地址范围 `0x00` 到 `0x24`。地址按 4 字节对齐，RTL 用 `addr[5:2]` 选择寄存器。
 
-## 3. 三要素
+| 地址 | RAL 名称 | RTL 寄存器 | RAL access | 原因 |
+|---:|---|---|---|---|
+| `0x00` | `start` | `slv_reg0` | WO | 写 bit0 触发 SPI 传输，frontdoor 读不返回配置值 |
+| `0x04` | `status` | `slv_reg1` | RO | `busy` 由 SPI master 硬件更新 |
+| `0x08` | `spi_mode` | `slv_reg2` | WO | 配置可写，frontdoor 读回 0 |
+| `0x0C` | `sck_speed` | `slv_reg3` | WO | 配置可写，frontdoor 读回 0 |
+| `0x10` | `word_len` | `slv_reg4` | WO | 配置可写，frontdoor 读回 0 |
+| `0x14` | `ifg` | `slv_reg5` | WO | 配置可写，frontdoor 读回 0 |
+| `0x18` | `cs_sck` | `slv_reg6` | WO | 配置可写，frontdoor 读回 0 |
+| `0x1C` | `sck_cs` | `slv_reg7` | WO | 配置可写，frontdoor 读回 0 |
+| `0x20` | `mosi_data` | `slv_reg8` | WO | 待发送数据可写，frontdoor 读回 0 |
+| `0x24` | `miso_data` | `slv_reg9` | RO | MISO 接收数据由硬件更新，frontdoor 可读 |
 
-### 3.1 `uvm_reg` — 单个寄存器
+这个 access policy 必须按 DUT 的可观察行为建模。配置寄存器虽然物理上存在，也能被 AXI 写进去，但 frontdoor 读译码没有返回这些寄存器，所以 RAL 用 WO。验证写入是否成功时，用 frontdoor write 走真实总线，再用 backdoor peek 读物理寄存器。
 
-每个寄存器定义一个 class，继承 `uvm_reg`：
+## uvm_reg
+
+单个寄存器类继承 `uvm_reg`。它描述字段位宽、最低位、访问属性、volatile 属性和复位值。
 
 ```systemverilog
-class reg_cs_sck extends uvm_reg;
-    `uvm_object_utils(reg_cs_sck)
-    rand uvm_reg_field cs_sck;          // 寄存器里的"字段"
+class reg_word_len extends uvm_reg;
+    `uvm_object_utils(reg_word_len)
+    rand uvm_reg_field wlen;
 
-    function new(string name = "reg_cs_sck");
-        super.new(name, 32, UVM_NO_COVERAGE);   // 32bit, 不生成覆盖率
+    function new(string name = "reg_word_len");
+        super.new(name, 32, UVM_NO_COVERAGE);
     endfunction
 
     virtual function void build();
-        cs_sck = uvm_reg_field::type_id::create("cs_sck");
-        // configure(parent, bit宽, lsb位置, access, volatile, reset值)
-        cs_sck.configure(this, 8, 0, "WO", 0, 8'h0, 1, 1, 1);
+        wlen = uvm_reg_field::type_id::create("wlen");
+        wlen.configure(this, 2, 0, "WO", 0, 2'h0, 1, 1, 1);
     endfunction
 endclass
 ```
 
-**关键参数**：
+`configure()` 的关键参数：
 
-| 字段         | 你在项目里用到的值          | 含义               |
-| ---------- | ------------------ | ---------------- |
-| `size`     | 8 / 2 / 1 / 32     | 该字段的 bit 位宽      |
-| `lsb_pos`  | 0                  | 最低位在寄存器的位置       |
-| `access`   | `WO` / `RO` / `RW` | **必须跟 DUT 实情一致** |
-| `volatile` | WO=0, RO=1         | 读操作前是否重新从硬件取     |
-| `reset`    | 对应复位值              | DUT 复位后寄存器值      |
-|            |                    |                  |
+| 参数 | 项目里的含义 |
+|---|---|
+| `size` | 字段位宽，例如 `word_len` 是 2 bit，`mosi_data` 是 32 bit |
+| `lsb_pos` | 字段最低位位置，本项目字段都从 bit0 开始 |
+| `access` | `WO` 或 `RO`，按 DUT frontdoor 可观察行为填写 |
+| `volatile` | 硬件会主动变化的 RO 字段设为 1，例如 `busy`、`miso_data` |
+| `reset` | DUT 复位后的字段值 |
+| `has_reset` | RAL 是否记录复位值 |
+| `is_rand` | 字段是否参与寄存器随机化 |
 
-**你项目里的 access policy — 这决定了 RAL 能不能跑通**：
+## uvm_reg_block
 
-| 地址        | 寄存器                  | access | 原因                          |
-| --------- | -------------------- | ------ | --------------------------- |
-| 0x00      | start                | **WO** | DUT 读译码只保留 0x04/0x24，其余读回 0 |
-| 0x04      | status               | **RO** | 硬件更新 busy 标志                |
-| 0x08~0x20 | spi_mode ~ mosi_data | **WO** | 写得进，但 frontdoor 读不回（读回 0）   |
-| 0x24      | miso_data            | **RO** | 硬件更新接收数据                    |
-
-WO 的寄存器必须用 **backdoor peek** 才能验证是否写入成功。
-
----
-
-### 3.2 `uvm_reg_block` — 寄存器集合模块
+`axi_spi_reg_block` 收集所有寄存器对象，并建立地址映射。
 
 ```systemverilog
-class axi_spi_reg_block extends uvm_reg_block;
-    rand reg_cs_sck cs_sck;   // 声明所有 reg 对象
-    uvm_reg_map map;           // 地址映射表
-
-    virtual function void build();
-        // ① 创建 + build 每个 reg
-        cs_sck = reg_cs_sck::type_id::create("cs_sck");
-        cs_sck.build();
-        // ② configure：把 reg 挂到 block 上
-        cs_sck.configure(this, null, "");
-        // ③ 地址映射
-        map = create_map("map", 32'h0, 4, UVM_LITTLE_ENDIAN, 1);
-        map.add_reg(cs_sck, 32'h18, "WO");
-        // ④ backdoor HDL 路径
-        add_hdl_path("tb_top.DUT.AXI_SPI_n_regs0");
-        cs_sck.add_hdl_path_slice("slv_reg6", 0, 32);
-        lock_model();  // build 结束后锁定
-    endfunction
-endclass
+map = create_map("map", 32'h0, 4, UVM_LITTLE_ENDIAN, 1);
+map.add_reg(start,     32'h00, "WO");
+map.add_reg(status,    32'h04, "RO");
+map.add_reg(spi_mode,  32'h08, "WO");
+map.add_reg(sck_speed, 32'h0C, "WO");
+map.add_reg(word_len,  32'h10, "WO");
+map.add_reg(ifg,       32'h14, "WO");
+map.add_reg(cs_sck,    32'h18, "WO");
+map.add_reg(sck_cs,    32'h1C, "WO");
+map.add_reg(mosi_data, 32'h20, "WO");
+map.add_reg(miso_data, 32'h24, "RO");
 ```
 
-`lock_model()` 很重要——建完之后调用，之后不能再改结构。
+`create_map("map", 32'h0, 4, UVM_LITTLE_ENDIAN, 1)` 表示：
 
-**背 景：add_hdl_path_slice — backdoor 能否工作的关键**：
+| 参数 | 含义 |
+|---|---|
+| `32'h0` | 寄存器块基地址 |
+| `4` | 总线每次访问 4 byte |
+| `UVM_LITTLE_ENDIAN` | 小端映射 |
+| `1` | byte addressing |
+
+`lock_model()` 在 build 末尾调用，表示寄存器结构已经固定。后续 test 可以访问模型，不能继续修改寄存器层次和 map。
+
+## Backdoor path
+
+backdoor 访问需要 RAL 知道 HDL 里的物理路径。项目里 block 级 root path 指向 DUT 内部寄存器模块，每个 reg 再绑定到对应 `slv_regN`。
 
 ```systemverilog
-add_hdl_path("tb_top.DUT.AXI_SPI_n_regs0");          // block 级别的 root
-cs_sck.add_hdl_path_slice("slv_reg6", 0, 32);        // reg 级别的 slice
+add_hdl_path("tb_top.DUT.AXI_SPI_n_regs0");
+word_len.add_hdl_path_slice("slv_reg4", 0, 32);
+mosi_data.add_hdl_path_slice("slv_reg8", 0, 32);
 ```
 
-完整 hdl 路径 = `tb_top.DUT.AXI_SPI_n_regs0.slv_reg6`。
+完整路径会组合成：
 
-这样 peek/poke 底层调的就是 `uvm_hdl_read("tb_top.DUT.AXI_SPI_n_regs0.slv_reg6", val)` 和 `uvm_hdl_deposit(...)`，**不走总线，直接物理读写信号**。
+```text
+tb_top.DUT.AXI_SPI_n_regs0.slv_reg4
+tb_top.DUT.AXI_SPI_n_regs0.slv_reg8
+```
 
----
+`peek()` 底层调用 `uvm_hdl_read()`，`poke()` 底层调用 `uvm_hdl_deposit()`。这条路径绕过 AXI 总线，直接访问仿真层级里的 HDL 信号。
 
-### 3.3 `uvm_reg_adapter` — 总线协议转换器
+## Frontdoor 和 Backdoor
+
+| 访问方式 | 调用 | 路径 | 仿真时间 | 当前用途 |
+|---|---|---|---|---|
+| frontdoor write | `reg.write(status, value)` | RAL -> adapter -> AXI driver -> DUT | 需要 AXI 握手 | 验证真实总线写路径 |
+| frontdoor read | `reg.read(status, value)` | RAL -> adapter -> AXI driver -> DUT | 需要 AXI 握手 | 读取 `busy`、`miso_data` |
+| backdoor peek | `reg.peek(status, value)` | `uvm_hdl_read` 直接读 RTL 信号 | 不推进总线事务 | 检查 WO 配置寄存器物理值 |
+| backdoor poke | `reg.poke(status, value)` | `uvm_hdl_deposit` 直接写 RTL 信号 | 不推进总线事务 | 演示 / 快速设置 / 特殊检查 |
+
+配置寄存器的典型检查流程：
+
+```text
+frontdoor write spi_mode = 2
+  -> AXI driver 发起真实写事务
+  -> DUT slv_reg2 被写入
+  -> backdoor peek slv_reg2
+  -> 比较 peek 值是否等于 2
+```
+
+这条检查同时覆盖两件事：AXI 写路径可用，物理寄存器确实更新。
+
+## Adapter
+
+adapter 把 RAL 的 `uvm_reg_bus_op` 转成项目自己的 `axi_seq_item`。
 
 ```systemverilog
-class axi_spi_reg_adapter extends uvm_reg_adapter;
-    // RAL 写请求 → axi_seq_item
-    virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
-        item.write = (rw.kind == UVM_WRITE);
-        item.addr  = rw.addr;
-        item.wdata = rw.data;
-        item.wstrb = 4'hF;       // reg 级写：全字节
-        return item;
-    endfunction
-
-    // axi_seq_item → RAL 读结果
-    virtual function void bus2reg(uvm_sequence_item bus_item,
-                                   ref uvm_reg_bus_op rw);
-        rw.data = item.rdata;     // 读返回数据
-        rw.status = UVM_IS_OK;
-    endfunction
-endclass
+virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
+    axi_seq_item item;
+    item = axi_seq_item::type_id::create("axi_reg_item");
+    item.kind  = AXI_CH_REQ;
+    item.write = (rw.kind == UVM_WRITE);
+    item.addr  = rw.addr;
+    item.wdata = rw.data;
+    item.wstrb = rw.byte_en;
+    if (item.wstrb == 4'h0) item.wstrb = 4'hF;
+    return item;
+endfunction
 ```
 
-两个设置：
+`bus2reg()` 把 driver 执行后的 AXI item 转回 RAL 结果：
+
+```systemverilog
+rw.kind   = item.write ? UVM_WRITE : UVM_READ;
+rw.addr   = item.addr;
+rw.data   = item.write ? item.wdata : item.rdata;
+rw.status = ((item.write && item.bresp == 2'b00) ||
+             (!item.write && item.rresp == 2'b00)) ? UVM_IS_OK : UVM_NOT_OK;
+```
+
+当前 adapter 设置：
 
 | 字段 | 值 | 含义 |
-|------|-----|------|
-| `supports_byte_enable = 0` | 0 | RAL 不控制 wstrb（reg 级写固定全字节） |
-| `provides_responses = 0` | 0 | driver 在同一个 req 上回填 rdata，不需独立 rsp |
+|---|---:|---|
+| `supports_byte_enable` | 1 | RAL 可以把 byte enable 传给 `wstrb` |
+| `provides_responses` | 1 | driver 执行后提供 response，adapter 根据 `bresp/rresp` 设置 RAL status |
 
----
+`reg2bus()` 中如果 `rw.byte_en` 为 0，会把 `wstrb` 补成 `4'hF`。这样普通寄存器写默认是全字节写。
 
-## 4. 前门 (Frontdoor) vs 后门 (Backdoor)
+## ral_test
 
-这是 RAL 最重要的概念。
+`ral_test` 是 RAL 冒烟测试，不触发 SPI 传输，也不依赖 scoreboard 判断 pass/fail。它验证 RAL 模型、adapter、frontdoor 和 backdoor 路径能连通。
 
-|           | **前门**              | **后门**                                 |
-| --------- | ------------------- | -------------------------------------- |
-| 怎么访问      | 走 AXI 总线（driver 驱动） | `uvm_hdl_read/deposit`（DPI 直接读 DUT 信号） |
-| 耗时        | 需要 AXI 握手，慢         | 零延时，仿真时间不前进                            |
-| 能读 WO 寄存器 | ❌ 读回 0（DUT 行为）      | ✅ 读到物理值                                |
-| 应用场景      | 正常读写验证              | 复位检查 / 覆盖率采样 / 快速设置                    |
+测试流程：
+
+```text
+1. 等 reset 释放
+2. backdoor peek 检查 WO 配置寄存器复位值为 0
+3. WO 寄存器 frontdoor write
+4. backdoor peek 同一个寄存器，确认物理值等于写入值
+5. frontdoor read status，确认 idle 时 busy=0
+6. 对 miso_data 做 poke/read 路径演示
+```
+
+`ral_test` 在 `connect_phase` 中把 RAL map 接到现有 AXI sequencer：
 
 ```systemverilog
-// 前门写：
-reg_model.cs_sck.write(status, 4);   // → reg2bus → AXI driver → DUT
-
-// 后门读：
-reg_model.cs_sck.peek(status, val);   // → uvm_hdl_read 直接读 DUT 信号
-
-// 后门写：
-reg_model.cs_sck.poke(status, 4);      // → uvm_hdl_deposit 直接写 DUT 信号
+reg_model.map.set_sequencer(env.axi_agt.axi_sqr, adapter);
+reg_model.map.set_auto_predict(1);
 ```
 
-**你的 test 中的典型用法—WO 寄存器验证**：
+`set_auto_predict(1)` 表示 frontdoor 操作完成后，RAL 自动更新 mirror。当前项目没有单独接 predictor，因此 auto predict 是最简洁的选择。
 
-```systemverilog
-// 第 1 步：前门写入（走真实 AXI 总线）
-wo_write_peek(reg_model.cs_sck, 32'h0C);
+## Mirror 和物理寄存器
 
-// 第 2 步：后门 peek 读出物理寄存器值
-// （因为 cs_sck 是 WO，前门读回 0，必须用 peek）
-reg_model.cs_sck.peek(st_p, pv);
-// pv 应该等于之前写入的 0x0C
+RAL mirror 是 UVM 模型内部维护的一份影子值。它代表 RAL 认为寄存器当前应该是什么值。物理寄存器是 DUT RTL 里的 `slv_regN`。
+
+在本项目中，配置寄存器的验证重点是物理寄存器：
+
+```text
+reg.write()
+  -> mirror 可被 auto_predict 更新
+  -> DUT 物理寄存器也应该被 AXI 写入
+  -> backdoor peek 检查物理值
 ```
 
-这就是 RAL 的**双通路验证**：front door 确认总线协议通，back door 确认物理值真写进去了。
+只看 mirror 会漏掉 adapter、driver、地址映射或 RTL 写路径问题。frontdoor write + backdoor peek 能检查真实写入是否落到对应 `slv_regN`。
 
----
+## 当前边界
 
-## 5. RAL 预测机制 (Prediction)
+- RAL 已完成寄存器建模、adapter 接入、frontdoor/backdoor 冒烟测试。
+- 当前普通 SPI 功能测试仍主要使用 `axi_spi_cfg_seq`，没有全面迁移成 RAL sequence。
+- RAL register coverage 没单独打开，功能覆盖由 `tb_coverage::cg_spi_frame` 负责。
+- `miso_data` 由硬件刷新，`poke()` 后很快会被 RTL 重新赋值，所以 `ral_test` 只把它作为 backdoor 调用链演示。
 
-RAL 内部维护一份 `mirror`（影子值）用来跟踪寄存器的当前值。更新 mirror 有两种模式：
+面试时可以这样讲：
 
-| 模式 | 设置 | 优点 | 缺点 |
-|------|------|------|------|
-| **Auto Predict** | `map.set_auto_predict(1)` | 简单，write 后自动更新 mirror | 假设总线一定写入成功 |
-| **Explicit Predict** | `predict()` 或独立 predictor | 准确，考虑总线实际结果 | 难写 |
-
-你项目用的是 Auto Predict：
-
-```systemverilog
-reg_model.map.set_auto_predict(1);   // → connect_phase
+```text
+这个项目里的 RAL 用来建模 AXI-Lite 寄存器。
+配置寄存器按 WO 建模，因为 DUT frontdoor 读译码只返回 busy 和 miso_data。
+测试时用 frontdoor write 走真实 AXI 总线，再用 backdoor peek 检查 slv_reg 物理值。
+adapter 负责把 uvm_reg_bus_op 转成 axi_seq_item，并根据 bresp/rresp 返回 RAL status。
 ```
-
-之后每次 `reg.write()` 执行完后，RAL 会自己把 `wdata` 写入 mirror。不需要外部 predictor。
-
----
-
-## 6. RAL 冒烟测试流程 (ral_test.sv)
-
-你的 test 验证了四个场景：
-
-```
- 1. backdoor 复位检查：8 个 WO 寄存器 peek 应 = 0
-    → 确认 hdl_path 通 + 复位值对
-
- 2. WO: frontdoor write → backdoor peek 比对
-    → 确认前门写得进、后门确认写到物理值
-
- 3. RO: frontdoor read → busy=0（空闲时）
-    → 确认读通道通
-
- 4. backdoor poke → frontdoor read
-    → 演示 poke 调用链通，但硬件刷新导致预期内读回 0
-```
-
----
-
-## 7. RAL 在验证流程中的位置
-
-```
-VPlan → RAL 建模 → frontdoor 验证总线协议
-                  → backdoor 验证物理值
-                  → RAL sequence（替代 spi_cfg_seq）
-                  → Coverage（reg 访问覆盖率）
-```
-
-你的 RAL 当前停留：已建模 + 冒烟 test。下一步如果要替代 `spi_cfg_seq`，需要写 RAL sequence——用 `reg.write()` 代替 `write_reg(ADDR_xxx, val)`。不需要马上做，但在面试里你可以说"已经搭好了模型，序列迁移是自然的下一步"。

@@ -2,96 +2,123 @@
 tags: #AMBA #AXI #协议
 ---
 
-# AXI4-Lite 协议 （Advanced eXtensible Interface）
+# AXI4-Lite 协议
 
-AXI4-Lite 是 ARM 定义的 AMBA 总线协议之一。这套协议规定了一套标准的信号和时序规则，让芯片内部的主设备（如 CPU）和从设备（如 SPI 控制器）之间可以有序地交换数据。
+AXI4-Lite 是 AMBA AXI 家族里的轻量级 memory-mapped 总线协议。它让 CPU 或其他 master 通过地址访问 slave 内部寄存器。一次访问包含地址、数据、响应和握手信息，slave 根据地址选择寄存器，再按读写方向返回或更新数据。
 
-总线需要满足四个基本功能才能成为可靠性高、性能好的系统总线：第一，要有时钟和复位；第二，要可以寻址，因为这是一个地址映射协议（memory-mapped protocol）；第三，要能实现读写数据；第四，要能保证数据的安全传输。AXI4-Lite 的设计围绕这四个需求展开。
+在 AXI-LITE2SPI 项目里，AXI4-Lite 的职责是把 CPU 侧配置事务送进 DUT。SPI mode、SCK 分频、word length、片选时序和 MOSI 数据都通过 AXI 写寄存器完成；`START` 寄存器写 1 后，SPI master 使用当前寄存器配置发起串行传输。
 
 ## 时钟与复位
 
-任何同步总线都需要两个最基本的信号。时钟信号为所有模块提供统一的节拍，确保数据在确定的时刻被采样。复位信号让总线上的所有模块在启动时回到一个已知的初始状态。在 AXI4-Lite 中，这两个信号分别是 ACLK 和 ARESETN。ARESETN 中的 N 表示低电平有效，即复位信号为低时总线进入复位状态，此时所有的 VALID 和 READY 信号必须被清零。
+AXI4-Lite 是同步协议，所有通道都在 `ACLK` 上采样。`ARESETN` 是低有效复位，复位为低时，slave 输出需要回到已知状态。对验证来说，reset 检查至少包含两类行为：
 
-有了时钟和复位，总线有了运行的基础条件。接下来要考虑的是总线最核心的使命：传输数据。
+| 检查点 | 含义 |
+|---|---|
+| reset 期间输出 idle | `AWREADY/WREADY/BVALID/ARREADY/RVALID` 等 slave 输出不能保持旧事务状态 |
+| reset 后可恢复 | 复位释放后，新的 AXI 事务和 SPI 传输还能正常执行 |
 
-## 地址与数据
-
-总线完成一次传输需要两样东西：告诉从机操作哪一个位置（地址），以及要写入的内容或者期望读出的内容（数据）。因此地址信号和数据信号是所有总线最基本的一组信号。
-
-在 AXI4-Lite 中，地址信号和数据信号是分离的。写操作使用 AWADDR 携带写地址，WDATA 携带写数据。读操作使用 ARADDR 携带读地址，RDATA 携带读数据。
-
-如果总线只定义地址和数据信号，主机把地址和数据放到线上后并不知道从机有没有收到，从机也不知道主机是否已经把数据放稳。双方需要一种沟通机制来协调每个传输的起止，这就是握手。
+当前项目用 `axi_sva_checker` 检查 AXI reset 行为，用 `reset_mid_test` 和 `reset_sva_test` 覆盖传输中 reset。
 
 ## VALID-READY 握手
 
-每一笔传输都涉及两个方向。发送方将数据准备好后拉高 VALID 信号，表示"数据已经在线上了"。接收方准备好接收后拉高 READY 信号，表示"我可以接收了"。当 VALID 和 READY 同时为高时，传输在同一个时钟周期内完成。
+AXI 每个通道都用 `VALID` 和 `READY` 表示一次传输是否完成。发送方把 payload 放稳后拉高 `VALID`，接收方可以接收时拉高 `READY`。在某个时钟上升沿，`VALID && READY` 同时为 1，这个通道的一次传输完成。
 
-握手过程可以衍生出三种时序情况。第一种，发送方先拉高 VALID，接收方尚未准备好，READY 为低，此时传输等待，直到接收方拉高 READY 后两者同时为高才完成。第二种，接收方提前将 READY 拉高，等待发送方给出数据，当发送方拉高 VALID 时传输立刻完成。第三种，双方在同一拍同时将 VALID 和 READY 拉高，传输在一个周期内立即完成。
+握手允许三种时序：
 
-VALID 信号有一个重要的规则：一旦拉高，在对应的 READY 到达之前不能撤销。这是因为接收方可能正在处理其他事务，它假设 VALID 拉高后数据会稳定保持，等待它来接收。如果发送方中途撤销 VALID，协议认为这是违规行为。
+| 时序 | 说明 |
+|---|---|
+| VALID 先到 | 发送方先准备好，等待接收方 READY |
+| READY 先到 | 接收方提前准备好，等待发送方 VALID |
+| 同拍到达 | 发送和接收同一拍完成 |
 
-## 写事务的三个通道
+`VALID` 拉高后，在握手完成前 payload 必须保持稳定。验证 AXI slave 时，需要覆盖不同到达顺序，确认 slave 不会因为地址和数据错开而丢事务。
 
-写操作需要三个步骤：告诉从机写到哪里（地址）、告诉从机写入什么（数据）、从机告诉主机写入是否成功（响应）。AXI4-Lite 将这三个步骤分离为三个独立的通道。
+当前 DUT 的写接收逻辑比较保守：只有 `AWVALID` 和 `WVALID` 同时有效时，才会同时拉起 `AWREADY` 和 `WREADY`。`axi_handshake_test` 通过 `aw_delay` 和 `w_delay` 覆盖 AW 先到、W 先到、同拍到达和长延迟场景。
 
-写地址通道（AW 通道）包含 AWADDR、AWVALID 和 AWREADY。主机将目标地址放到 AWADDR 上，拉高 AWVALID，从机通过 AWREADY 表示可以接收地址。
+## 五个通道
 
-写数据通道（W 通道）包含 WDATA、WSTRB（Write Strobe，字节选通）、WVALID 和 WREADY。主机将数据放到 WDATA 上，同时通过 WSTRB 指示哪些字节是有效的（因为 32bit 总线可以只写入 1 个或 2 个字节）。WVALID 和 WREADY 的握手控制数据的传输。
+AXI4-Lite 有五个独立通道。写事务使用 AW、W、B 三个通道；读事务使用 AR、R 两个通道。
 
-写响应通道（B 通道）包含 BRESP（Write Response，写响应）、BVALID 和 BREADY。从机完成写入后，通过 BVALID 通知主机写入结果，主机通过 BREADY 表示收到。BRESP 的取值如下。
+| 通道 | 方向 | 主要信号 | 作用 |
+|---|---|---|---|
+| AW | master -> slave | `AWADDR/AWVALID/AWREADY` | 写地址 |
+| W | master -> slave | `WDATA/WSTRB/WVALID/WREADY` | 写数据和字节选通 |
+| B | slave -> master | `BRESP/BVALID/BREADY` | 写响应 |
+| AR | master -> slave | `ARADDR/ARVALID/ARREADY` | 读地址 |
+| R | slave -> master | `RDATA/RRESP/RVALID/RREADY` | 读数据和读响应 |
 
-| BRESP 值 | 名称     | 含义                                         |
-| ------- | ------ | ------------------------------------------ |
-| 2'b00   | OKAY   | 操作正常完成                                     |
-| 2'b01   | EXOKAY | 独占访问成功（只在 AXI4-Full 中使用，AXI4-Lite 不支持独占访问） |
-| 2'b10   | SLVERR | 从机错误，例如写入一个只读寄存器                           |
-| 2'b11   | DECERR | 解码错误，总线上没有设备认领这个地址                         |
+写地址和写数据在协议上属于独立通道，可以错开到达。slave 需要在内部保存地址和数据，等一笔写事务完整后更新寄存器并返回 B 响应。当前 DUT 选择同时接收 AW/W，因此验证重点是 driver 能保持 `VALID` 和 payload，直到 DUT 同时接收。
 
-将写操作拆成三个独立的通道，意味着地址、数据和响应可以在时间上错开，互不阻塞。例如地址可以在数据之前先传过去，或者两者同时传。
+读事务的顺序更直接：AR 握手给出地址，R 通道返回数据和响应。
 
-## 读事务的两个通道
+## WSTRB
 
-读操作只需要两个步骤：告诉从机读哪个地址（地址），从机返回该地址的数据（数据）。因此读操作只有两个通道。
+`WSTRB` 是写字节选通。32-bit AXI 数据总线有 4 个 byte lane，`WSTRB[i]` 表示 `WDATA[8*i +: 8]` 是否写入目标寄存器。
 
-读地址通道（AR 通道）包含 ARADDR、ARVALID 和 ARREADY，工作方式与写地址通道完全对称。
+| WSTRB | 写入 byte |
+|---|---|
+| `4'b0001` | byte0，`WDATA[7:0]` |
+| `4'b0010` | byte1，`WDATA[15:8]` |
+| `4'b0100` | byte2，`WDATA[23:16]` |
+| `4'b1000` | byte3，`WDATA[31:24]` |
+| `4'b1111` | 四个 byte 全写 |
 
-读数据通道（R 通道）包含 RDATA、RRESP、RVALID 和 RREADY。从机将读出的数据放到 RDATA 上，拉高 RVALID，主机通过 RREADY 表示接收。RRESP 与 BRESP 一样返回操作结果，取值相同。
+寄存器写逻辑必须只更新被 `WSTRB` 选中的 byte。`axi_wstrb_test` 用单 byte lane 和 sparse mask 检查这个行为。RM 对 `MOSI_DATA` 也按 `WSTRB` 更新 `mosi_data_shadow`，这样 expected SPI 数据和 AXI 字节写语义保持一致。
 
-读操作的过程只有一种顺序——不可能在没有地址的情况下就返回数据。这一点与写操作不同，写操作有地址先到、数据先到或同时到达三种可能性。
+## 响应
 
-##  CSR（配置寄存器组）
+AXI response 表示 slave 对事务的处理结果。
 
-这个 DUT 是一个 AXI-to-SPI Bridge，它内部所有寄存器的功能都围绕着 SPI 工作参数展开。CPU 原生支持 AXI 协议，不需要额外的协议翻译就能发起总线事务，但 AXI 只负责运输数据，不负责理解数据的语义。寄存器层承担了语义转换的角色：AXI 接口将 CPU 发来的地址和数据正确接收后，寄存器层将其翻译成 SPI master 需要的具体配置（如 CPOL/CPHA 模式、时钟分频、帧间隙时序等）。寄存器层还提供了频率适配的缓冲作用：CPU 在 GHz 级别完成写入后可以立刻处理其他事务，SPI 在 MHz 级别逐 bit 串行移位由 SPI master 独立完成。
+| 响应值 | 名称 | 含义 |
+|---|---|---|
+| `2'b00` | OKAY | 正常完成 |
+| `2'b01` | EXOKAY | 独占访问成功，AXI4-Lite 项目中不用 |
+| `2'b10` | SLVERR | slave 错误 |
+| `2'b11` | DECERR | 地址解码错误 |
 
-AXI4-Lite 按字节地址寻址。这个 DUT 的地址总线宽度是 6bit，最多可以寻址 64 字节（$2^6$）。每个地址对应 1 字节，CPU 都认这个标准（从 1960 年代的 IBM System/360 开始延续至今）。数据总线宽度是 32bit（4 字节），意味着每次传输读取或写入 4 字节。所以 RTL 中定义的寄存器组是 4 字节宽度，每个寄存器占连续 4 个地址：
+当前 DUT 固定返回 OKAY。RM 会检查 `BRESP/RRESP` 是否为 `2'b00`。非法地址读写在当前项目中按设计意图豁免：写非法地址保持原值，读未实现地址返回 0。
 
+## 地址映射
+
+AXI4-Lite 按 byte address 寻址。当前 DUT 地址总线宽度为 6 bit，可以覆盖 64 byte。数据总线宽度为 32 bit，每个寄存器占 4 byte，所以寄存器地址按 4 对齐。
+
+RTL 中：
+
+```text
+ADDR_LSB = 2
+OPT_MEM_ADDR_BITS = 3
+寄存器选择 = addr[5:2]
 ```
-slv_reg0 → 地址 0x00 ~ 0x03
-slv_reg1 → 地址 0x04 ~ 0x07
-slv_reg2 → 地址 0x08 ~ 0x0B
-```
 
-CPU 的读写地址必须是 4 的倍数（0x00、0x04、0x08...），二进制最低两位是 0。RTL 中通过两个参数实现这个映射：ADDR_LSB 设为 2，表示跳过最低的 2 个字节地址位；OPT_MEM_ADDR_BITS 设为 3，表示用 3bit 来选择寄存器。
+地址表：
 
-RTL 地址译码使用 addr[5:2]，共 10 个寄存器，地址分配如下。
+| 地址 | `addr[5:2]` | RTL 寄存器 | AXI 访问 | SPI 连接 / 语义 |
+|---:|---:|---|---|---|
+| `0x00` | `4'h0` | `slv_reg0` | WO | `start_i = slv_reg0[0]`，写 1 触发传输 |
+| `0x04` | `4'h1` | `slv_reg1` | RO | `busy_o -> slv_reg1[0]` |
+| `0x08` | `4'h2` | `slv_reg2` | WO | `spi_mode_i = slv_reg2[1:0]` |
+| `0x0C` | `4'h3` | `slv_reg3` | WO | `sck_speed_i = slv_reg3[1:0]` |
+| `0x10` | `4'h4` | `slv_reg4` | WO | `word_len_i = slv_reg4[1:0]` |
+| `0x14` | `4'h5` | `slv_reg5` | WO | `IFG_i = slv_reg5[7:0]` |
+| `0x18` | `4'h6` | `slv_reg6` | WO | `CS_SCK_i = slv_reg6[7:0]` |
+| `0x1C` | `4'h7` | `slv_reg7` | WO | `SCK_CS_i = slv_reg7[7:0]` |
+| `0x20` | `4'h8` | `slv_reg8` | WO | `mosi_data_i = slv_reg8[31:0]` |
+| `0x24` | `4'h9` | `slv_reg9` | RO | `miso_data_o -> slv_reg9[31:0]` |
 
-| 地址   | addr[5:2] | 寄存器      | AXI 访问 | 连接 SPI_master                | 功能说明                                          |
-| ---- | --------- | -------- | ------ | ---------------------------- | --------------------------------------------- |
-| 0x00 | 4'h0      | slv_reg0 | 可读写    | start_i = slv_reg0[0]        | SPI 启动触发，bit0=1 开始传输                          |
-| 0x04 | 4'h1      | slv_reg1 | 只读     | busy_o → slv_reg1[0]         | SPI 忙状态（AXI 写无效，由 SPI master 更新）              |
-| 0x08 | 4'h2      | slv_reg2 | 可读写    | spi_mode_i = slv_reg2[1:0]   | SPI 模式：00=Mode0, 01=Mode1, 10=Mode2, 11=Mode3 |
-| 0x0C | 4'h3      | slv_reg3 | 可读写    | sck_speed_i = slv_reg3[1:0]  | SCK 时钟分频系数                                    |
-| 0x10 | 4'h4      | slv_reg4 | 可读写    | word_len_i = slv_reg4[1:0]   | SPI 字长：00=32b, 01=16b, 10=8b, 11=4b           |
-| 0x14 | 4'h5      | slv_reg5 | 可读写    | ifg=slv_reg5=[7:0]           | SPI 帧间隔（两次传输之间的时钟数）                           |
-| 0x18 | 4'h6      | slv_reg6 | 可读写    | CS_SCK_i = slv_reg6[7:0]     | CS 拉低到第一个 SCK 边沿的延迟                           |
-| 0x1C | 4'h7      | slv_reg7 | 可读写    | SCK_CS_i = slv_reg7[7:0]     | 最后 SCK 边沿到 CS 拉高的延迟                           |
-| 0x20 | 4'h8      | slv_reg8 | 可读写    | mosi_data_i = slv_reg8[31:0] | MOSI 发送数据寄存器                                  |
-| 0x24 | 4'h9      | slv_reg9 | 只读     | miso_data_o → slv_reg9[31:0] | MISO 接收数据（AXI 写无效，由 SPI master 更新）            |
+配置寄存器是 WO，是因为 DUT 的读译码只返回 `0x04 busy` 和 `0x24 miso_data`。配置值可以通过 AXI 写入并驱动 SPI master，但 frontdoor 读这些地址会返回 0。RAL 因此用 frontdoor write + backdoor peek 检查配置寄存器物理值。
 
-注意：
-- slv_reg1 和 slv_reg9 是只读的，由 SPI master 硬件更新。AXI 写入这些地址的写操作会被忽略，不会返回 SLVERR（BRESP 固定返回 OKAY）。
-- 所有寄存器复位值为 0。不显式配置的参数（spi_mode、sck_speed、IFG 等）默认使用 0 值，对应 Mode0、最基本时序，DUT 可以正常工作。
+所有配置寄存器复位值为 0。默认配置对应 Mode0、默认分频、32-bit word length 和默认时序。直接写 `MOSI_DATA` 再写 `START` 也能触发一帧默认配置下的 SPI 传输。
 
-## 验证工程师需要关注的检查点
+## 验证关注点
 
-握手覆盖方面，验证环境应当产生三种握手时序来验证从设备的响应是否正确。写操作还需要验证 WSTRB 字节选通信号的各种取值：全 4 字节写入、仅写最低 1 字节、仅写高 2 字节等不同组合，确认只有被 WSTRB 选中的字节真正写入寄存器。读写并发方面，AXI4-Lite 的五通道是独立的，验证应当覆盖读和写同时发起的情形。复位行为的验证重点是复位后所有 VALID 和 READY 回归零，从设备进入 idle 状态，不响应任何未完成的事务。
+| 类别 | 检查内容 | 当前测试 |
+|---|---|---|
+| 握手 | AW/W 同拍、AW 先到、W 先到、长延迟 | `axi_handshake_test` |
+| 字节写 | 单 byte lane、sparse mask | `axi_wstrb_test` |
+| 状态 | 传输中 busy=1，结束 busy=0 | `axi_busy_test` |
+| 并发 | 写流发帧期间读 busy | `axi_concurrent_test` |
+| 响应 | `BRESP/RRESP` 为 OKAY | driver + RM |
+| reset | reset 期间 AXI 输出 idle，reset 后恢复 | SVA + reset tests |
+| RAL | WO frontdoor write + backdoor peek，RO frontdoor read | `ral_test` |
+
+AXI4-Lite 在这个项目里的验证重点集中在寄存器访问语义、握手稳定性、WSTRB 字节更新、读写通道互不阻塞，以及这些 AXI 输入事务能否正确驱动后端 SPI 行为。
