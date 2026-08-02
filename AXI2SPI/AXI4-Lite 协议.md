@@ -4,7 +4,7 @@ tags: #AMBA #AXI #协议
 
 # AXI4-Lite 协议
 
-AXI4-Lite 是 AMBA AXI 家族里的轻量级 memory-mapped 总线协议。它让 CPU 或其他 master 通过地址访问 slave 内部寄存器。一次访问包含地址、数据、响应和握手信息，slave 根据地址选择寄存器，再按读写方向返回或更新数据。
+AXI4-Lite 是面向 memory-mapped control/status register 的轻量级 AXI 协议，保留 AXI 的五通道 VALID/READY 解耦握手、读写独立和 `WSTRB` 字节选通，但去掉 burst、ID 和乱序能力，适合低带宽寄存器配置场景。
 
 在 AXI-LITE2SPI 项目里，AXI4-Lite 的职责是把 CPU 侧配置事务送进 DUT。SPI mode、SCK 分频、word length、片选时序和 MOSI 数据都通过 AXI 写寄存器完成；`START` 寄存器写 1 后，SPI master 使用当前寄存器配置发起串行传输。
 
@@ -12,10 +12,10 @@ AXI4-Lite 是 AMBA AXI 家族里的轻量级 memory-mapped 总线协议。它让
 
 AXI4-Lite 是同步协议，所有通道都在 `ACLK` 上采样。`ARESETN` 是低有效复位，复位为低时，slave 输出需要回到已知状态。对验证来说，reset 检查至少包含两类行为：
 
-| 检查点 | 含义 |
-|---|---|
+| 检查点             | 含义                                                         |
+| --------------- | ---------------------------------------------------------- |
 | reset 期间输出 idle | `AWREADY/WREADY/BVALID/ARREADY/RVALID` 等 slave 输出不能保持旧事务状态 |
-| reset 后可恢复 | 复位释放后，新的 AXI 事务和 SPI 传输还能正常执行 |
+| reset 后可恢复      | 复位释放后，新的 AXI 事务和 SPI 传输还能正常执行                              |
 
 当前项目用 `axi_sva_checker` 检查 AXI reset 行为，用 `reset_mid_test` 和 `reset_sva_test` 覆盖传输中 reset。
 
@@ -39,13 +39,13 @@ AXI 每个通道都用 `VALID` 和 `READY` 表示一次传输是否完成。发�
 
 AXI4-Lite 有五个独立通道。写事务使用 AW、W、B 三个通道；读事务使用 AR、R 两个通道。
 
-| 通道 | 方向 | 主要信号 | 作用 |
-|---|---|---|---|
-| AW | master -> slave | `AWADDR/AWVALID/AWREADY` | 写地址 |
-| W | master -> slave | `WDATA/WSTRB/WVALID/WREADY` | 写数据和字节选通 |
-| B | slave -> master | `BRESP/BVALID/BREADY` | 写响应 |
-| AR | master -> slave | `ARADDR/ARVALID/ARREADY` | 读地址 |
-| R | slave -> master | `RDATA/RRESP/RVALID/RREADY` | 读数据和读响应 |
+| 通道  | 方向              | 主要信号                        | 作用       |
+| --- | --------------- | --------------------------- | -------- |
+| AW  | master -> slave | `AWADDR/AWVALID/AWREADY`    | 写地址      |
+| W   | master -> slave | `WDATA/WSTRB/WVALID/WREADY` | 写数据和字节选通 |
+| B   | slave -> master | `BRESP/BVALID/BREADY`       | 写响应      |
+| AR  | master -> slave | `ARADDR/ARVALID/ARREADY`    | 读地址      |
+| R   | slave -> master | `RDATA/RRESP/RVALID/RREADY` | 读数据和读响应  |
 
 写地址和写数据在协议上属于独立通道，可以错开到达。slave 需要在内部保存地址和数据，等一笔写事务完整后更新寄存器并返回 B 响应。当前 DUT 选择同时接收 AW/W，因此验证重点是 driver 能保持 `VALID` 和 payload，直到 DUT 同时接收。
 
@@ -92,18 +92,19 @@ OPT_MEM_ADDR_BITS = 3
 
 地址表：
 
-| 地址 | `addr[5:2]` | RTL 寄存器 | AXI 访问 | SPI 连接 / 语义 |
-|---:|---:|---|---|---|
-| `0x00` | `4'h0` | `slv_reg0` | WO | `start_i = slv_reg0[0]`，写 1 触发传输 |
-| `0x04` | `4'h1` | `slv_reg1` | RO | `busy_o -> slv_reg1[0]` |
-| `0x08` | `4'h2` | `slv_reg2` | WO | `spi_mode_i = slv_reg2[1:0]` |
-| `0x0C` | `4'h3` | `slv_reg3` | WO | `sck_speed_i = slv_reg3[1:0]` |
-| `0x10` | `4'h4` | `slv_reg4` | WO | `word_len_i = slv_reg4[1:0]` |
-| `0x14` | `4'h5` | `slv_reg5` | WO | `IFG_i = slv_reg5[7:0]` |
-| `0x18` | `4'h6` | `slv_reg6` | WO | `CS_SCK_i = slv_reg6[7:0]` |
-| `0x1C` | `4'h7` | `slv_reg7` | WO | `SCK_CS_i = slv_reg7[7:0]` |
-| `0x20` | `4'h8` | `slv_reg8` | WO | `mosi_data_i = slv_reg8[31:0]` |
-| `0x24` | `4'h9` | `slv_reg9` | RO | `miso_data_o -> slv_reg9[31:0]` |
+|     地址 | `addr[5:2]` | RTL 寄存器    | AXI 访问 | SPI 连接 / 语义                      |
+| -----: | ----------: | ---------- | ------ | -------------------------------- |
+| `0x00` |      `4'h0` | `slv_reg0` | WO     | `start_i = slv_reg0[0]`，写 1 触发传输 |
+| `0x04` |      `4'h1` | `slv_reg1` | RO     | `busy_o -> slv_reg1[0]`          |
+| `0x08` |      `4'h2` | `slv_reg2` | WO     | `spi_mode_i = slv_reg2[1:0]`     |
+| `0x0C` |      `4'h3` | `slv_reg3` | WO     | `sck_speed_i = slv_reg3[1:0]`    |
+| `0x10` |      `4'h4` | `slv_reg4` | WO     | `word_len_i = slv_reg4[1:0]`     |
+| `0x14` |      `4'h5` | `slv_reg5` | WO     | `IFG_i = slv_reg5[7:0]`          |
+| `0x18` |      `4'h6` | `slv_reg6` | WO     | `CS_SCK_i = slv_reg6[7:0]`       |
+| `0x1C` |      `4'h7` | `slv_reg7` | WO     | `SCK_CS_i = slv_reg7[7:0]`       |
+| `0x20` |      `4'h8` | `slv_reg8` | WO     | `mosi_data_i = slv_reg8[31:0]`   |
+| `0x24` |      `4'h9` | `slv_reg9` | RO     | `miso_data_o -> slv_reg9[31:0]`  |
+
 
 配置寄存器是 WO，是因为 DUT 的读译码只返回 `0x04 busy` 和 `0x24 miso_data`。配置值可以通过 AXI 写入并驱动 SPI master，但 frontdoor 读这些地址会返回 0。RAL 因此用 frontdoor write + backdoor peek 检查配置寄存器物理值。
 

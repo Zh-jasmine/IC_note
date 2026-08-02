@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AXI2SPI/VPLAN.md",
+                "file": "AXI2SPI/AXI4-Lite 协议.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VPLAN"
+              "title": "AXI4-Lite 协议"
             }
           }
         ]
@@ -188,9 +188,10 @@
   "active": "e6d861b98b860c71",
   "lastOpenFiles": [
     "AXI2SPI/项目梳理.md",
+    "AXI2SPI/未命名.md",
     "AXI2SPI/VPLAN.md",
-    "AXI2SPI/UVM RAL.md",
     "AXI2SPI/AXI4-Lite 协议.md",
+    "AXI2SPI/UVM RAL.md",
     "未命名",
     "AXI Full Crossbar/AXI Full Crossbar UVM/03 axi_if.md",
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_word_len_test.sv",
@@ -220,7 +221,6 @@
     "IC verification/Linux 常用指令.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/06 axi_monitor.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/05 axi_slave_driver.md",
-    "未命名.md",
     "AXI Full Crossbar/AXI4 Full 协议/08 验证视角.md",
     "AXI4 Full 协议/assets/8.jpg",
     "AXI Full Crossbar/AXI4 Full 协议/assets/9.jpg",
