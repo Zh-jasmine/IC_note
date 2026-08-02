@@ -120,6 +120,6 @@ OPT_MEM_ADDR_BITS = 3
 | 并发 | 写流发帧期间读 busy | `axi_concurrent_test` |
 | 响应 | `BRESP/RRESP` 为 OKAY | driver + RM |
 | reset | reset 期间 AXI 输出 idle，reset 后恢复 | SVA + reset tests |
-| SVA | payload stable until ready，读写请求到响应返回 | `axi_sva_checker` |
+| SVA | payload stable until ready，写请求到响应返回 | `axi_sva_checker` |
 
 AXI4-Lite 在这个项目里的验证重点集中在寄存器访问语义、握手稳定性、WSTRB 字节更新、读写通道互不阻塞，以及这些 AXI 输入事务能否正确驱动后端 SPI 行为。
