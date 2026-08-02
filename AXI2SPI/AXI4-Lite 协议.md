@@ -106,7 +106,7 @@ OPT_MEM_ADDR_BITS = 3
 | `0x24` |      `4'h9` | `slv_reg9` | RO     | `miso_data_o -> slv_reg9[31:0]`  |
 
 
-配置寄存器是 WO，是因为 DUT 的读译码只返回 `0x04 busy` 和 `0x24 miso_data`。配置值可以通过 AXI 写入并驱动 SPI master，但 frontdoor 读这些地址会返回 0。RAL 因此用 frontdoor write + backdoor peek 检查配置寄存器物理值。
+配置寄存器是 WO，是因为 DUT 的读译码只返回 `0x04 busy` 和 `0x24 miso_data`。配置值可以通过 AXI 写入并驱动 SPI master，但 frontdoor 读这些地址会返回 0。端到端验证通过 SPI monitor 和 scoreboard 判断配置写入是否真正影响后端 SPI 输出。
 
 所有配置寄存器复位值为 0。默认配置对应 Mode0、默认分频、32-bit word length 和默认时序。直接写 `MOSI_DATA` 再写 `START` 也能触发一帧默认配置下的 SPI 传输。
 
@@ -120,6 +120,6 @@ OPT_MEM_ADDR_BITS = 3
 | 并发 | 写流发帧期间读 busy | `axi_concurrent_test` |
 | 响应 | `BRESP/RRESP` 为 OKAY | driver + RM |
 | reset | reset 期间 AXI 输出 idle，reset 后恢复 | SVA + reset tests |
-| RAL | WO frontdoor write + backdoor peek，RO frontdoor read | `ral_test` |
+| SVA | payload stable until ready，读写请求到响应返回 | `axi_sva_checker` |
 
 AXI4-Lite 在这个项目里的验证重点集中在寄存器访问语义、握手稳定性、WSTRB 字节更新、读写通道互不阻塞，以及这些 AXI 输入事务能否正确驱动后端 SPI 行为。

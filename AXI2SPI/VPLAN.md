@@ -4,14 +4,14 @@
 
 AXI-LITE2SPI 是一个 AXI4-Lite slave 到 SPI master 的桥接 IP。验证环境从 AXI 总线侧产生寄存器访问，从 SPI 侧观察真实串行输出，再由 reference model 产生期望 SPI item，scoreboard 做 expected 和 actual 的顺序比较。
 
-当前回归包含 21 个 test 名称，覆盖 26个检查点。功能覆盖 `cg_spi_frame` 已达到 100%。代码覆盖中，SPI master 主体覆盖较高，寄存器模块的条件覆盖和 toggle 覆盖仍有缺口，主要来自非法地址、未翻转响应位、保守地址译码和部分低收益分支。
+主回归包含 20 个 test 名称，覆盖 24 个核心检查点。功能覆盖 `cg_spi_frame` 已达到 100%。代码覆盖中，SPI master 主体覆盖较高，寄存器模块的条件覆盖和 toggle 覆盖仍有缺口，主要来自非法地址、未翻转响应位、保守地址译码和部分低收益分支。既有 reset SVA 已覆盖，新增 AXI stable/response SVA 需要重新跑回归刷新覆盖率。`ral_test` 作为独立冒烟测试保留，不计入简历主口径。
 
 | 项目   | 状态                                          |
 | ---- | ------------------------------------------- |
 | DUT  | AXI4-Lite Slave -> SPI Master 桥接 IP         |
-| 验证范围 | AXI-Lite 寄存器/协议 + SPI 功能/时序 + 复位 + RAL      |
-| 回归规模 | 21 个 test 名称，覆盖 26个检查点                      |
-| 回归结果 | `21/21 PASS`                                |
+| 验证范围 | AXI-Lite 寄存器/协议 + SPI 功能/时序 + 复位 + RM/SCB |
+| 回归规模 | 20 个主回归 test，覆盖 24 个核心检查点 |
+| 回归结果 | `20/20 PASS` |
 | 功能覆盖 | `cg_spi_frame = 100%`                       |
 | 总覆盖  | `74.13%`，受 UVM 库和低收益 RTL 分支影响               |
 | 剩余事项 | 异常访问、busy 期间重复 start、更细的 SPI FSM transition |
@@ -23,8 +23,8 @@ AXI-LITE2SPI 是一个 AXI4-Lite slave 到 SPI master 的桥接 IP。验证环�
 | 模块/接口    | 检查点                        |  状态 | 测试 / 实现                                         |
 | -------- | -------------------------- | --: | ----------------------------------------------- |
 | AXI-Lite | 寄存器 frontdoor 写            |  完成 | 通用配置 sequence + 定向测试                            |
-| AXI-Lite | 可读寄存器 `busy` / `miso_data` |  完成 | `axi_busy_test`、MISO 测试、`ral_test`              |
-| AXI-Lite | write-only 寄存器行为           |  完成 | RAL frontdoor write + backdoor peek             |
+| AXI-Lite | 可读寄存器 `busy` / `miso_data` |  完成 | `axi_busy_test`、MISO 测试              |
+| AXI-Lite | write-only 配置写入生效           |  完成 | 配置寄存器写入后，通过 SPI 输出端到端体现             |
 | AXI-Lite | AW/W 握手时序                  |  完成 | `axi_handshake_test`：AW 先到、W 先到、同时到、长延迟         |
 | AXI-Lite | WSTRB 字节选通                 |  完成 | `axi_wstrb_test`：单 byte lane + sparse mask      |
 | AXI-Lite | busy/status 状态             |  完成 | `axi_busy_test`：传输中 busy=1，结束后 busy=0           |
@@ -37,17 +37,15 @@ AXI-LITE2SPI 是一个 AXI4-Lite slave 到 SPI master 的桥接 IP。验证环�
 | SPI      | MISO 回读                    |  完成 | `spi_miso_read_test`、全 0、全 1                    |
 | SPI      | 背靠背多帧                      |  完成 | `spi_burst_test`                                |
 | SPI      | 约束随机回归                     |  完成 | `spi_random_test`：80 帧约束随机                      |
-| SPI 时序   | CS -> SCK 延迟               |  完成 | `spi_cs_sck_test`、SVA                           |
-| SPI 时序   | SCK 周期                     |  完成 | `spi_sck_speed_test`、SVA                        |
-| SPI 时序   | SCK -> CS 延迟               |  完成 | `spi_sck_cs_test`、SVA                           |
+| SPI 时序   | CS -> SCK 延迟               |  完成 | `spi_cs_sck_test` 定向 sweep                           |
+| SPI 时序   | SCK 周期                     |  完成 | `spi_sck_speed_test` 定向 sweep                        |
+| SPI 时序   | SCK -> CS 延迟               |  完成 | `spi_sck_cs_test` 定向 sweep                           |
 | SPI 时序   | IFG 帧间隔                    |  完成 | `spi_ifg_test`                                  |
 | 复位       | AXI 复位期间保持空闲               |  完成 | `axi_reset_sva.sv`                              |
 | 复位       | SPI 引脚复位期间保持 idle          |  完成 | `spi_reset_sva.sv`                              |
 | 复位       | 传输中复位与恢复                   |  完成 | `reset_mid_test`、`reset_sva_test`               |
 | RM/SCB   | 输入事务生成期望 SPI 输出            |  完成 | `spi_ref_model.sv`                              |
 | RM/SCB   | expected/actual SPI 比较     |  完成 | `tb_scoreboard.sv`                              |
-| RAL      | 寄存器模型 + adapter            |  完成 | `axi_spi_reg_block.sv`、`axi_spi_reg_adapter.sv` |
-| RAL      | frontdoor/backdoor 冒烟测试    |  完成 | `ral_test`                                      |
 
 ## 回归测试清单
 
@@ -73,7 +71,6 @@ AXI-LITE2SPI 是一个 AXI4-Lite slave 到 SPI master 的桥接 IP。验证环�
 | 18 | `spi_miso_all_1_test` | MISO 全 1 | `test/miso/spi_miso_tests.sv` |
 | 19 | `spi_random_test` | 80 帧约束随机回归 | `test/spi/` |
 | 20 | `reset_sva_test` | 复位 SVA 多场景测试 | `test/reset/` |
-| 21 | `ral_test` | RAL frontdoor/backdoor 冒烟测试 | `test/ral/` |
 
 ## 检查架构
 
@@ -100,25 +97,16 @@ scoreboard
 
 | 文件 | 断言 / cover | 检查内容 |
 |---|---|---|
-| `UVMTB/sva/spi_sva_checker.sv` | SPI reset / 时序类检查 | SPI 引脚复位 idle、CS/SCK 关系、SCK 周期 |
-| `UVMTB/sva/axi_sva_checker.sv` | AXI reset 类检查 | 复位期间 AXI slave 输出保持空闲，复位释放后保持稳定 |
+| `UVMTB/sva/spi_sva_checker.sv` | SPI reset assert | SPI 引脚复位 idle |
+| `UVMTB/sva/axi_sva_checker.sv` | AXI reset assert | 复位期间和复位释放后的 AXI slave 输出空闲行为 |
+| `UVMTB/sva/axi_sva_checker.sv` | AXI stable-until-ready assert | AW/W/AR/B/R 通道在 `VALID && !READY` 后保持 `VALID` 和 payload 稳定 |
+| `UVMTB/sva/axi_sva_checker.sv` | AXI response assert | 写/读请求被接收后，在限定周期内返回 B/R 响应 |
 
-项目自定义 assertion 当前无失败。覆盖率报告中 UVM 库内部无 attempt 的 assertion 不计入项目自定义 SVA 缺口。
+既有项目自定义 reset assertion 无失败。覆盖率报告中 UVM 库内部无 attempt 的 assertion 不计入项目自定义 SVA 缺口。新增 AXI stable/response assertion 需要重新跑主回归后确认覆盖率。
 
-## RAL 计划
+## RAL 保留项
 
-| 寄存器组 | 访问属性 | 验证方法 |
-|---|---|---|
-| `start`、配置寄存器、`mosi_data` | WO | RAL frontdoor write + backdoor peek |
-| `busy` | RO | 空闲状态下 RAL frontdoor read |
-| `miso_data` | RO | RAL backdoor poke/read 路径冒烟 |
-
-实现文件：
-
-- 寄存器模型：`UVMTB/ral/axi_spi_reg_block.sv`
-- Adapter：`UVMTB/ral/axi_spi_reg_adapter.sv`
-- 测试：`UVMTB/test/ral/ral_test.sv`
-- 接入方式：`reg_model.map.set_sequencer(env.axi_agt.axi_sqr, adapter)`
+项目中保留寄存器模型、adapter 和 `ral_test`，可以做 frontdoor/backdoor 冒烟检查。简历主线聚焦 AXI-Lite 协议、SPI 功能/时序、RM/SCB 和 SVA，RAL 不作为核心卖点展开。
 
 ## 覆盖率总结
 
@@ -130,7 +118,7 @@ scoreboard
 | Toggle | 66.30% | AXI 地址低位、prot、resp 等信号未充分翻转 |
 | FSM | 75.00% | SPI master 有少量 transition 未覆盖 |
 | Branch | 69.63% | RTL default / 异常分支仍有缺口 |
-| Assert | 100.00% | 项目有效 assertion 无失败 |
+| Assert | 待刷新 | 既有 reset assertion 为 100.00%；新增 AXI assertion 需重新回归 |
 | Functional group | 100.00% | `cg_spi_frame` 全覆盖 |
 
 主要模块：
