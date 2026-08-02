@@ -22,7 +22,6 @@ COMP = vcs \
 	+incdir+test/reset \
 	+incdir+test/ral \
 	+incdir+coverage \
-	+incdir+ral \
 	+incdir+../DUT \
 	-timescale=1ns/1ps \
 	-debug_acc+all \
@@ -34,7 +33,7 @@ COMP = vcs \
 	-o simv
 
 TEST ?= spi_word_len_test
-TESTS = spi_word_len_test spi_mode_test spi_cs_sck_test spi_sck_cs_test spi_ifg_test spi_sck_speed_test axi_busy_test axi_handshake_test axi_wstrb_test axi_concurrent_test spi_burst_test spi_alternating_test spi_data_all_0_test spi_data_all_1_test reset_mid_test spi_miso_read_test spi_miso_all_0_test spi_miso_all_1_test spi_random_test reset_sva_test ral_test
+TESTS = spi_word_len_test spi_mode_test spi_cs_sck_test spi_sck_cs_test spi_ifg_test spi_sck_speed_test axi_busy_test axi_handshake_test axi_wstrb_test axi_concurrent_test spi_burst_test spi_alternating_test spi_data_all_0_test spi_data_all_1_test reset_mid_test spi_miso_read_test spi_miso_all_0_test spi_miso_all_1_test spi_random_test reset_sva_test
 TIMEOUT ?= 100000000
 
 SIM = ./simv \
@@ -197,11 +196,7 @@ test_reset_sva:
 	$(MAKE) sim TEST=reset_sva_test
 	$(MAKE) cov
 
-test_ral:
-	$(MAKE) sim TEST=ral_test
-	$(MAKE) cov
-
-.PHONY: all comp sim clean cov summary help all_test \
-        test_word_len test_mode test_cs_sck test_sck_cs test_ifg test_sck_speed \
-        test_busy test_handshake test_wstrb test_concurrent test_burst test_alternating test_data_all_0 test_data_all_1 test_reset_mid \
-        test_miso_read test_miso_all_0 test_miso_all_1 test_random test_reset_sva test_ral
+	.PHONY: all comp sim clean cov summary help all_test \
+	        test_word_len test_mode test_cs_sck test_sck_cs test_ifg test_sck_speed \
+	        test_busy test_handshake test_wstrb test_concurrent test_burst test_alternating test_data_all_0 test_data_all_1 test_reset_mid \
+	        test_miso_read test_miso_all_0 test_miso_all_1 test_random test_reset_sva

@@ -1,2 +1,0 @@
-  CREATE_STREAM @0 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.master_agent0.seqr STREAM:1439}
-  CREATE_STREAM @0 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.master_agent0.seqr STREAM:1439}

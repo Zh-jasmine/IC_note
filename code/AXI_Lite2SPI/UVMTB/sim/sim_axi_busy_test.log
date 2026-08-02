@@ -1,7 +1,7 @@
 Command: /tmp/AXI-LITE2SPI/UVMTB/./simv +UVM_TESTNAME=axi_busy_test +UVM_VERBOSITY=UVM_LOW +UVM_TIMEOUT=100000000 -cm line+cond+fsm+branch+tgl+assert -cm_dir /tmp/AXI-LITE2SPI/cov.vdb -cm_name axi_busy_test -l sim_axi_busy_test.log
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 30 03:06 2026
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Aug  2 10:50 2026
 UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -35,7 +35,7 @@ UVM_INFO @ 0: reporter [RNTST] Running test axi_busy_test...
 UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=100000000' provided on the command line is being applied.
 
 Note-[FCICIO] Instance coverage is ON
-/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 21
+/tmp/AXI-LITE2SPI/UVMTB/coverage/tb_coverage.sv, 29
 $unit, "tb_coverage::cg_spi_frame"
   Instance coverage is set (option.per_instance = 1) for covergroup 
   'tb_coverage::cg_spi_frame'
@@ -44,47 +44,72 @@ $unit, "tb_coverage::cg_spi_frame"
   Design hierarchy: $unit
 
 UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
-----------------------------------------------------------------
-Name                       Type                      Size  Value
-----------------------------------------------------------------
-uvm_test_top               axi_busy_test             -     @349 
-  env                      tb_environment            -     @373 
-    axi_agt                axi_agent                 -     @387 
-      axi_drv              axi_driver                -     @581 
-        rsp_port           uvm_analysis_port         -     @600 
-        seq_item_port      uvm_seq_item_pull_port    -     @590 
-      axi_mtr              axi_monitor               -     @611 
-        axi_mtr_port       uvm_analysis_port         -     @621 
-      axi_mtr_port         uvm_analysis_port         -     @430 
-      axi_sqr              axi_sequencer             -     @443 
-        rsp_export         uvm_analysis_export       -     @452 
-        seq_item_export    uvm_seq_item_pull_imp     -     @570 
-        arbitration_queue  array                     0     -    
-        lock_queue         array                     0     -    
-        num_last_reqs      integral                  32    'd1  
-        num_last_rsps      integral                  32    'd1  
-    cov                    tb_coverage               -     @420 
-      axi_export           uvm_analysis_imp_cov_axi  -     @637 
-      spi_export           uvm_analysis_imp_cov_spi  -     @647 
-    scb                    tb_scoreboard             -     @411 
-      axi_export           uvm_analysis_imp_axi      -     @657 
-      spi_export           uvm_analysis_imp_spi      -     @667 
-    spi_mtr                spi_monitor               -     @401 
-      spi_mtr_port         uvm_analysis_port         -     @678 
-----------------------------------------------------------------
+------------------------------------------------------------------
+Name                       Type                        Size  Value
+------------------------------------------------------------------
+uvm_test_top               axi_busy_test               -     @349 
+  env                      tb_environment              -     @373 
+    axi_agt                axi_agent                   -     @387 
+      axi_drv              axi_driver                  -     @591 
+        rsp_port           uvm_analysis_port           -     @610 
+        seq_item_port      uvm_seq_item_pull_port      -     @600 
+      axi_mtr              axi_monitor                 -     @621 
+        axi_mtr_port       uvm_analysis_port           -     @631 
+      axi_mtr_port         uvm_analysis_port           -     @440 
+      axi_sqr              axi_sequencer               -     @453 
+        rsp_export         uvm_analysis_export         -     @462 
+        seq_item_export    uvm_seq_item_pull_imp       -     @580 
+        arbitration_queue  array                       0     -    
+        lock_queue         array                       0     -    
+        num_last_reqs      integral                    32    'd1  
+        num_last_rsps      integral                    32    'd1  
+    cov                    tb_coverage                 -     @430 
+      axi_export           uvm_analysis_imp_cov_axi    -     @647 
+      spi_export           uvm_analysis_imp_cov_spi    -     @657 
+    rm                     spi_ref_model               -     @411 
+      axi_fifo             uvm_tlm_analysis_fifo #(T)  -     @667 
+        analysis_export    uvm_analysis_imp            -     @716 
+        get_ap             uvm_analysis_port           -     @706 
+        get_peek_export    uvm_get_peek_imp            -     @686 
+        put_ap             uvm_analysis_port           -     @696 
+        put_export         uvm_put_imp                 -     @676 
+      expected_spi_item    uvm_analysis_port           -     @726 
+    scb                    tb_scoreboard               -     @421 
+      actual_spi_fifo      uvm_tlm_analysis_fifo #(T)  -     @796 
+        analysis_export    uvm_analysis_imp            -     @845 
+        get_ap             uvm_analysis_port           -     @835 
+        get_peek_export    uvm_get_peek_imp            -     @815 
+        put_ap             uvm_analysis_port           -     @825 
+        put_export         uvm_put_imp                 -     @805 
+      expected_spi_fifo    uvm_tlm_analysis_fifo #(T)  -     @737 
+        analysis_export    uvm_analysis_imp            -     @786 
+        get_ap             uvm_analysis_port           -     @776 
+        get_peek_export    uvm_get_peek_imp            -     @756 
+        put_ap             uvm_analysis_port           -     @766 
+        put_export         uvm_put_imp                 -     @746 
+    spi_mtr                spi_monitor                 -     @401 
+      spi_mtr_port         uvm_analysis_port           -     @856 
+------------------------------------------------------------------
 
-UVM_INFO test/axi_busy_test.sv(49) @ 505000: uvm_test_top [uvm_test_top] [5.1] busy=1 during TX  OK (rdata=0x1)
-UVM_INFO test/axi_busy_test.sv(61) @ 1845000: uvm_test_top [uvm_test_top] [5.2] busy=0 after TX  OK (rdata=0x0)
+UVM_INFO test/axi/axi_busy_test.sv(49) @ 505000: uvm_test_top [uvm_test_top] [5.1] busy=1 during TX  OK (rdata=0x1)
+UVM_INFO test/axi/axi_busy_test.sv(61) @ 1845000: uvm_test_top [uvm_test_top] [5.2] busy=0 after TX  OK (rdata=0x0)
 UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 1845000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO coverage/tb_coverage.sv(65) @ 1845000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
-UVM_INFO scoreboard/tb_scoreboard.sv(106) @ 1845000: uvm_test_top.env.scb [SCB_SUMMARY] 
-  AXI spi_data writes : 1
+UVM_INFO coverage/tb_coverage.sv(106) @ 1845000: uvm_test_top.env.cov [COV] functional coverage = 22.92%
+UVM_INFO ref_model/spi_ref_model.sv(185) @ 1845000: uvm_test_top.env.rm [RM_SUMMARY] 
+  AXI writes          : 9
+  AXI reads           : 2
+  Expected SPI items  : 1
+  Protocol errors     : 0
+  Pending AW/W/AR     : 0/0/0
+
+UVM_INFO scoreboard/tb_scoreboard.sv(84) @ 1845000: uvm_test_top.env.scb [SCB_SUMMARY] 
   SPI captures        : 1
   Matches             : 1
   Mismatches          : 0
-  Pending in queue    : 0
+  Unexpected SPI      : 0
+  Pending expected    : 0
 
-UVM_INFO scoreboard/tb_scoreboard.sv(109) @ 1845000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
+UVM_INFO scoreboard/tb_scoreboard.sv(89) @ 1845000: uvm_test_top.env.scb [SCB_PASS] *** SCOREBOARD PASSED ***
 UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 1845000: reporter [UVM/REPORT/CATCHER] 
 --- UVM Report catcher Summary ---
 
@@ -100,12 +125,13 @@ UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   11
+UVM_INFO :   12
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
 [COV]     1
+[RM_SUMMARY]     1
 [RNTST]     1
 [SCB_PASS]     1
 [SCB_SUMMARY]     1
@@ -124,5 +150,5 @@ VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitor
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 1845000 ps
-CPU Time:      0.300 seconds;       Data structure size:   0.6Mb
-Thu Jul 30 03:06:49 2026
+CPU Time:      0.330 seconds;       Data structure size:   0.6Mb
+Sun Aug  2 10:50:21 2026

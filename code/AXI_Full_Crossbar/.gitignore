@@ -1,0 +1,16 @@
+# Simulator output
+uvm/sim/work/
+uvm/sim/csrc/
+uvm/sim/logs/
+uvm/sim/codex_vcs/
+uvm/sim/simv
+uvm/sim/simv.daidir/
+uvm/sim/*.vdb/
+uvm/sim/*.log
+uvm/sim/transcript
+
+# Local editor / OS files
+.DS_Store
+.vscode/
+.codex/
+*.codex_bak

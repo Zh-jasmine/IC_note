@@ -115,13 +115,13 @@ $(document).ready(function () {
 <table align=left>
 <tr class="sortablehead">
 <td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
-<td class="s8 cl rt"> 80.93</td>
+<td class="s7 cl rt"> 77.22</td>
 <td class="s9 cl rt"> 90.00</td>
 <td class="s6 cl rt"> 64.29</td>
-<td class="s6 cl rt"> 66.64</td>
+<td class="s6 cl rt"> 64.43</td>
 <td class="s7 cl rt"> 75.00</td>
 <td class="s8 cl rt"> 89.63</td>
-<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 80.00</td>
 </tr></table><br clear=all>
 <br clear=all>
 <span class=repname>Parent : </span>
@@ -135,10 +135,10 @@ $(document).ready(function () {
 <tr class="sortablehead">
 <td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
 <td class="wht cl wordwrap"><a href="mod3.html#inst_tag_3" id="tag_urg_inst_3">DUT</a></td>
-<td class="s7 cl rt"> 76.42</td>
+<td class="s7 cl rt"> 76.35</td>
 <td class="s8 cl rt"> 88.96</td>
 <td class="s6 cl rt"> 64.29</td>
-<td class="s6 cl rt"> 64.69</td>
+<td class="s6 cl rt"> 64.34</td>
 <td class="s7 cl rt"> 75.00</td>
 <td class="s8 cl rt"> 89.15</td>
 <td class="wht cl rt"></td>
@@ -162,13 +162,13 @@ $(document).ready(function () {
 <td class="wht cl rt"></td>
 </tr><tr>
 <td class="wht cl wordwrap"><a href="mod11.html#inst_tag_11" id="tag_urg_inst_11">u_axi_sva_checker</a></td>
-<td class="s9 cl rt"> 94.02</td>
+<td class="s6 cl rt"> 67.10</td>
 <td class="wht cl rt"></td>
 <td class="wht cl rt"></td>
-<td class="s8 cl rt"> 88.04</td>
+<td class="s5 cl rt"> 56.42</td>
 <td class="wht cl rt"></td>
 <td class="wht cl rt"></td>
-<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 77.78</td>
 </tr><tr>
 <td class="wht cl wordwrap"><a href="mod9.html#inst_tag_9" id="tag_urg_inst_9">u_miso_model</a></td>
 <td class="s9 cl rt"> 97.14</td>
@@ -204,7 +204,7 @@ Line Coverage for Module : <a href="mod6.html" >tb_top</a><br clear=all>
 <tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
 <tr class="s10"><td class="lf">INITIAL</td><td>84</td><td>4</td><td>4</td><td>100.00</td></tr>
 <tr class="s10"><td class="lf">INITIAL</td><td>89</td><td>4</td><td>4</td><td>100.00</td></tr>
-<tr class="s10"><td class="lf">INITIAL</td><td>186</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">INITIAL</td><td>192</td><td>5</td><td>5</td><td>100.00</td></tr>
 </table>
 <pre class="code"><br clear=all>
 83                          initial begin
@@ -246,75 +246,81 @@ Line Coverage for Module : <a href="mod6.html" >tb_top</a><br clear=all>
 119                         axi_sva_checker u_axi_sva_checker (
 120                             .ACLK   (s00_axi_aclk),
 121                             .ARESETn(s00_axi_aresetn),
-122                             .AWVALID(axi_vif.AWVALID),
-123                             .AWREADY(axi_vif.AWREADY),
-124                             .WVALID (axi_vif.WVALID),
-125                             .WREADY (axi_vif.WREADY),
-126                             .BRESP  (axi_vif.BRESP),
-127                             .BVALID (axi_vif.BVALID),
-128                             .ARVALID(axi_vif.ARVALID),
-129                             .ARREADY(axi_vif.ARREADY),
-130                             .RDATA  (axi_vif.RDATA),
-131                             .RRESP  (axi_vif.RRESP),
-132                             .RVALID (axi_vif.RVALID)
-133                         );
-134                     
-135                         // ============================================================
-136                         // DUT
-137                         // ============================================================
-138                         AXI_slave_top DUT (
-139                             .s00_axi_aclk    (s00_axi_aclk),
-140                             .s00_axi_aresetn (s00_axi_aresetn),
-141                             .s00_axi_awaddr  (axi_vif.AWADDR[5:0]),
-142                             .s00_axi_awprot  (axi_vif.AWPROT),
-143                             .s00_axi_awvalid (axi_vif.AWVALID),
-144                             .s00_axi_awready (axi_vif.AWREADY),
-145                             .s00_axi_wdata   (axi_vif.WDATA),
-146                             .s00_axi_wstrb   (axi_vif.WSTRB),
-147                             .s00_axi_wvalid  (axi_vif.WVALID),
-148                             .s00_axi_wready  (axi_vif.WREADY),
-149                             .s00_axi_bresp   (axi_vif.BRESP),
-150                             .s00_axi_bvalid  (axi_vif.BVALID),
-151                             .s00_axi_bready  (axi_vif.BREADY),
-152                             .s00_axi_araddr  (axi_vif.ARADDR[5:0]),
-153                             .s00_axi_arprot  (axi_vif.ARPROT),
-154                             .s00_axi_arvalid (axi_vif.ARVALID),
-155                             .s00_axi_arready (axi_vif.ARREADY),
-156                             .s00_axi_rdata   (axi_vif.RDATA),
-157                             .s00_axi_rresp   (axi_vif.RRESP),
-158                             .s00_axi_rvalid  (axi_vif.RVALID),
-159                             .s00_axi_rready  (axi_vif.RREADY),
-160                             .MISO            (spi_vif.MISO),
-161                             .MOSI            (MOSI),
-162                             .SCK             (SCK),
-163                             .CS              (CS)
-164                         );
-165                     
-166                         wire [1:0] dut_spi_mode;
-167                         wire [1:0] dut_word_len;
-168                     
-169                         assign dut_spi_mode = DUT.AXI_SPI_n_regs0.slv_reg2[1:0];
-170                         assign dut_word_len = DUT.AXI_SPI_n_regs0.slv_reg4[1:0];
+122                             .AWADDR (axi_vif.AWADDR),
+123                             .AWVALID(axi_vif.AWVALID),
+124                             .AWREADY(axi_vif.AWREADY),
+125                             .WDATA  (axi_vif.WDATA),
+126                             .WSTRB  (axi_vif.WSTRB),
+127                             .WVALID (axi_vif.WVALID),
+128                             .WREADY (axi_vif.WREADY),
+129                             .BRESP  (axi_vif.BRESP),
+130                             .BVALID (axi_vif.BVALID),
+131                             .BREADY (axi_vif.BREADY),
+132                             .ARADDR (axi_vif.ARADDR),
+133                             .ARVALID(axi_vif.ARVALID),
+134                             .ARREADY(axi_vif.ARREADY),
+135                             .RDATA  (axi_vif.RDATA),
+136                             .RRESP  (axi_vif.RRESP),
+137                             .RVALID (axi_vif.RVALID),
+138                             .RREADY (axi_vif.RREADY)
+139                         );
+140                     
+141                         // ============================================================
+142                         // DUT
+143                         // ============================================================
+144                         AXI_slave_top DUT (
+145                             .s00_axi_aclk    (s00_axi_aclk),
+146                             .s00_axi_aresetn (s00_axi_aresetn),
+147                             .s00_axi_awaddr  (axi_vif.AWADDR[5:0]),
+148                             .s00_axi_awprot  (axi_vif.AWPROT),
+149                             .s00_axi_awvalid (axi_vif.AWVALID),
+150                             .s00_axi_awready (axi_vif.AWREADY),
+151                             .s00_axi_wdata   (axi_vif.WDATA),
+152                             .s00_axi_wstrb   (axi_vif.WSTRB),
+153                             .s00_axi_wvalid  (axi_vif.WVALID),
+154                             .s00_axi_wready  (axi_vif.WREADY),
+155                             .s00_axi_bresp   (axi_vif.BRESP),
+156                             .s00_axi_bvalid  (axi_vif.BVALID),
+157                             .s00_axi_bready  (axi_vif.BREADY),
+158                             .s00_axi_araddr  (axi_vif.ARADDR[5:0]),
+159                             .s00_axi_arprot  (axi_vif.ARPROT),
+160                             .s00_axi_arvalid (axi_vif.ARVALID),
+161                             .s00_axi_arready (axi_vif.ARREADY),
+162                             .s00_axi_rdata   (axi_vif.RDATA),
+163                             .s00_axi_rresp   (axi_vif.RRESP),
+164                             .s00_axi_rvalid  (axi_vif.RVALID),
+165                             .s00_axi_rready  (axi_vif.RREADY),
+166                             .MISO            (spi_vif.MISO),
+167                             .MOSI            (MOSI),
+168                             .SCK             (SCK),
+169                             .CS              (CS)
+170                         );
 171                     
-172                         // ============================================================
-173                         // Simple MISO slave model for readback tests
-174                         // ============================================================
-175                         spi_miso_slave_model u_miso_model (
-176                             .GCLK    (spi_vif.GCLK),
-177                             .SCLK    (spi_vif.SCLK),
-178                             .CS      (spi_vif.CS),
-179                             .tx_data (spi_vif.miso_tx_data),
-180                             .spi_mode(dut_spi_mode),
-181                             .word_len(dut_word_len),
-182                             .MISO    (spi_vif.MISO)
-183                         );
-184                         // ========== UVM start ==========
-185                         initial begin
-186        1/1                  $fsdbDumpfile(&quot;tb_top.fsdb&quot;);
-187        1/1                  $fsdbDumpvars(0, tb_top);
-188        1/1                  uvm_config_db#(virtual axi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;axi_vif&quot;, axi_vif);
-189        1/1                  uvm_config_db#(virtual spi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;spi_vif&quot;, spi_vif);
-190        1/1                  run_test();
+172                         wire [1:0] dut_spi_mode;
+173                         wire [1:0] dut_word_len;
+174                     
+175                         assign dut_spi_mode = DUT.AXI_SPI_n_regs0.slv_reg2[1:0];
+176                         assign dut_word_len = DUT.AXI_SPI_n_regs0.slv_reg4[1:0];
+177                     
+178                         // ============================================================
+179                         // Simple MISO slave model for readback tests
+180                         // ============================================================
+181                         spi_miso_slave_model u_miso_model (
+182                             .GCLK    (spi_vif.GCLK),
+183                             .SCLK    (spi_vif.SCLK),
+184                             .CS      (spi_vif.CS),
+185                             .tx_data (spi_vif.miso_tx_data),
+186                             .spi_mode(dut_spi_mode),
+187                             .word_len(dut_word_len),
+188                             .MISO    (spi_vif.MISO)
+189                         );
+190                         // ========== UVM start ==========
+191                         initial begin
+192        1/1                  $fsdbDumpfile(&quot;tb_top.fsdb&quot;);
+193        1/1                  $fsdbDumpvars(0, tb_top);
+194        1/1                  uvm_config_db#(virtual axi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;axi_vif&quot;, axi_vif);
+195        1/1                  uvm_config_db#(virtual spi_interface)::set(null, &quot;uvm_test_top&quot;, &quot;spi_vif&quot;, spi_vif);
+196        1/1                  run_test();
 </pre>
 <hr>
 <a name="Toggle"></a>

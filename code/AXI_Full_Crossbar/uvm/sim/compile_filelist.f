@@ -6,14 +6,14 @@
 +incdir+../tb/sequences
 +incdir+../tb/tests
 
-../../00_core_dut/rtl/priority_encoder.v
-../../00_core_dut/rtl/arbiter.v
-../../00_core_dut/rtl/axi_register_rd.v
-../../00_core_dut/rtl/axi_register_wr.v
-../../00_core_dut/rtl/axi_crossbar_addr.v
-../../00_core_dut/rtl/axi_crossbar_rd.v
-../../00_core_dut/rtl/axi_crossbar_wr.v
-../../00_core_dut/rtl/axi_crossbar.v
+../../dut/rtl/priority_encoder.v
+../../dut/rtl/arbiter.v
+../../dut/rtl/axi_register_rd.v
+../../dut/rtl/axi_register_wr.v
+../../dut/rtl/axi_crossbar_addr.v
+../../dut/rtl/axi_crossbar_rd.v
+../../dut/rtl/axi_crossbar_wr.v
+../../dut/rtl/axi_crossbar.v
 
 ../tb/interfaces/axi_interface.sv
 ../tb/packages/axi_types_pkg.sv
