@@ -80,12 +80,13 @@ scb.set_ref_model(rm);
 
 reference model 当前提供四类期望值：
 
-| RM 方法 | 作用 |
-| --- | --- |
-| `addr_to_m_port()` | 根据地址窗口计算期望 M 侧端口 |
-| `expand_id()` | 根据 S port 和 S ID 计算 M 侧扩展 ID |
-| `write_beat()` | 按 burst 地址和 `WSTRB` 更新 expected memory |
-| `read_beat()` | 从 expected memory 计算期望 `RDATA` |
+| RM 方法              | 作用                                     |
+| ------------------ | -------------------------------------- |
+| `addr_to_m_port()` | 根据地址窗口计算期望 M 侧端口                       |
+| `expand_id()`      | 根据 S port 和 S ID 计算 M 侧扩展 ID           |
+| `write_beat()`     | 按 burst 地址和 `WSTRB` 更新 expected memory |
+| `read_beat()`      | 从 expected memory 计算期望 `RDATA`         |
+
 
 monitor 仍然只记录真实接口事件；coverage 仍然统计真实事件。reference model 只负责根据输入侧事务生成期望行为，不直接采样 DUT。
 
