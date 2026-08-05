@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AXI Full Crossbar/AXI Full Crossbar UVM/01 axi_crossbar 顶层参数和端口.md",
+                "file": "IC verification/Verdi 常用操作.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 axi_crossbar 顶层参数和端口"
+              "title": "Verdi 常用操作"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "e6d861b98b860c71",
   "lastOpenFiles": [
+    "IC verification/Linux 常用指令.md",
+    "AXI Full Crossbar/AXI Full Crossbar UVM/01 axi_crossbar 顶层参数和端口.md",
     "AXI2SPI/项目梳理.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/07 axi_scoreboard.md",
     "AXI2SPI/VPLAN.md",
@@ -219,7 +221,6 @@
     "IC verification/语法库/SV/fork_join.md",
     "IC verification/skill.md",
     "IC verification/eda安装文档.md",
-    "IC verification/Linux 常用指令.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/06 axi_monitor.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/05 axi_slave_driver.md",
     "AXI Full Crossbar/AXI4 Full 协议/08 验证视角.md",
