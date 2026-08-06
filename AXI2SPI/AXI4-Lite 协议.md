@@ -110,6 +110,30 @@ OPT_MEM_ADDR_BITS = 3
 
 所有配置寄存器复位值为 0。默认配置对应 Mode0、默认分频、32-bit word length 和默认时序。直接写 `MOSI_DATA` 再写 `START` 也能触发一帧默认配置下的 SPI 传输。
 
+## SPI mode
+
+SPI mode 定义 `SCLK` 的空闲电平和数据采样边沿。SPI 是同步串行协议，master 和 slave 必须对同一条 `SCLK` 的哪一个边沿采样、哪一个边沿更新数据达成一致，否则 MOSI/MISO 的 bit 序列会被采错。
+
+`CPOL` 是 Clock Polarity，表示时钟极性，决定 `SCLK` 在空闲时保持低电平还是高电平。
+
+| CPOL | SCLK 空闲电平 |
+| ---- | --------- |
+| `0`  | low       |
+| `1`  | high      |
+
+`CPHA` 是 Clock Phase，表示时钟相位，决定数据在第几个有效边沿被采样。`CPHA=0` 时在第一个有效边沿采样，`CPHA=1` 时在第二个有效边沿采样。这里的“第一个/第二个”以 `CS` 拉低后一帧传输开始后的 SCLK 边沿为准。
+
+四种 SPI mode 由 `CPOL` 和 `CPHA` 组合得到：
+
+| SPI mode | CPOL | CPHA | SCLK 空闲电平 | 采样边沿 |
+|---|---:|---:|---|---|
+| Mode 0 | `0` | `0` | low | 第一个边沿，上升沿 |
+| Mode 1 | `0` | `1` | low | 第二个边沿，下降沿 |
+| Mode 2 | `1` | `0` | high | 第一个边沿，下降沿 |
+| Mode 3 | `1` | `1` | high | 第二个边沿，上升沿 |
+
+在 AXI-LITE2SPI 项目中，`0x08` 地址写入 `spi_mode_i = slv_reg2[1:0]`。通常可以把 `spi_mode_i[1]` 理解为 `CPOL`，`spi_mode_i[0]` 理解为 `CPHA`。复位后 `spi_mode_i=0`，对应 Mode0，也就是 `CPOL=0`、`CPHA=0`：`SCLK` 空闲为低，`CS` 拉低后一帧数据在上升沿采样。
+
 ## 验证关注点
 
 | 类别 | 检查内容 | 当前测试 |

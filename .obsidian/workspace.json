@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IC verification/Verdi 常用操作.md",
+                "file": "AXI2SPI/AXI4-Lite 协议.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Verdi 常用操作"
+              "title": "AXI4-Lite 协议"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "e6d861b98b860c71",
   "lastOpenFiles": [
+    "IC verification/Verdi 常用操作.md",
     "IC verification/Linux 常用指令.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/01 axi_crossbar 顶层参数和端口.md",
     "AXI2SPI/项目梳理.md",
@@ -209,7 +210,6 @@
     "code/AXI_Lite2SPI/UVMTB/test/spi/spi_burst_test.sv",
     "code/AXI_Lite2SPI/VPLAN.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/04 axi_master_driver.md",
-    "IC verification/Verdi 常用操作.md",
     "AXI Full Crossbar UVM/AXI4 Full 协议/未命名.md",
     "IC verification/SV&UVM.md",
     "IC verification/语法库/SV/constraint.md",
