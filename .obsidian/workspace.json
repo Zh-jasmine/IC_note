@@ -186,8 +186,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6d861b98b860c71",
+  "active": "309af259635483d3",
   "lastOpenFiles": [
+    "AXI2SPI/Debug 思路.md",
     "IC verification/Verdi 常用操作.md",
     "IC verification/Linux 常用指令.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/01 axi_crossbar 顶层参数和端口.md",
@@ -223,7 +224,6 @@
     "IC verification/eda安装文档.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/06 axi_monitor.md",
     "AXI Full Crossbar/AXI Full Crossbar UVM/05 axi_slave_driver.md",
-    "AXI Full Crossbar/AXI4 Full 协议/08 验证视角.md",
     "AXI4 Full 协议/assets/8.jpg",
     "AXI Full Crossbar/AXI4 Full 协议/assets/9.jpg",
     "AXI Full Crossbar/AXI4 Full 协议/assets/10.jpg",
